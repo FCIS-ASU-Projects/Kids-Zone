@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/slide_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+   android:layout_marginTop="100dp"
+        android:layout_centerHorizontal="true"
+        app:srcCompat="@drawable/icon1"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/slide_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="310dp"
+        android:text="TextView"
+        android:textColor="#039BE5"
+        android:textSize="26dp" />
+
+    <TextView
+        android:id="@+id/slide_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="360dp"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="lorem ipsom sdodo  dsfsdf jklsdfsdj slkdfsdj dsflskd jlksdfs "
+        android:textColor="#00838F" />
+
+    <TextView
+        android:id="@+id/privacy_policy_link_popup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="420dp"
+        android:textSize="18dp"
+        android:visibility="invisible"
+        android:drawableRight="@drawable/ic_baseline_keyboard_arrow_right_24"
+        android:layout_centerHorizontal="true"
+        android:text="Privacy Policy"
+        android:textColor="@color/white"/>
+
+
+</RelativeLayout>

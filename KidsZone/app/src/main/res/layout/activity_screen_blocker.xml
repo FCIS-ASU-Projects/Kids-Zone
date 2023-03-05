@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/darkGrey"
+    android:padding="10dp"
+    android:id="@+id/empty_list_layout">
+
+    <LinearLayout
+        android:paddingTop="200dp"
+        android:paddingBottom="200dp"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <ImageView
+                android:id="@+id/app_icon"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:padding="5dp"
+                android:src="@drawable/ic_baseline_add_circle_24" />
+            <ImageView
+                android:id="@+id/appblockr_icon"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+               android:layout_marginTop="25dp"
+                android:layout_marginStart="25dp"
+                android:clickable="false"
+                android:focusable="false"
+                android:padding="5dp"
+
+                android:outlineSpotShadowColor="@color/darkGrey"
+                android:layout_marginLeft="15dp"
+                android:src="@mipmap/ic_launcher_zz"
+               />
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/empty_blocked_list_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:textAlignment="center"
+            android:layout_weight="1"
+            android:padding="5dp"
+            android:layout_gravity="center"
+            android:text="Add something to block"
+            android:textColor="@color/lightBlue"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/close_block_screen_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Close" />
+
+
+    </LinearLayout>
+</LinearLayout>

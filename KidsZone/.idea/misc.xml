@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_baseline_access_time_24.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_baseline_add_circle_24.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_baseline_check_24.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_baseline_check_circle_24.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_launcher_background.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/ic_sharp_edit_calendar_24.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/privacy_icon.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/selector.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/shadow.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/splash_image.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/terms_condition_icon.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable-v24/unlocked_icon.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable/icon2.xml" value="0.2265" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable/locked_icon.xml" value="0.227" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable/selector.xml" value="0.227" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable/terms_condition_icon.xml" value="0.227" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/drawable/unlocked_icon.xml" value="0.227" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_about.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_intro_screen.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_locked_apps.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_pattern_lock.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_schedule.xml" value="0.2171875" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_screen_blocker.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/activity_show_all_apps.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/all_adapter_design.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/locked_adapter_design.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/layout/slide_layout.xml" value="0.2171875" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/menu/menu_navigation.xml" value="0.2171875" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/menu/schedule_menu.xml" value="0.234375" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/menu/search_menu.xml" value="0.234375" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/menu/sort_button.xml" value="0.234375" />
+        <entry key="..\:/Users/heba ali/AndroidStudioProjects/KidsZone/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.227" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
