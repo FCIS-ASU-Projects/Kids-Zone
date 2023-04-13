@@ -19,30 +19,43 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity {
-    Button buttonAddWidget;
+//    Button buttonAddWidget;
+    Button freezeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.home_page);
 
-        buttonAddWidget = (Button) findViewById(R.id.button_widget);
-        getPermission();
-
-        buttonAddWidget.setOnClickListener(new View.OnClickListener() {
+        freezeButton = (Button) findViewById(R.id.freeze_button);
+        freezeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!Settings.canDrawOverlays(MainActivity.this))
-                {
-                    getPermission();
-                }
-                else
-                {
-                    Intent intent = new Intent(MainActivity.this, WidgetService.class);
-                    startService(intent);
-                    finish();
-                }
+                openFreezeTimerActivity();
             }
         });
+//        buttonAddWidget = (Button) findViewById(R.id.button_widget);
+//        getPermission();
+//
+//        buttonAddWidget.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if(!Settings.canDrawOverlays(MainActivity.this))
+//                {
+//                    getPermission();
+//                }
+//                else
+//                {
+//                    Intent intent = new Intent(MainActivity.this, WidgetService.class);
+//                    startService(intent);
+//                    finish();
+//                }
+//            }
+//        });
+    }
+    public void openFreezeTimerActivity()
+    {
+        Intent intent = new Intent(this, FreezeTimerActivity.class);
+        startActivity(intent);
     }
     public void getPermission()
     {

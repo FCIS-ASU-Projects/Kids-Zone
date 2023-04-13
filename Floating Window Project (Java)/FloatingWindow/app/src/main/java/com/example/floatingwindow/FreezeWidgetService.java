@@ -1,36 +1,19 @@
 package com.example.floatingwindow;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
-
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.app.Service;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
-import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
 import android.os.IBinder;
-import android.provider.Settings;
-import android.util.DisplayMetrics;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
-public class WidgetService extends Service {
+public class FreezeWidgetService extends Service {
 
     int LAYOUT_FLAG;
     View mFloatingView;

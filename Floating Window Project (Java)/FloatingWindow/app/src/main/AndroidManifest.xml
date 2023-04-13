@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
     <application
@@ -15,6 +15,9 @@
         android:theme="@style/Theme.FloatingWindow"
         tools:targetApi="31">
         <activity
+            android:name=".FreezeTimerActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,7 +26,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".WidgetService" android:enabled="true"/>
+
+        <service
+            android:name=".FreezeWidgetService"
+            android:enabled="true" />
     </application>
 
 </manifest>
