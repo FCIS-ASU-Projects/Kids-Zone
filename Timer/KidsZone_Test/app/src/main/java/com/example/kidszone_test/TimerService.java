@@ -1,35 +1,25 @@
 package com.example.kidszone_test;
 
 import android.app.AlarmManager;
-import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.BroadcastReceiver;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.PowerManager;
-import android.os.SystemClock;
 import android.util.Log;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
-import java.security.Provider;
 import java.util.Calendar;
-import java.util.List;
 
 public class TimerService extends Service {
 
@@ -71,8 +61,6 @@ public class TimerService extends Service {
         countDownTimer=createCounter(millis);
 
     }
-
-
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
 
@@ -96,7 +84,7 @@ public class TimerService extends Service {
 
         setAlarm(0);
 
-        notificitonService();
+        notificationService();
 
 
         return super.START_STICKY;
@@ -108,7 +96,6 @@ public class TimerService extends Service {
         //unregisterReceiver(mReceiver,filter); error
         super.onDestroy();
     }
-
     public CountDownTimer createCounter(long milliSeconds){
 
         countDownTimer = new CountDownTimer(milliSeconds+1000,1000) {
@@ -116,7 +103,7 @@ public class TimerService extends Service {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                notificitonService();
+                notificationService();
 
                 //Log.i("Timer Server "," Calender time hours: "+checkCurrentTimeHours+"  minutes: "+checkCurrentTimeMinutes);
 
@@ -158,7 +145,7 @@ public class TimerService extends Service {
                 }
                 else{
                     counterCanceled=true;
-                    notificitonService();
+                    notificationService();
 
                     Log.i(TAG,"Time Limit Finished");
 
@@ -169,8 +156,7 @@ public class TimerService extends Service {
         };
         return countDownTimer;
     }
-
-    public void notificitonService(){
+    public void notificationService(){
 
         Log.i(TAG,"Notification");
         String timerState="";
@@ -255,8 +241,6 @@ public class TimerService extends Service {
         /*am.setInexactRepeating(AlarmManager.RTC_WAKEUP,
                 now,
                 3000, pi);*/
-
-
 
     }
 

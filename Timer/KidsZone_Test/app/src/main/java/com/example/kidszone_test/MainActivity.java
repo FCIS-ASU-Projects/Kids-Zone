@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity {
         binding.textViewTime.setText(String.format(Locale.getDefault(),"%02d:%02d",hour,minute));
         binding.buttonPickTime.setOnClickListener(pickTimeButtonClick);
         binding.buttonStart.setOnClickListener(startButtonClick);
-
     }
     private View.OnClickListener pickTimeButtonClick = new View.OnClickListener() {
         @Override

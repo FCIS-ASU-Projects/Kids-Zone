@@ -3,20 +3,12 @@ package com.example.floatingwindow;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 public class MainActivity extends AppCompatActivity {
 //    Button buttonAddWidget;
@@ -54,18 +46,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openFreezeTimerActivity()
     {
-        Intent intent = new Intent(this, FreezeTimerActivity.class);
+        Intent intent = new Intent(this, TimerActivity.class);
         startActivity(intent);
     }
-    public void getPermission()
-    {
-        //check for alert window permission
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this))
-        {
-            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
-            startActivityForResult(intent, 1);
-        }
-    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

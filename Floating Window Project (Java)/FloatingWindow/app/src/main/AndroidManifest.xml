@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
 
@@ -15,7 +17,7 @@
         android:theme="@style/Theme.FloatingWindow"
         tools:targetApi="31">
         <activity
-            android:name=".FreezeTimerActivity"
+            android:name=".TimerActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -28,7 +30,10 @@
         </activity>
 
         <service
-            android:name=".FreezeWidgetService"
+            android:name=".FreezeService"
+            android:enabled="true" />
+        <service
+            android:name=".TimerService"
             android:enabled="true" />
     </application>
 

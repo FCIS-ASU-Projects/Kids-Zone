@@ -13,7 +13,7 @@ import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 
-public class FreezeWidgetService extends Service {
+public class FreezeService extends Service {
 
     int LAYOUT_FLAG;
     View mFloatingView;
