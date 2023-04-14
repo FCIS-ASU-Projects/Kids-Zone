@@ -4,6 +4,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -11,20 +13,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-//    Button buttonAddWidget;
+
     Button freezeButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_page);
+        getPermission();
 
         freezeButton = (Button) findViewById(R.id.freeze_button);
-        freezeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openFreezeTimerActivity();
-            }
-        });
+        freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
+
+//        Button buttonAddWidget;
 //        buttonAddWidget = (Button) findViewById(R.id.button_widget);
 //        getPermission();
 //
@@ -44,8 +44,22 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
     }
-    public void openFreezeTimerActivity()
-    {
+
+    public void getPermission(){
+        //check for alert window permission
+//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this))
+//        {
+//            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
+//            startActivityForResult(intent, 1);
+//        }
+        if(!Settings.canDrawOverlays(this))
+        {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
+            startActivityForResult(intent, 1);
+        }
+    }
+
+    public void openFreezeTimerActivity(){
         Intent intent = new Intent(this, TimerActivity.class);
         startActivity(intent);
     }
