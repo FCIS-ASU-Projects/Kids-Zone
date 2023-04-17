@@ -1,4 +1,4 @@
-package com.jwhh.kidszone.model;
+package com.example.kidszone.model;
 
 import java.util.Date;
 import java.util.List;

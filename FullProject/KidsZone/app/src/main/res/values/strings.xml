@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">KidsZone</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Kids Zone</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="privacy_policy">
 Diyar Faraj built the AppBlock app as a Free app. This SERVICE is provided by Diyar Faraj at no cost and is intended for use as is.
