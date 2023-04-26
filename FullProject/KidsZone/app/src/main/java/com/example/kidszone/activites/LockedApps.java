@@ -31,7 +31,7 @@ public class LockedApps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locked_apps_recycler_view);
-        recyclerView = findViewById(R.id.lockedAppsListt);
+        recyclerView = findViewById(R.id.lockedAppsList);
         adapter = new LockedAppAdapter(apps, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);

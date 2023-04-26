@@ -3,6 +3,7 @@ package com.example.kidszone.adapter;
 import android.content.Context;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,6 +72,7 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
 
     @Override
     public void onBindViewHolder(@NonNull adapter_design_backend holder, int position) {
+        Log.d("AllAppAdapter.java: Position", Integer.toString(position));
         AppModel app = apps.get(position);
         holder.appName.setText(app.getAppName());
         holder.appIcon.setImageDrawable(app.getIcon());

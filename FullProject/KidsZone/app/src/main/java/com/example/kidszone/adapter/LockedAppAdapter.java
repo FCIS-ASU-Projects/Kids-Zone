@@ -2,6 +2,7 @@ package com.example.kidszone.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,7 +34,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
     @NonNull
     @Override
     public adapter_design_backend onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.app_bar, parent, false);
+        View view = LayoutInflater.from(ctx).inflate(R.layout.locked_adapter_design, parent, false);
         adapter_design_backend design = new adapter_design_backend(view);
         return design;
     }
@@ -70,8 +71,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         return apps.size();
     }
 
-    private void deleteItem(RecyclerView.ViewHolder holder
-            , int position) {
+    private void deleteItem(RecyclerView.ViewHolder holder, int position) {
         apps.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, apps.size());
@@ -89,6 +89,4 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
             appStatus = itemView.findViewById(R.id.appstatus);
         }
     }
-
-
 }

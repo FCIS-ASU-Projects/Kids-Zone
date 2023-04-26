@@ -30,7 +30,6 @@ import com.example.kidszone.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.kidszone.adapter.LockedAppAdapter;
 import com.example.kidszone.model.AppModel;
-import com.example.kidszone.services.BackgroundManager;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 import java.util.ArrayList;
@@ -116,7 +115,7 @@ public class BlockedApps extends AppCompatActivity {
             }
         });
 
-        recyclerView = findViewById(R.id.lockedAppsListt);
+        recyclerView = findViewById(R.id.lockedAppsList);
         adapter = new LockedAppAdapter(lockedAppsList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
