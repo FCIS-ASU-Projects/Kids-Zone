@@ -1,0 +1,44 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 24 min SDK version: arm64-v8a",
+    "file_": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -1758376539
+  },
+  {
+    "level_": 0,
+    "message_": "JSON \u0027E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
+    "file_": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 2064372908
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": 583479939
+  }
+]

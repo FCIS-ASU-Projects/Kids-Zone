@@ -1,1 +1,1 @@
-C:\Users\Home\AndroidStudioProjects\OpenCV_demo\OpenCv\libcxx_helper\CMakeLists.txt
+E:\Graduation Project\project code\Kids-Zone\OpenCV_demo\OpenCv\libcxx_helper\CMakeLists.txt

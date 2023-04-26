@@ -1,1 +1,1 @@
-C:\Users\Home\AndroidStudioProjects\OpenCV_demo\OpenCv\build\intermediates\cxx\Debug\691s6k2i\obj\x86
+E:\Graduation Project\project code\Kids-Zone\OpenCV_demo\OpenCv\build\intermediates\cxx\Debug\691s6k2i\obj\x86

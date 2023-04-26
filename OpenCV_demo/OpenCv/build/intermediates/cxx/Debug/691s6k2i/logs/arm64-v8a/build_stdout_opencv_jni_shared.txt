@@ -1,0 +1,2 @@
+ninja: Entering directory `E:\Graduation Project\project code\Kids-Zone\OpenCV_demo\OpenCv\.cxx\Debug\691s6k2i\arm64-v8a'
+ninja: no work to do.
