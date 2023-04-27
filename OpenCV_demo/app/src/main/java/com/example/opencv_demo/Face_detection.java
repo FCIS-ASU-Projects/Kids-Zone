@@ -130,7 +130,10 @@ public class Face_detection {
 
         // Perform non maximum suppression to eliminate redundant overlapping boxes with
         // lower confidences
-        Bitmap cropedImg=nms(frame);
+        Bitmap cropedImg=null;
+        if(!confidences.isEmpty())
+            cropedImg=nms(frame);
+
 
 
         return cropedImg;
@@ -140,6 +143,9 @@ public class Face_detection {
     {
         // Perform non maximum suppression to eliminate redundant overlapping boxes with
         // lower confidences
+//        if(confidences.isEmpty())
+//           Log.i("check size","emptyyyy");
+
         MatOfFloat confidence = new MatOfFloat(Converters.vector_float_to_Mat(confidences));
         MatOfInt indices = new MatOfInt();
         MatOfRect2d bbox = new MatOfRect2d();
@@ -151,7 +157,7 @@ public class Face_detection {
         for (int ind = 0; ind < indices_arr.length; ++ind)
         {
             int idx = indices_arr[ind];
-
+            Log.i("in loop","nms");
             //Rect2d box = boxes.get(idx);
             ArrayList<Integer> lm= landmarks.get(idx);
             float IOD = Math.abs((lm.get(0) + lm.get(1) / 2.0f) - (lm.get(3) + lm.get(4) / 2.0f));
@@ -213,10 +219,10 @@ public class Face_detection {
         try {
             bmp = Bitmap.createBitmap(rgb.cols(), rgb.rows(), Bitmap.Config.ARGB_8888);
             Utils.matToBitmap(rgb, bmp);
-            Log.i("converted","success");
+            Log.i("converted","success convertMatToBitMap");
         }
         catch (Exception e){
-            Log.d("Exception",e.getMessage());
+            Log.d("falid convertMatToBitMap",e.getMessage());
         }
         return bmp;
     }

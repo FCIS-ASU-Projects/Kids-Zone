@@ -6,9 +6,9 @@
     "deprecated": false,
     "default": true
   },
-  "cxxBuildFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\x86",
-  "soFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
-  "soRepublishFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cmake\\debug\\obj\\x86",
+  "cxxBuildFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\x86",
+  "soFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
+  "soRepublishFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cmake\\debug\\obj\\x86",
   "abiPlatformVersion": 24,
   "cmake": {
     "effectiveConfiguration": {
@@ -33,15 +33,15 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx",
-      "intermediatesBaseFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates",
-      "intermediatesFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx",
+      "cxxFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx",
+      "intermediatesBaseFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates",
+      "intermediatesFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx",
       "gradleModulePathName": ":OpenCv",
-      "moduleRootFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv",
-      "moduleBuildFile": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build.gradle",
-      "makeFile": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper\\CMakeLists.txt",
+      "moduleRootFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv",
+      "moduleBuildFile": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build.gradle",
+      "makeFile": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper\\CMakeLists.txt",
       "buildSystem": "CMAKE",
-      "ndkFolder": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+      "ndkFolder": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
       "ndkVersion": "23.1.7779620",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
@@ -105,33 +105,33 @@
           "default": true
         }
       ],
-      "cmakeToolchainFile": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
       "cmake": {
         "isValidCmakeAvailable": true,
-        "cmakeExe": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe",
+        "cmakeExe": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe",
         "minimumCmakeVersion": "3.22.1"
       },
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
-          "ARM64_V8A": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
-          "X86": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-          "X86_64": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+          "ARMEABI_V7A": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo",
-        "sdkFolder": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk",
+        "rootBuildGradleFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo",
+        "sdkFolder": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk",
         "isBuildOnlyTargetAbiEnabled": true,
-        "ideBuildTargetAbi": "x86,armeabi-v7a,armeabi",
+        "ideBuildTargetAbi": "x86",
         "isCmakeBuildCohabitationEnabled": false,
         "isPrefabEnabled": false
       },
       "outputOptions": [],
-      "ninjaExe": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe"
+      "ninjaExe": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe"
     },
     "prefabClassPaths": [],
     "prefabPackages": [],
@@ -142,29 +142,29 @@
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\prefab\\x86",
+  "prefabFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\prefab\\x86",
   "isActiveAbi": true,
   "fullConfigurationHash": "691s6k2i1x2l6j2h3847425erp0204pq644p621j301r34421j19512r2f3k",
   "fullConfigurationHashKey": "# Values used to calculate the hash in this folder name.\n# Should not depend on the absolute path of the project itself.\n#   - AGP: 7.4.1.\n#   - $NDK is the path to NDK 23.1.7779620.\n#   - $PROJECT is the path to the parent folder of the root Gradle build file.\n#   - $ABI is the ABI to be built with. The specific value doesn\u0027t contribute to the value of the hash.\n#   - $HASH is the hash value computed from this text.\n#   - $CMAKE is the path to CMake 3.22.1.\n#   - $NINJA is the path to Ninja.\n-H$PROJECT/OpenCv/libcxx_helper\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_SYSTEM_VERSION\u003d24\n-DANDROID_PLATFORM\u003dandroid-24\n-DANDROID_ABI\u003d$ABI\n-DCMAKE_ANDROID_ARCH_ABI\u003d$ABI\n-DANDROID_NDK\u003d$NDK\n-DCMAKE_ANDROID_NDK\u003d$NDK\n-DCMAKE_TOOLCHAIN_FILE\u003d$NDK/build/cmake/android.toolchain.cmake\n-DCMAKE_MAKE_PROGRAM\u003d$NINJA\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003d$PROJECT/OpenCv/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003d$PROJECT/OpenCv/build/intermediates/cxx/Debug/$HASH/obj/$ABI\n-DCMAKE_BUILD_TYPE\u003dDebug\n-B$PROJECT/OpenCv/.cxx/Debug/$HASH/$ABI\n-GNinja\n-DANDROID_STL\u003dc++_shared",
   "configurationArguments": [
-    "-HE:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper",
+    "-HC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper",
     "-DCMAKE_SYSTEM_NAME\u003dAndroid",
     "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
     "-DCMAKE_SYSTEM_VERSION\u003d24",
     "-DANDROID_PLATFORM\u003dandroid-24",
     "-DANDROID_ABI\u003dx86",
     "-DCMAKE_ANDROID_ARCH_ABI\u003dx86",
-    "-DANDROID_NDK\u003dC:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
-    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
-    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
-    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dE:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
-    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dE:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
+    "-DANDROID_NDK\u003dC:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+    "-DCMAKE_ANDROID_NDK\u003dC:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dC:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+    "-DCMAKE_MAKE_PROGRAM\u003dC:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
+    "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY\u003dC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i\\obj\\x86",
     "-DCMAKE_BUILD_TYPE\u003dDebug",
-    "-BE:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\x86",
+    "-BC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\Debug\\691s6k2i\\x86",
     "-GNinja",
     "-DANDROID_STL\u003dc++_shared"
   ],
-  "stlLibraryFile": "C:\\Users\\dell\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
-  "intermediatesParentFolder": "E:\\Graduation Project\\project code\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i"
+  "stlLibraryFile": "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+  "intermediatesParentFolder": "C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\Debug\\691s6k2i"
 }
