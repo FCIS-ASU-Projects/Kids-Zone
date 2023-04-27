@@ -89,24 +89,24 @@ public class MainActivity extends AppCompatActivity {
 //                Utils.matToBitmap(mat,bitmap);
 
 
-                File f = new File(getCacheDir() + "/yolov5s-face.onnx");
+                File yolo_file = new File(getCacheDir() + "/yolov5s-face.onnx");
 
-                if (!f.exists()) try {
+                if (!yolo_file.exists()) try {
                     InputStream is = getAssets().open("yolov5s-face.onnx");
                     int size = is.available();
                     byte[] bufer = new byte[size];
                     is.read(bufer);
                     is.close();
 
-                    FileOutputStream fos = new FileOutputStream(f);
+                    FileOutputStream fos = new FileOutputStream(yolo_file);
                     fos.write(bufer);
                     fos.close();
                 } catch (Exception e) {
                     Log.i("Exception", "failed to read model file");
                 }
 
-                Age_prediction AGE = new Age_prediction();
-                age.setText("Age Range: " + AGE.detection_prediction(f,mat,getApplicationContext(), MainActivity.this));
+                Age_prediction AGE = new Age_prediction(yolo_file,getApplicationContext());
+                age.setText("Age Range: " + AGE.detection_prediction(mat));
 
 //                Face_detection yolo = new Face_detection(f.getPath(), 0.45f, 0.3f);
 //                Bitmap frame = yolo.detect_face(mat, MainActivity.this);
