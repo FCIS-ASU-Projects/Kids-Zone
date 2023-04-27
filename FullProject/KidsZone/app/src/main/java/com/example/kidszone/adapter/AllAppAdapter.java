@@ -26,7 +26,7 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
     List<AppModel> apps = new ArrayList<>();
     List<AppModel> appsFullList;
     Context ctx;
-    List<String> lockedApps = new ArrayList<>();
+    List<String> lockedApps = new ArrayList<>(); // Holds only names
     private final Filter appListFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -51,7 +51,7 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
         protected void publishResults(CharSequence constraint, FilterResults results) {
             apps.clear();
             apps.addAll((List) results.values);
-            notifyDataSetChanged();
+            notifyDataSetChanged(); // At any change it is called
         }
     };
 

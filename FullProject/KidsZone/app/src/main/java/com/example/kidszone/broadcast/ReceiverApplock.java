@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -38,6 +39,9 @@ public class ReceiverApplock extends BroadcastReceiver {
         SharedPrefUtil prefUtil = new SharedPrefUtil(context);
         List<String> lockedApps = prefUtil.getLockedAppsList();
         String appRunning = utils.getLauncherTopApp();
+
+        Log.d("ReceiverApplock: onReceive --> appRunning", appRunning);
+
         //String lastApp = utils.getLastApp();
         boolean checkSchedule = prefUtil.getBoolean("confirmSchedule");
         //List<String> getWeekdaysListString = prefUtil.getDaysList();
@@ -64,6 +68,7 @@ public class ReceiverApplock extends BroadcastReceiver {
         } else {*/
             //always BLOCK
             if (lockedApps.contains(appRunning)) {
+                Log.d("ReceiverApplock: onReceive --> BLOCKED APP", appRunning);
                 prefUtil.clearLastApp();
                 prefUtil.setLastApp(appRunning);
                 killThisPackageIfRunning(context, appRunning);
@@ -109,4 +114,5 @@ public class ReceiverApplock extends BroadcastReceiver {
             return false;
         }
     }
+
 }

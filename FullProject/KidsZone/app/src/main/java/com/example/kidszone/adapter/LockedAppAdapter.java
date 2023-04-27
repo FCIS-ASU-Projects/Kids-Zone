@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
+import com.example.kidszone.activites.BlockedApps;
 import com.example.kidszone.model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 
@@ -24,7 +25,6 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
     List<AppModel> apps = new ArrayList<>();
     Context ctx;
     List<String> lockedApps = new ArrayList<>();
-
 
     public LockedAppAdapter(List<AppModel> apps, Context ctx) {
         this.apps = apps;
@@ -74,7 +74,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
     private void deleteItem(RecyclerView.ViewHolder holder, int position) {
         apps.remove(position);
         notifyItemRemoved(position);
-        notifyItemRangeChanged(position, apps.size());
+        notifyItemRangeChanged(position, apps.size()); // Refresh the recycler view
         holder.itemView.setVisibility(View.GONE);
     }
 

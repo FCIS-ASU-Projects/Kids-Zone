@@ -27,6 +27,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
+import com.example.kidszone.services.BackgroundManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.kidszone.adapter.LockedAppAdapter;
 import com.example.kidszone.model.AppModel;
@@ -39,6 +40,7 @@ public class BlockedApps extends AppCompatActivity {
     static List<AppModel> lockedAppsList = new ArrayList<>();
     static Context context;
     ImageView allAppsBtn;
+
     List<AppModel> allInstalledApps = new ArrayList<>();
     LockedAppAdapter lockedAppsAdapter = new LockedAppAdapter(lockedAppsList, context);
     RecyclerView recyclerView;
@@ -82,6 +84,7 @@ public class BlockedApps extends AppCompatActivity {
                 MainActivity.this.startActivity(myIntent);
             }
         });*/
+
         allAppsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

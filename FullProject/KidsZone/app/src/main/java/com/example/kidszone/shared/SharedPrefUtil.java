@@ -13,8 +13,8 @@ public class SharedPrefUtil {
     Context cxt;
     private final String EXTRA_LAST_APP = "EXTRA_LAST_APP";
     private final SharedPreferences pref;
-    private SharedPreferences.Editor mEditor;
-    BlockProfile blockProfile;
+//    private SharedPreferences.Editor mEditor;
+//    BlockProfile blockProfile;
 
     public SharedPrefUtil(Context context) {
         this.pref = context.getSharedPreferences(SHARED_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);

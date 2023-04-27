@@ -65,11 +65,11 @@
         </receiver>
 
         <service
-            android:name="com.example.kidszone.services.ServiceApplock"
+            android:name="com.example.kidszone.services.ServiceAppLock"
             android:enabled="true"
             android:exported="false" />
         <service
-            android:name="com.example.kidszone.services.ServiceApplockJobIntent"
+            android:name="com.example.kidszone.services.ServiceAppLockJobIntent"
             android:exported="true"
             android:permission="android.permission.BIND_JOB_SERVICE" />
 

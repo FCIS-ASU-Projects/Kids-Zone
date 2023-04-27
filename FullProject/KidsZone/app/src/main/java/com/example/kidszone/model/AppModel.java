@@ -3,6 +3,7 @@ package com.example.kidszone.model;
 import android.graphics.drawable.Drawable;
 
 public class AppModel {
+    // int age;
     String appName;
     Drawable icon;
     int status;

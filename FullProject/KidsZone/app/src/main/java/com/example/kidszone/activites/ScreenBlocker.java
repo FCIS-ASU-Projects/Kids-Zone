@@ -20,7 +20,7 @@ public class ScreenBlocker extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        // getSupportActionBar().hide(); // TODO REMOOOOOOOVED BY ZAAAAIN
         setContentView(R.layout.activity_screen_blocker);
         initIconApp();
 

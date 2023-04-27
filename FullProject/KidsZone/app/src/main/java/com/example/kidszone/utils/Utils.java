@@ -75,7 +75,7 @@ public class Utils {
             if (null != taskInfoList && !taskInfoList.isEmpty()) {
                 return taskInfoList.get(0).topActivity.getPackageName();
             }
-        } else {
+        } else { // TIMER SARA REMOVE
             long endTime = System.currentTimeMillis();
             long beginTime = endTime - 10000;
             String result = "";

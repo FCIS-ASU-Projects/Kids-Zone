@@ -8,7 +8,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -18,7 +17,6 @@ import android.widget.Toast;
 import com.example.kidszone.activites.BlockedApps;
 import com.example.kidszone.activites.IntroScreen;
 import com.example.kidszone.activites.TimerActivity;
-import com.example.kidszone.databinding.ActivityFreezeBinding;
 import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.services.BackgroundManager;
 import com.example.kidszone.shared.SharedPrefUtil;
@@ -29,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        BackgroundManager.getInstance().init(this).startService();
+         BackgroundManager.getInstance().init(this).startService();
+
         checkAppsFirstTimeLaunch();
 
         setContentView(R.layout.activity_home);
@@ -109,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
     public void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!isAccessGranted()) {
-                Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
+                //Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
                 Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 startActivityForResult(intent, 102);
             }
@@ -123,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
     private void checkAppsFirstTimeLaunch() {
         /*Intent myIntent = new Intent(MainActivity.this, IntroScreen.class);
         MainActivity.this.startActivity(myIntent);*/

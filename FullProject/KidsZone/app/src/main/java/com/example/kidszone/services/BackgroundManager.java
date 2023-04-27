@@ -2,7 +2,6 @@ package com.example.kidszone.services;
 
 import android.app.ActivityManager;
 import android.app.AlarmManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -10,8 +9,8 @@ import android.os.Build;
 import com.example.kidszone.broadcast.RestartServiceWhenStopped;
 
 public class BackgroundManager {
-    private static final int period = 15 * 1000;
-    private static final int ALARM_ID = 159874;
+//    private static final int period = 15 * 1000;
+//    private static final int ALARM_ID = 159874;
     private static BackgroundManager instance;
     private Context context;
 
@@ -39,13 +38,13 @@ public class BackgroundManager {
 
     public void startService() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            if (!isServiceRunning(ServiceApplockJobIntent.class)) {
-                Intent intent = new Intent(context, ServiceApplockJobIntent.class);
-                ServiceApplockJobIntent.enqueueWork(context, intent);
+            if (!isServiceRunning(ServiceAppLockJobIntent.class)) {
+                Intent intent = new Intent(context, ServiceAppLockJobIntent.class);
+                ServiceAppLockJobIntent.enqueueWork(context, intent);
             }
         } else {
-            if (!isServiceRunning(ServiceApplock.class)) {
-                context.startService(new Intent(context, ServiceApplock.class));
+            if (!isServiceRunning(ServiceAppLock.class)) {
+                context.startService(new Intent(context, ServiceAppLock.class));
             }
         }
     }
@@ -58,16 +57,16 @@ public class BackgroundManager {
 
     public void startAlarmManager() {
         Intent intent = new Intent(context, RestartServiceWhenStopped.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + period, pendingIntent);
+//        manager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + period, pendingIntent);
     }
 
     public void stopAlarm() {
         Intent intent = new Intent(context, RestartServiceWhenStopped.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
+//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        manager.cancel(pendingIntent);
+//        manager.cancel(pendingIntent);
     }
 
 }
