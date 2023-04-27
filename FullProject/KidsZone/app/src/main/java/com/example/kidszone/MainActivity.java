@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,13 +22,19 @@ import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.services.BackgroundManager;
 import com.example.kidszone.shared.SharedPrefUtil;
 
+import org.opencv.android.OpenCVLoader;
+
 public class MainActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-         BackgroundManager.getInstance().init(this).startService();
+
+//        if (OpenCVLoader.initDebug()) Log.i("LOADER", "SUCCESS");
+//        else Log.i("LOADER", "ERROR");
+
+        BackgroundManager.getInstance().init(this).startService();
 
         checkAppsFirstTimeLaunch();
 
@@ -42,25 +49,7 @@ public class MainActivity extends AppCompatActivity {
         binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
 
         binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
-//        Button buttonAddWidget;
-//        buttonAddWidget = (Button) findViewById(R.id.button_widget);
-//        getPermission();
-//
-//        buttonAddWidget.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if(!Settings.canDrawOverlays(MainActivity.this))
-//                {
-//                    getPermission();
-//                }
-//                else
-//                {
-//                    Intent intent = new Intent(MainActivity.this, WidgetService.class);
-//                    startService(intent);
-//                    finish();
-//                }
-//            }
-//        });
+
     }
 
     public void getPermission(){
