@@ -40,8 +40,6 @@ public class AllMobileApps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_mobile_apps);
-        //addIconToBar();
-        //setTitle(" Installed Apps");
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_all_apps);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -54,15 +52,7 @@ public class AllMobileApps extends AppCompatActivity {
                         overridePendingTransition(0, 0);
                         return true;
                     case R.id.nav_all_apps:
-                      /*  startActivity(new Intent(getApplicationContext(),
-                                ShowAllApps.class));
-                        overridePendingTransition(0,0);*/
                         return true;
-                    /*case R.id.nav_settings:
-                        startActivity(new Intent(getApplicationContext(),
-                                About.class));
-                        overridePendingTransition(0, 0);
-                        return true;*/
                 }
                 return false;
             }
@@ -80,7 +70,6 @@ public class AllMobileApps extends AppCompatActivity {
             }
         });
     }
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -88,15 +77,6 @@ public class AllMobileApps extends AppCompatActivity {
         progressDialog.setMessage("Loading");
         progressDialog.show();
     }
-
-    private void addIconToBar() {
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        getSupportActionBar().setLogo(R.mipmap.lock);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-        setContentView(R.layout.activity_all_mobile_apps);
-    }
-
     public void getInstalledApps() {
         List<String> prefLockedAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
         /*List<ApplicationInfo> packageInfos = getPackageManager().getInstalledApplications(0);*/
@@ -127,9 +107,7 @@ public class AllMobileApps extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
         progressDialog.dismiss();
-
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -159,5 +137,4 @@ public class AllMobileApps extends AppCompatActivity {
         });
         return true;
     }
-
 }
