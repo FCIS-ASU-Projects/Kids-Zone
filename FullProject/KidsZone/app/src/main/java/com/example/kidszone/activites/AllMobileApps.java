@@ -89,16 +89,18 @@ public class AllMobileApps extends AppCompatActivity {
             String name = activityInfo.loadLabel(getPackageManager()).toString();
             Drawable icon = activityInfo.loadIcon(getPackageManager());
             String packageName = activityInfo.packageName;
+            Bundle metaData =activityInfo.metaData;
+            int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
             if (!packageName.matches("com.robocora.appsift|com.android.settings")) {
                 if (!prefLockedAppList.isEmpty()) {
                     //check if apps is locked
                     if (prefLockedAppList.contains(packageName)) {
-                        apps.add(new AppModel(name, icon, 1, packageName));
+                        apps.add(new AppModel(name, icon, 1, packageName,ageRating));
                     } else {
-                        apps.add(new AppModel(name, icon, 0, packageName));
+                        apps.add(new AppModel(name, icon, 0, packageName,ageRating));
                     }
                 } else {
-                    apps.add(new AppModel(name, icon, 0, packageName));
+                    apps.add(new AppModel(name, icon, 0, packageName,ageRating));
                 }
             } else {
                 //do not add settings to app list

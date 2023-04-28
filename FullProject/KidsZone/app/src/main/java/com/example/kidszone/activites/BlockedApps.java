@@ -217,8 +217,10 @@ public class BlockedApps extends AppCompatActivity {
                 String name = packageInfos.get(i).loadLabel(ctx.getPackageManager()).toString();
                 Drawable icon = packageInfos.get(i).loadIcon(ctx.getPackageManager());
                 String packageName = packageInfos.get(i).packageName;
+                Bundle metaData =packageInfos.get(i).metaData;
+                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
                 if (prefAppList.contains(packageName)) {
-                    lockedAppsList.add(new AppModel(name, icon, 1, packageName));
+                    lockedAppsList.add(new AppModel(name, icon, 1, packageName,ageRating));
                 } else {
                     continue;
                 }

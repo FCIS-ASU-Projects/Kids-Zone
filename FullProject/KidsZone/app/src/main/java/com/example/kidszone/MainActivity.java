@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean isAccessGranted() {
         try {
             PackageManager packageManager = getPackageManager();
-            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), 0);
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             AppOpsManager appOpsManager = null;
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
                 appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);

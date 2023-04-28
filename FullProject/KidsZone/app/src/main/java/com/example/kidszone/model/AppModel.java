@@ -8,12 +8,14 @@ public class AppModel {
     Drawable icon;
     int status;
     String packageName;
+    int ageRating;
 
-    public AppModel(String appName, Drawable icon, int status, String packageName) {
+    public AppModel(String appName, Drawable icon, int status, String packageName,int ageRating) {
         this.appName = appName;
         this.icon = icon;
         this.status = status;
         this.packageName = packageName;
+        this.ageRating=ageRating;
     }
 
     public String getAppName() {
@@ -34,6 +36,14 @@ public class AppModel {
 
     public int getStatus() {
         return status;
+    }
+
+    public void setAgeRating(int ageRating) {
+        this.ageRating = ageRating;
+    }
+
+    public int getAgeRating() {
+        return ageRating;
     }
 
     public void setStatus(int status) {
