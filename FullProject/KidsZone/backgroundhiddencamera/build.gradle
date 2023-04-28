@@ -1,6 +1,8 @@
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.example.backgroundhiddencamera'
+
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
 

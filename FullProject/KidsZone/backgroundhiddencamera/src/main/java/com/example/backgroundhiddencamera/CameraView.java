@@ -95,30 +95,37 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
                 BitmapFactory.Options opts = new BitmapFactory.Options();
                 Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0,
                         data.length, opts);
-                bitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int newWidth = 300;
-                int newHeight = 300;
+//                bitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
+//                int width = bitmap.getWidth();
+//                int height = bitmap.getHeight();
+//                int newWidth = 300;
+//                int newHeight = 300;
+//
+//                // calculate the scale - in this case = 0.4f
+//                float scaleWidth = ((float) newWidth) / width;
+//                float scaleHeight = ((float) newHeight) / height;
+//
+//                // create matrix for the manipulation
+//                Matrix matrix = new Matrix();
+//                // resize the bit map
+//                matrix.postScale(scaleWidth, scaleHeight);
+//                // rotate the Bitmap
+//                matrix.postRotate(-90);
+//                Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
+//                        width, height, matrix, true);
 
-                // calculate the scale - in this case = 0.4f
-                float scaleWidth = ((float) newWidth) / width;
-                float scaleHeight = ((float) newHeight) / height;
+//                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+//                resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40,
+//                        bytes);
 
-                // create matrix for the manipulation
-                Matrix matrix = new Matrix();
-                // resize the bit map
-                matrix.postScale(scaleWidth, scaleHeight);
-                // rotate the Bitmap
-                matrix.postRotate(-90);
-                Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
-                        width, height, matrix, true);
+                // TODO CALL DEEP LEARNING MODEL
+//                getAgeFromImage(bitmap); // Need to be rotated -90 degrees
 
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40,
+                bitmap.compress(Bitmap.CompressFormat.JPEG, 40,
                         bytes);
 ////////////////////////////////////////////////////////////////////////////////////////////
-// SARA
+    // TODO SAVING IMAGE IN GALLERY
                 File imagesFolder = new File(
                         Environment.getExternalStorageDirectory(), "Download");
                 if (!imagesFolder.exists())

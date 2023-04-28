@@ -22,15 +22,13 @@
 
     <application
         android:allowBackup="true"
-        android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/child"
         android:roundIcon="@mipmap/child_round"
         android:label="@string/app_name"
         android:supportsRtl="true"
         tools:replace="android:theme"
-        android:theme="@style/Theme.KidsZone"
-        tools:targetApi="31">
+        android:theme="@style/Theme.KidsZone">
 
         <activity android:name="com.example.kidszone.activites.IntroScreen" />
         <activity

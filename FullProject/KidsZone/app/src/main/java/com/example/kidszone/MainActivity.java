@@ -38,31 +38,32 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
 
     ActivityHomeBinding binding;
+    static Age_prediction AGE;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        if (OpenCVLoader.initDebug()) Log.i("LOADER", "SUCCESS");
-//        else Log.i("LOADER", "ERROR");
+        if (OpenCVLoader.initDebug()) Log.i("LOADER", "SUCCESS");
+        else Log.i("LOADER", "ERROR");
 
         BackgroundManager.getInstance().init(this).startService();
 
         checkAppsFirstTimeLaunch();
+//
+//        Intent intent = new Intent(this, CameraHomeActivity.class);
+//        startActivity(intent);
 
-        Intent intent = new Intent(this, CameraHomeActivity.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_home);
 
-//        setContentView(R.layout.activity_home);
-//
-//        binding = ActivityHomeBinding.inflate(getLayoutInflater());
-//        View v = binding.getRoot();
-//        setContentView(v);
-//
-//        getPermission();
-//
-//        binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
-//
-//        binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        View v = binding.getRoot();
+        setContentView(v);
+
+        getPermission();
+
+        binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
+
+        binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
 
     }
 
@@ -146,14 +147,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
 
-            Age_prediction AGE = new Age_prediction(yolo_file,getApplicationContext()); // Loading 2 models, App start (SAVE THIS VAR)
+            AGE = new Age_prediction(yolo_file,getApplicationContext()); // Loading 2 models, App start (SAVE THIS VAR)
             // TODO SAVE AGE
 
         } catch (Exception e) {
             Log.i("Exception", e.getMessage());
         }
     }
-    public String getAgeFromImage(Bitmap bitmap, @NonNull Age_prediction AGE){
+    public static String getAgeFromImage(Bitmap bitmap){
         Mat mat = new Mat();
         Utils.bitmapToMat(bitmap, mat);
         Imgproc.cvtColor(mat, mat, Imgproc.COLOR_BGRA2RGB);
