@@ -40,14 +40,34 @@ public class Face_detection {
     private ArrayList<Float> confidences=new ArrayList<Float>();
     private ArrayList<Rect2d> boxes=new ArrayList<>();
     private ArrayList< ArrayList<Integer>> landmarks=new ArrayList<>();
+    private Net yolo_model;
 
     public Face_detection(String modelPath,float nmsthreshold,float confthreshold)
     {
         this.modelPath=modelPath;
         this.nmsthreshold=nmsthreshold;
         this.confthreshold=confthreshold;
+        yolo_model=load_model();
     }
-    private ArrayList<Mat> load_model(Mat frame, Context activity)
+
+    private Net load_model()
+    {
+        Net net=null;
+
+        try {
+            net = readNet(modelPath);
+            net.setPreferableBackend(DNN_BACKEND_CUDA);
+            net.setPreferableTarget(DNN_TARGET_CUDA);
+
+//            Log.i("success","Load onnx model successfully");
+        }catch (Exception e)
+        {
+            Log.i("Exception","can't load onnx model");
+            return null;
+        }
+        return net;
+    }
+    private ArrayList<Mat> predict(Mat frame)
     {
 
         ArrayList<Mat> outs = new ArrayList<>();
@@ -55,16 +75,13 @@ public class Face_detection {
         try {
             Mat blob = blobFromImage(frame, 1 / 255.0f , new Size(640, 640), new Scalar(0, 0, 0), true, false);
 
-            Net net = readNet(modelPath);
-            net.setPreferableBackend(DNN_BACKEND_CUDA);
-            net.setPreferableTarget(DNN_TARGET_CUDA);
-            net.setInput(blob);
+            yolo_model.setInput(blob);
 
-            net.forward(outs, net.getUnconnectedOutLayersNames());
+            yolo_model.forward(outs, yolo_model.getUnconnectedOutLayersNames());
 //            Log.i("success","Load onnx model successfully");
         }catch (Exception e)
         {
-            Log.i("Exception","can't load onnx model");
+            Log.i("Exception","yolo fail in detection");
             return null;
         }
         return outs;
@@ -226,9 +243,9 @@ public class Face_detection {
         }
         return bmp;
     }
-    public Bitmap detect_face(Mat inputImg,Context activity)
+    public Bitmap detect_face(Mat inputImg)
     {
-        ArrayList<Mat> outs=load_model(inputImg,activity);
+        ArrayList<Mat> outs=predict(inputImg);
         Bitmap detectImg=process_output(inputImg,outs.get(0));
         return detectImg;
     }
