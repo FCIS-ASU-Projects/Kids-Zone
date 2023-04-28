@@ -17,6 +17,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.backgroundhiddencamera.CameraHomeActivity;
 import com.example.kidszone.activites.BlockedApps;
 import com.example.kidszone.activites.IntroScreen;
 import com.example.kidszone.activites.TimerActivity;
@@ -48,17 +49,20 @@ public class MainActivity extends AppCompatActivity {
 
         checkAppsFirstTimeLaunch();
 
-        setContentView(R.layout.activity_home);
+        Intent intent = new Intent(this, CameraHomeActivity.class);
+        startActivity(intent);
 
-        binding = ActivityHomeBinding.inflate(getLayoutInflater());
-        View v = binding.getRoot();
-        setContentView(v);
-
-        getPermission();
-
-        binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
-
-        binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
+//        setContentView(R.layout.activity_home);
+//
+//        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+//        View v = binding.getRoot();
+//        setContentView(v);
+//
+//        getPermission();
+//
+//        binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
+//
+//        binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
 
     }
 

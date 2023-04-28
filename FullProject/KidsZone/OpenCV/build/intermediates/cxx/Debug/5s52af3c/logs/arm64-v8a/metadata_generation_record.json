@@ -1,0 +1,44 @@
+[
+  {
+    "level_": 0,
+    "message_": "Start JSON generation. Platform version: 24 min SDK version: arm64-v8a",
+    "file_": "C:\\Huda\\FCIS\\4th Year\\Graduation Project\\Android Studio Repo Branch (GP)\\FullProject\\KidsZone\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -101945544
+  },
+  {
+    "level_": 0,
+    "message_": "JSON \u0027C:\\Huda\\FCIS\\4th Year\\Graduation Project\\Android Studio Repo Branch (GP)\\FullProject\\KidsZone\\OpenCV\\.cxx\\Debug\\5s52af3c\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
+    "file_": "C:\\Huda\\FCIS\\4th Year\\Graduation Project\\Android Studio Repo Branch (GP)\\FullProject\\KidsZone\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -896936181
+  },
+  {
+    "level_": 0,
+    "message_": "JSON generation completed without problems",
+    "file_": "C:\\Huda\\FCIS\\4th Year\\Graduation Project\\Android Studio Repo Branch (GP)\\FullProject\\KidsZone\\OpenCV\\libcxx_helper\\CMakeLists.txt",
+    "tag_": "debug|arm64-v8a",
+    "diagnosticCode_": 0,
+    "memoizedIsInitialized": 1,
+    "unknownFields": {
+      "fields": {},
+      "fieldsDescending": {}
+    },
+    "memoizedSize": -1,
+    "memoizedHashCode": -2055056362
+  }
+]
