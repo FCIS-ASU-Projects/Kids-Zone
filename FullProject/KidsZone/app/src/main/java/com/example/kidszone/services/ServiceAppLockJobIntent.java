@@ -46,6 +46,7 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
 //                    wait(endTime - System.currentTimeMillis());
                     wait(210);
                     Log.d("ServiceAppLockJobIntent --> ", "WAAAAAAAAAAAAAAIIIIIITTT");
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

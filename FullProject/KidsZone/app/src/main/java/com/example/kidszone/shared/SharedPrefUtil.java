@@ -3,8 +3,6 @@ package com.example.kidszone.shared;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import com.example.kidszone.model.BlockProfile;
-
 import java.util.ArrayList;
 import java.util.List;
 

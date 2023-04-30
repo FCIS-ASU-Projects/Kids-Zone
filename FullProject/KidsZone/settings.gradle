@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 rootProject.name = "KidsZone"
 include ':app'
 include ':OpenCV'
-include ':backgroundhiddencamera'

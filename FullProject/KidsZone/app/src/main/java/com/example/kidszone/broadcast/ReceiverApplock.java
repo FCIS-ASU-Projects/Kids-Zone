@@ -11,7 +11,7 @@ import androidx.annotation.RequiresApi;
 
 import com.example.kidszone.activites.ScreenBlocker;
 import com.example.kidszone.shared.SharedPrefUtil;
-import com.example.kidszone.utils.Utils;
+import com.example.kidszone.utils.BlockAppsUtils;
 
 import java.time.LocalDate;
 import java.util.Calendar;
@@ -35,7 +35,7 @@ public class ReceiverApplock extends BroadcastReceiver {
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onReceive(Context context, Intent intent) {
-        Utils utils = new Utils(context);
+        BlockAppsUtils utils = new BlockAppsUtils(context);
         SharedPrefUtil prefUtil = new SharedPrefUtil(context);
         List<String> lockedApps = prefUtil.getLockedAppsList();
         String appRunning = utils.getLauncherTopApp();

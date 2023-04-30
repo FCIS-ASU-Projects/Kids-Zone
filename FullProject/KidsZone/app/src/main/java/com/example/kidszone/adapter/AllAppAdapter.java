@@ -16,7 +16,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
-import com.example.kidszone.model.AppModel;
+import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 import java.util.ArrayList;

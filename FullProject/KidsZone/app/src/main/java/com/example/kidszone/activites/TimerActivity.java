@@ -177,7 +177,7 @@ public class TimerActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Save the variables
+        // Retrieve saved the variables
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         START_TIME_IN_MILLIS = prefs.getLong(SAVED_START_TIME_IN_MILLIS, 30*60000); // The second parameter is the value that puts in the 1st parameter if it is empty

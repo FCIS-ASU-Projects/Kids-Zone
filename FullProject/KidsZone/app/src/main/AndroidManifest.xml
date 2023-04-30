@@ -2,6 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+<!--    <uses-permission-->
+<!--        android:name="android.permission.FOREGROUND_SERVICE"-->
+<!--        tools:ignore="WrongManifestParent"/>-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE">
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
@@ -30,9 +42,9 @@
         tools:replace="android:theme"
         android:theme="@style/Theme.KidsZone">
 
-        <activity android:name="com.example.kidszone.activites.IntroScreen" />
+
         <activity
-            android:name="com.example.kidszone.MainActivity"
+            android:name="com.example.kidszone.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,10 +56,11 @@
         <activity
             android:name="com.example.kidszone.activites.TimerActivity"
             android:exported="false" />
-        <activity android:name="com.example.kidszone.activites.ScreenBlocker" />
-        <activity android:name="com.example.kidszone.activites.LockedApps" />
-        <activity android:name="com.example.kidszone.activites.AllMobileApps" />
-        <activity android:name="com.example.kidszone.activites.BlockedApps" />
+        <activity android:name="com.example.kidszone.activites.IntroScreen" />
+        <activity android:name="com.example.kidszone.activites.ScreenBlocker"/>
+        <activity android:name="com.example.kidszone.activites.LockedApps"/>
+        <activity android:name="com.example.kidszone.activites.AllMobileApps"/>
+        <activity android:name="com.example.kidszone.activites.BlockedApps"/>
 
         <receiver
             android:name="com.example.kidszone.broadcast.ReceiverApplock"
@@ -77,6 +90,8 @@
         <service
             android:name="com.example.kidszone.services.TimerService"
             android:enabled="true" />
+
+        <service android:name="com.example.kidszone.services.GetBackCoreService"/>
 
     </application>
 

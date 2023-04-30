@@ -15,7 +15,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.kidszone.MainActivity;
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.adapter.SliderAdapter;
 
@@ -96,33 +96,23 @@ public class IntroScreen extends AppCompatActivity {
         backBtn.setText("");
 
 
-        nextBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (currentPage == 0) {
-                    sliderAdapter.hidePrivacyPopup();
-                }
-                if (currentPage == 1) {
-                    sliderAdapter.hidePrivacyPopup();
-                }
-                if (currentPage == 2) {
-                    Intent myIntent = new Intent(IntroScreen.this, MainActivity.class);
-                    IntroScreen.this.startActivity(myIntent);
-                    sliderAdapter.showPrivacyPopup();
-                }
-                mSlideViewPager.setCurrentItem(currentPage + 1);
-
+        nextBtn.setOnClickListener(v -> {
+            if (currentPage == 0) {
+                sliderAdapter.hidePrivacyPopup();
             }
+            if (currentPage == 1) {
+                sliderAdapter.hidePrivacyPopup();
+            }
+            if (currentPage == 2) {
+                Intent myIntent = new Intent(IntroScreen.this, HomeActivity.class);
+                IntroScreen.this.startActivity(myIntent);
+                sliderAdapter.showPrivacyPopup();
+            }
+            mSlideViewPager.setCurrentItem(currentPage + 1);
+
         });
 
-        backBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSlideViewPager.setCurrentItem(currentPage - 1);
-
-            }
-        });
-
+        backBtn.setOnClickListener(v -> mSlideViewPager.setCurrentItem(currentPage - 1));
 
     }
 

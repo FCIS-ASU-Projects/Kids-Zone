@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
 import com.example.kidszone.adapter.AllAppAdapter;
-import com.example.kidszone.model.AppModel;
+import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 

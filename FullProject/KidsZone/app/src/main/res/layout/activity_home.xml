@@ -40,14 +40,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        app:layout_constraintVertical_bias="0.431" />
+        app:layout_constraintVertical_bias="0.332" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/freeze_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginRight="48dp"
         android:background="@drawable/gradient_color_orange_white"
         android:text="Freeze"
@@ -62,7 +62,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="48dp"
         android:background="@drawable/gradient_color_orange_white"
         android:text="Specify the age"
@@ -71,5 +71,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/freeze_button" />
+
+    <Switch
+        android:id="@+id/app_switch"
+        android:onClick="onSwitchClicked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/start_monitoring_text"
+        app:layout_constraintVertical_bias="0.007"
+        android:showText="true"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <TextView
+        android:id="@+id/start_monitoring_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/joti_one"
+        android:text="Start Monitoring"
+        android:textColor="#FC1E1E1E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/specify_age_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

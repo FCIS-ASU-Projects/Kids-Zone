@@ -2,7 +2,6 @@ package com.example.kidszone.adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
-import com.example.kidszone.activites.BlockedApps;
-import com.example.kidszone.model.AppModel;
+import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 import java.util.ArrayList;
