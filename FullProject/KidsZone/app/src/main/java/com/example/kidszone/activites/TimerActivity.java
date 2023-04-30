@@ -1,19 +1,27 @@
 package com.example.kidszone.activites;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.PowerManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.kidszone.R;
+import com.example.kidszone.broadcast.LockScreenReceiver;
 import com.example.kidszone.databinding.ActivityFreezeBinding;
+import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.services.TimerService;
 
 import java.util.Locale;
@@ -22,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 public class TimerActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
-    static ActivityFreezeBinding binding;
+    public static ActivityFreezeBinding binding;
     public static int hour,minute;
     public static long milliSeconds,seconds;
     private static long START_TIME_IN_MILLIS = 30*60000;
@@ -36,6 +44,9 @@ public class TimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freeze);
+        getWindow().setStatusBarColor(ContextCompat.getColor(TimerActivity.this, R.color.beige));
+
+        startService(new Intent(TimerActivity.this, LockScreenService.class));
 
         binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -53,6 +64,12 @@ public class TimerActivity extends AppCompatActivity {
 
         binding.resetTimerButton.setOnClickListener(v -> resetTimer());
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     private final View.OnClickListener pickTimeButtonClick = v -> {
         // TODO Auto-generated method stub
         timePicker(v);

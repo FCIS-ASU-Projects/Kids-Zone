@@ -23,6 +23,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -57,6 +58,7 @@ public class BlockedApps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //setTitle("Locked Apps");
         setContentView(R.layout.activity_blocked_apps);
+        getWindow().setStatusBarColor(ContextCompat.getColor(BlockedApps.this, R.color.beige));
         //BackgroundManager.getInstance().init(this).startService();
         //addIconToBar();
         progressDialog = new ProgressDialog(this);

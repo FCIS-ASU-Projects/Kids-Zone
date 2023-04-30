@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.kidszone.HomeActivity;
@@ -78,6 +79,8 @@ public class IntroScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
+        getWindow().setStatusBarColor(ContextCompat.getColor(IntroScreen.this, R.color.beige));
+
         setContentView(R.layout.activity_intro_screen);
         pp_string = getResources().getString(R.string.privacy_policy);
         // getSupportActionBar().hide();

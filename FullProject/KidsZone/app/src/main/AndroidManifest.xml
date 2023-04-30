@@ -92,6 +92,7 @@
             android:enabled="true" />
 
         <service android:name="com.example.kidszone.services.GetBackCoreService"/>
+        <service android:name="com.example.kidszone.services.LockScreenService"/>
 
     </application>
 

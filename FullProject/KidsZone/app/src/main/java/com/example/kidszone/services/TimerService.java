@@ -4,10 +4,14 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
+import android.os.PowerManager;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -15,6 +19,7 @@ import androidx.annotation.Nullable;
 
 import com.example.kidszone.R;
 import com.example.kidszone.activites.TimerActivity;
+import com.example.kidszone.broadcast.LockScreenReceiver;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -52,8 +57,6 @@ public class TimerService extends Service {
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-
-//        TimerActivity.mEndTime = System.currentTimeMillis() + TimerActivity.mTimeLeftInMillis;
 
         new Thread(
                 () -> TimerActivity.mCountDownTimer.start()
@@ -111,6 +114,7 @@ public class TimerService extends Service {
     public void onDestroy() {
         Log.d("TimerService", "Called onDestroy Method");
         Toast.makeText(getApplicationContext(), "TimerService is Destroyed", Toast.LENGTH_LONG).show();
+
         super.onDestroy();
     }
 }

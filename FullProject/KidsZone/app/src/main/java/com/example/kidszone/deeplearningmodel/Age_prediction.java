@@ -45,7 +45,7 @@ public class Age_prediction {
         this.yolo = new Face_detection(yolo_file.getPath(), 0.45f, 0.3f);
         this.age_model=load_model(context);
     }
-    public String detection_prediction(Mat mat)
+    public int detection_prediction(Mat mat)
     {
 
 //        Face_detection yolo = new Face_detection(f.getPath(), 0.45f, 0.3f);
@@ -56,7 +56,7 @@ public class Age_prediction {
         {
             return predict_age(frame);
         }
-        return "faild";
+        return -1;
     }
     private Mobilenetv2BestModel load_model(Context context)
     {
@@ -70,7 +70,7 @@ public class Age_prediction {
         }
         return model;
     }
-    private String predict_age(Bitmap bitmap)
+    private int predict_age(Bitmap bitmap)
     {
         int maxClass = 0;
 
@@ -111,6 +111,6 @@ public class Age_prediction {
             Log.i( "Exception", "failed to predict age");
         }
 
-        return classes[maxClass];
+        return maxClass;
     }
 }

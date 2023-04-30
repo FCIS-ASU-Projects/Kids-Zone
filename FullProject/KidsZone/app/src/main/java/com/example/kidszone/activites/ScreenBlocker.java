@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 
 import com.example.kidszone.R;
 import com.example.kidszone.shared.SharedPrefUtil;
@@ -22,6 +23,7 @@ public class ScreenBlocker extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         // getSupportActionBar().hide(); // TODO REMOOOOOOOVED BY ZAAAAIN
         setContentView(R.layout.activity_screen_blocker);
+        getWindow().setStatusBarColor(ContextCompat.getColor(ScreenBlocker.this, R.color.beige));
         initIconApp();
 
         close_btn = findViewById(R.id.close_block_screen_btn);

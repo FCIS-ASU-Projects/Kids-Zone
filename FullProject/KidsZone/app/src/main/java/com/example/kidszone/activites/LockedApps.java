@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -31,6 +32,7 @@ public class LockedApps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locked_apps_recycler_view);
+        getWindow().setStatusBarColor(ContextCompat.getColor(LockedApps.this, R.color.beige));
         recyclerView = findViewById(R.id.lockedAppsList);
         adapter = new LockedAppAdapter(apps, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

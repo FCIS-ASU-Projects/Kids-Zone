@@ -43,8 +43,8 @@ import java.io.InputStream;
 public class HomeActivity extends AppCompatActivity {
     ActivityHomeBinding binding;
     static Age_prediction AGE_PREDICTION;
-    public static String CURRENT_AGE_CLASS="";
-    private static boolean IS_CAMERA_RUNNING = false;
+    public static int CURRENT_AGE_CLASS=6;
+    public static boolean IS_CAMERA_RUNNING = false;
     private static final String SAVED_IS_CAMERA_RUNNING = "IS_CAMERA_RUNNING";
 
     @Override
