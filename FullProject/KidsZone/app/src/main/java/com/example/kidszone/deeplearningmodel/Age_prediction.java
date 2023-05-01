@@ -32,7 +32,7 @@ public class Age_prediction {
     int imageSize=96;
     private Mobilenetv2BestModel age_model;
     private Face_detection yolo;
-    private static String[] classes = {"0-3","4-6","7-13","14-19","20-32","33-45","46+"};
+    public static String[] classes = {"0-3","4-6","7-13","14-19","20-32","33-45","46+"};
     private static  ImageProcessor imageProcessor =new ImageProcessor.Builder()
             .add(new ResizeOp( 96 , 96 , ResizeOp.ResizeMethod.BILINEAR ) )
             .add(new NormalizeOp(0.0f , 255.0f))

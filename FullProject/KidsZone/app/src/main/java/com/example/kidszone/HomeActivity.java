@@ -6,13 +6,17 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,57 +28,90 @@ import android.widget.Toast;
 import com.example.kidszone.activites.BlockedApps;
 import com.example.kidszone.activites.IntroScreen;
 import com.example.kidszone.activites.TimerActivity;
+import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.deeplearningmodel.Age_prediction;
 import com.example.kidszone.services.BackgroundManager;
 import com.example.kidszone.services.GetBackCoreService;
+import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.shared.SharedPrefUtil;
 import com.google.gson.Gson;
+//import com.google.android.gms.drive.Drive;
+//import com.google.android.gms.drive.Metadata;
+//import com.google.android.gms.common.api.GoogleApiClient;
+//import com.google.android.gms.common.GoogleApiAvailability;
+//import com.google.android.gms.common.api.GoogleApiClient;
+//import com.google.android.gms.common.api.ResultCallback;
+//import com.google.android.gms.games.Games;
+//import com.google.android.gms.games.GamesMetadata;
+//import com.google.android.gms.games.GamesMetadata.LoadGamesResult;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
+import org.opencv.core.Core;
 import org.opencv.core.Mat;
 import org.opencv.imgproc.Imgproc;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
-    ActivityHomeBinding binding;
-    static Age_prediction AGE_PREDICTION;
+    @SuppressLint("StaticFieldLeak")
+    public static ActivityHomeBinding binding;
+    public static Age_prediction AGE_PREDICTION;
     public static int CURRENT_AGE_CLASS=6;
     public static boolean IS_CAMERA_RUNNING = false;
     private static final String SAVED_IS_CAMERA_RUNNING = "IS_CAMERA_RUNNING";
+    static List<AppModel> lockedAppsModel =new ArrayList<>();
+    static List<AppModel> allApps=new ArrayList<>();
+    @SuppressLint("StaticFieldLeak")
+    static Context ctx;
+//    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        ctx = this.getApplicationContext();
         checkAppsFirstTimeLaunch();
-        setContentView(R.layout.activity_home);
+        getPermission();
+        startServices();
+//        getInstallApps();
+
+//        mGoogleApiClient = new GoogleApiClient.Builder(this)
+//                .enableAutoManage(this /* FragmentActivity */, (GoogleApiClient.OnConnectionFailedListener) this /* OnConnectionFailedListener */)
+//                .addApi(Drive.API)
+//                .addScope(Drive.SCOPE_FILE)
+//                .build();
+//        mGoogleApiClient.connect();
         getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.beige));
+        setContentView(R.layout.activity_home);
 
         if (OpenCVLoader.initDebug()) Log.d("LOADER", "SUCCESS");
-        else Log.d("LOADER", "EROR");
+        else Log.d("LOADER", "ERROR");
         loadDeepLearningModels();
-
-        if(AGE_PREDICTION != null)
-            Log.d("AGE_PREDICTION ", "LOADED 2 MODELS");
-        else
-            Log.d("AGE_PREDICTION ", "NOT LOADED 2 MODELS");
-
-        BackgroundManager.getInstance().init(this).startService();
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         View v = binding.getRoot();
         setContentView(v);
 
-        getPermission();
-
         binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
 
         binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
+
+        if(AGE_PREDICTION != null)
+            Log.d("AGE_PREDICTION ", "LOADED 2 MODELS");
+        else
+            Log.d("AGE_PREDICTION ", "NOT LOADED 2 MODELS");
 
         // TODO Delete image from gallery
 //        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/test.jpg");
@@ -82,8 +119,17 @@ public class HomeActivity extends AppCompatActivity {
 //        imageView.setImageResource(com.example.kidszone.R.drawable.dummy);
     }
 
+    private void startServices(){
+        startService(new Intent(HomeActivity.this, LockScreenService.class));
+        BackgroundManager.getInstance().init(this).startService();
+    }
     public void onSwitchClicked(View view){
+
         if(binding.appSwitch.isChecked()){
+            if(AGE_PREDICTION != null)
+                Log.d("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ", "LOADED 2 MODELS");
+            else
+                Log.d("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA ", "NOT LOADED 2 MODELS");
             // TODO Start the Camera Service
             IS_CAMERA_RUNNING = true;
             Toast.makeText(HomeActivity.this,"Camera Is Monitoring NOW",Toast.LENGTH_LONG).show();
@@ -170,7 +216,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
     }
-    private void loadDeepLearningModels(){
+    public void loadDeepLearningModels(){
         try {
             File yolo_file = new File(getCacheDir() + "/yolov5s-face.onnx");
 
@@ -192,8 +238,12 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             AGE_PREDICTION = new Age_prediction(yolo_file,getApplicationContext()); // Loading 2 models, App start (SAVE THIS VAR)
-            // TODO SAVE AGE
 
+            if(AGE_PREDICTION == null)
+                Log.d("SAWAAAAAAAAAAAAAATYYYYYYY", "SAWAAAAAAAAAAAAAATYYYYYYY");
+
+            // TODO SAVE AGE
+            Log.d("SAVING MODELS", "SUCCESS");
         } catch (Exception e) {
             Log.i("Exception", e.getMessage());
         }
@@ -201,10 +251,153 @@ public class HomeActivity extends AppCompatActivity {
     public static void getAgeFromImage(Bitmap bitmap){
         Mat mat = new Mat();
         Utils.bitmapToMat(bitmap, mat);
-        // mat.postRotate(-90); // Need to be from type matrix not Mat
+        Core.rotate(mat, mat, -90);
         Imgproc.cvtColor(mat, mat, Imgproc.COLOR_BGRA2RGB);
 
         CURRENT_AGE_CLASS = AGE_PREDICTION.detection_prediction(mat);
+    }
+    public void getInstallApps(){
+        PackageManager pk = getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_MAIN, null);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> resolveInfoList = pk.queryIntentActivities(intent, 0);
+//        Metadata metadata = new Metadata.Builder(mGoogleApiClient).setPackageName("com.example.kidszone").build();
+//        metadata.load(new MetadataLoadCallback() {
+//            @Override
+//            public void onMetadataLoaded(Metadata metadata) {
+//                int contentRating = metadata.getContentRating().getRating();
+//                Log.d("Age Rating", "The app age rating is: " + contentRating);
+//            }
+//
+//            @Override
+//            public void onMetadataFailed() {
+//                Log.d("Age Rating", "Failed to load metadata");}
+//        });
+
+        for (ResolveInfo resolveInfo : resolveInfoList) {
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            String name = activityInfo.loadLabel(getPackageManager()).toString();
+            Drawable icon = activityInfo.loadIcon(getPackageManager());
+//            String packageName = activityInfo.packageName;
+
+
+
+
+            String packageName = "com.roblox.client";
+           try{
+               Retrofit retrofit = new Retrofit.Builder()
+                       .baseUrl("https://c7c8-197-133-176-174.eu.ngrok.io/") // +"/app-age-rating?package_name="+packageName
+                       // as we are sending data in json format so
+                       // we have to add Gson converter factory
+                       .addConverterFactory(GsonConverterFactory.create())
+                       // at last we are building our retrofit builder.
+                       .build();
+               RetrofitAPI retrofitAPI = retrofit.create(RetrofitAPI.class);
+
+               Call<AppAgeRate> call = retrofitAPI.createPost(packageName);
+               call.enqueue(new Callback<AppAgeRate>() {
+                   @Override
+                   public void onResponse(Call<AppAgeRate> call, Response<AppAgeRate> response) {
+                       if (response.isSuccessful()) {
+                           AppAgeRate appAgeRate = response.body();
+                           String age_response = appAgeRate.getAgeRate();
+                           // Use the message here
+                       } else {
+                           // Handle error here
+                           Log.d("ON RESPONSE", "FAILED RESPONSE");
+                       }
+                   }
+                   @Override
+                   public void onFailure(Call<AppAgeRate> call, Throwable t) {
+                       // Handle failure here
+                       Log.d("onFailure", "FAILED");
+                   }
+               });
+//            allApps.add(new AppModel(name,icon,0,packageName,ageRating));
+           } catch (Exception e) {
+               throw new RuntimeException(e);
+           }
+        }
+    }
+    public static void AUTOMATIC_BLOCK(){
+        if(HomeActivity.IS_CAMERA_RUNNING){
+
+            // classes = {"0-3","4-6","7-13","14-19","20-32","33-45","46+"};
+            String aClass = Age_prediction.classes[CURRENT_AGE_CLASS];
+            int startAge,endAge;
+//            if (!lockedApps.isEmpty()){
+//                lockedApps.clear();
+//            }
+
+//            lockedApps = BlockedApps.lockedAppsList;
+            if (!lockedAppsModel.isEmpty()){
+                lockedAppsModel.clear();
+            }
+//            lockedApps=SharedPrefUtil.getInstance(ctx).getLockedAppsList();
+
+            if(CURRENT_AGE_CLASS!=6){
+                String [] arrOfStr= aClass.split("-",-2);
+                startAge=Integer.parseInt(arrOfStr[0]);
+                endAge=Integer.parseInt(arrOfStr[1]);
+            }
+            else{
+                startAge=46;
+                endAge=100;
+            }
+
+            List<String>lockedAppsPackages=new ArrayList<>();
+            if(allApps.isEmpty()){
+                Log.d("installed","EMPTYYYYYYYYY INSTALLLEEDDDDDDDDD APPPPPPPPS");
+            }
+            for (AppModel a:allApps) {
+
+                // Meta data != NULL
+                if(a.getAgeRating()!=-1){
+
+                    if(a.getAgeRating()>endAge){
+                        if(a.getStatus()==0){ // Not Blocked
+                            a.setStatus(1);
+                            lockedAppsModel.add(a);
+                            //update data
+                            lockedAppsPackages.add(a.getPackageName());
+//                          SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                        }
+                    }
+
+                    else{
+                        if(a.getStatus()==1) {
+                            a.setStatus(0);
+                            lockedAppsModel.remove(a);
+                            //update data
+//                            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                        }
+                    }
+                }
+
+                // Meta data == NULL
+                else{
+                    if(endAge>=13){
+                        if(a.getStatus()==1) {
+                            a.setStatus(0);
+                            lockedAppsModel.remove(a);
+                            //update data
+//                            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+
+                        }
+                    }
+                    else{
+                        if(a.getStatus()==0){
+                            a.setStatus(1);
+                            lockedAppsModel.add(a);
+                            //update data
+                            lockedAppsPackages.add(a.getPackageName());
+//                            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                        }
+                    }
+                }
+            }
+            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedAppsPackages);
+        }
     }
     private void checkAppsFirstTimeLaunch() {
         /*Intent myIntent = new Intent(MainActivity.this, IntroScreen.class);
@@ -250,25 +443,28 @@ public class HomeActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+//        getInstallApps();
+
         // TODO Retrieve saved the variables
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         // SWITCH BUTTON
         IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
 
-        if(IS_CAMERA_RUNNING)
-            binding.appSwitch.setChecked(true);
+        if(IS_CAMERA_RUNNING && !binding.appSwitch.isChecked())
+            binding.appSwitch.performClick();
         else
             binding.appSwitch.setChecked(false);
 
-
         // AGE PREDICTION
-        Gson gson = new Gson();
-        String json = prefs.getString("AGE_PREDICTION", "");
-        AGE_PREDICTION = gson.fromJson(json, Age_prediction.class);
-
-        if(AGE_PREDICTION != null)
+        if(AGE_PREDICTION == null)
+        {
+            Gson gson = new Gson();
+            String json = prefs.getString("AGE_PREDICTION", "");
+            AGE_PREDICTION = gson.fromJson(json, Age_prediction.class);
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NOT NULL");
+        }
+
         else
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
     }

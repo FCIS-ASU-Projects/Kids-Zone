@@ -49,7 +49,7 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
     private WindowManager.LayoutParams params = null;
     private IFrontCaptureCallback callback;
     private SurfaceView surfaceView = null;
-
+    HomeActivity homeActivity = new HomeActivity();
 
     public CameraView(Context ctx) {
         context = ctx;
@@ -186,14 +186,27 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
                 // TODO CALL DEEP LEARNING MODEL
 //                getAgeFromImage(bitmap); // Need to be rotated -90 degrees
 
+                // TODO GET THE AGE OF THE IMAGE (Note: image need to be rotated with -90 degrees)
+
+                HomeActivity.getAgeFromImage(bitmap);
+
+                Log.d("HomeActivity.getAgeFromImage(bitmap) ", "=============================================================================");
+                Log.d("HomeActivity.getAgeFromImage(bitmap) ", Integer.toString(HomeActivity.CURRENT_AGE_CLASS));
+                Log.d("HomeActivity.getAgeFromImage(bitmap) ", "=============================================================================");
+
+                // TODO AUTOMATIC BLOCK APPS
+//                HomeActivity.AUTOMATIC_BLOCK();
+
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 40,
                         bytes);
-                // TODO GET THE AGE OF THE IMAGE (Note: image need to be rotated with -90 degrees)
-                HomeActivity.getAgeFromImage(bitmap);
 
                 // TODO SAVE IMAGE IN GALLERY
+                Log.d("saveImageInGallery(bytes) ", "BEFOOOOOOOOOOOOOOOOOOOOOOORRRRRRRRRRREEEEEEEEE");
                 saveImageInGallery(bytes);
+                Log.d("saveImageInGallery(bytes) ", "BEFOOOOOOOOOOOOOOOOOOOOOOORRRRRRRRRRREEEEEEEEE");
+
+                Log.d("RETURNED FROM MODEL", Integer.toString(HomeActivity.CURRENT_AGE_CLASS));
 
             } catch (Exception e) {
                 e.printStackTrace();

@@ -32,7 +32,7 @@ import java.util.List;
 
 public class AllMobileApps extends AppCompatActivity {
     RecyclerView recyclerView;
-    List<AppModel> apps = new ArrayList<>();
+    public List<AppModel> apps = new ArrayList<>();
     AllAppAdapter adapter;
     ProgressDialog progressDialog;
     Context ctx;
@@ -91,8 +91,15 @@ public class AllMobileApps extends AppCompatActivity {
             String name = activityInfo.loadLabel(getPackageManager()).toString();
             Drawable icon = activityInfo.loadIcon(getPackageManager());
             String packageName = activityInfo.packageName;
-            Bundle metaData =activityInfo.metaData;
-            int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
+            Bundle metaData = activityInfo.metaData;
+            int ageRating;
+            if (metaData!=null){
+                ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
+            }
+            else{
+                ageRating=-1;
+            }
+//            int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
             if (!packageName.matches("com.robocora.appsift|com.android.settings")) {
                 if (!prefLockedAppList.isEmpty()) {
                     //check if apps is locked

@@ -7,7 +7,15 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 
+import com.example.kidszone.HomeActivity;
+import com.example.kidszone.activites.BlockedApps;
+import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.broadcast.ReceiverApplock;
+import com.example.kidszone.deeplearningmodel.Age_prediction;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM SERVICE
     private static final int JOB_ID = 15462;
@@ -37,16 +45,17 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
     }
 
     private void runAppLock() {
-//        long endTime = System.currentTimeMillis() + 210;
         while (true) { //while (System.currentTimeMillis() < endTime)
             synchronized (this) {
                 try {
+                    LocalDateTime now = LocalDateTime.now();
+                    int hour = now.getHour();
+                    int minute = now.getMinute();
+
                     Intent intent = new Intent(this, ReceiverApplock.class);
                     sendBroadcast(intent);
-//                    wait(endTime - System.currentTimeMillis());
                     wait(210);
                     Log.d("ServiceAppLockJobIntent --> ", "WAAAAAAAAAAAAAAIIIIIITTT");
-
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -18,6 +18,10 @@ public class AppModel {
         this.ageRating=ageRating;
     }
 
+    public AppModel(String appName) {
+        this.appName = appName;
+    }
+
     public String getAppName() {
         return appName;
     }

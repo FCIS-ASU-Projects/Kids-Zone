@@ -19,7 +19,6 @@ import androidx.annotation.Nullable;
 
 import com.example.kidszone.R;
 import com.example.kidszone.activites.TimerActivity;
-import com.example.kidszone.broadcast.LockScreenReceiver;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;

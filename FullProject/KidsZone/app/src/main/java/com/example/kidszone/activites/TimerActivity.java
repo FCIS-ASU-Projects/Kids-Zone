@@ -1,5 +1,6 @@
 package com.example.kidszone.activites;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -11,15 +12,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.PowerManager;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
+import android.text.style.UnderlineSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.kidszone.R;
-import com.example.kidszone.broadcast.LockScreenReceiver;
 import com.example.kidszone.databinding.ActivityFreezeBinding;
 import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.services.TimerService;
@@ -36,6 +42,7 @@ public class TimerActivity extends AppCompatActivity {
     private static long START_TIME_IN_MILLIS = 30*60000;
     public static final String SAVED_START_TIME_IN_MILLIS = "START_TIME_IN_MILLIS";
     public static long mTimeLeftInMillis;
+    public static final String SAVED_mTimeLeftInMillis = "SAVED_mTimeLeftInMillis";
     public static boolean mTimerRunning;
 //    public static long mEndTime; // Used to prevent the lag that happens in the timer while rotating the app or close and open it again
     public static CountDownTimer mCountDownTimer;
@@ -46,13 +53,25 @@ public class TimerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_freeze);
         getWindow().setStatusBarColor(ContextCompat.getColor(TimerActivity.this, R.color.beige));
 
-        startService(new Intent(TimerActivity.this, LockScreenService.class));
-
         binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.setTimerButton.setOnClickListener(pickTimeButtonClick);
+
+        String edit_text= "Edit";
+        SpannableString spannableString = new SpannableString(edit_text);
+        ClickableSpan clickableSpan = new ClickableSpan() {
+            @Override
+            public void onClick(@NonNull View view) {
+                // TODO edit the time threshold
+            }
+        };
+        spannableString.setSpan(clickableSpan, 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        binding.editResetThreshold.setText(spannableString);
+        binding.editResetThreshold.setMovementMethod(LinkMovementMethod.getInstance());
+
+
+        binding.setTimerButton.setOnClickListener(view1 -> timePicker());
 
         binding.startTimerButton.setOnClickListener(v -> {
             if (mTimerRunning) {
@@ -70,12 +89,7 @@ public class TimerActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    private final View.OnClickListener pickTimeButtonClick = v -> {
-        // TODO Auto-generated method stub
-        timePicker(v);
-    };
-
-    public void timePicker(View view){
+    public void timePicker(){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (view1, selectedHour, selectedMinute) -> {
             hour = selectedHour;
             minute = selectedMinute;
@@ -186,6 +200,7 @@ public class TimerActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putLong(SAVED_START_TIME_IN_MILLIS, START_TIME_IN_MILLIS);
+        editor.putLong(SAVED_mTimeLeftInMillis, mTimeLeftInMillis);
 
         editor.apply();
     }
@@ -198,25 +213,18 @@ public class TimerActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         START_TIME_IN_MILLIS = prefs.getLong(SAVED_START_TIME_IN_MILLIS, 30*60000); // The second parameter is the value that puts in the 1st parameter if it is empty
+        mTimeLeftInMillis = prefs.getLong(SAVED_mTimeLeftInMillis, 0); // The second parameter is the value that puts in the 1st parameter if it is empty
 
         if(mTimeLeftInMillis==0)
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
-        if (mTimerRunning) {
-//            mEndTime = prefs.getLong("endTime", 0);
-//            mTimeLeftInMillis = mEndTime - System.currentTimeMillis();
-
-            if (mTimeLeftInMillis < 0) {
-                mTimeLeftInMillis = 0;
-                mTimerRunning = false;
-            }
-            updateCountDownText();
-            updateButtons();
+        if (mTimerRunning && mTimeLeftInMillis < 0) {
+            mTimeLeftInMillis = 0;
+            mTimerRunning = false;
         }
 
-        else{
-            updateCountDownText();
-            updateButtons();
-        }
+        updateCountDownText();
+        updateButtons();
+
     }
 }

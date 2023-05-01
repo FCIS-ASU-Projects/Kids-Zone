@@ -20,10 +20,10 @@ import com.example.kidszone.shared.SharedPrefUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockedApps extends AppCompatActivity {
+public class LockedAppsRecyclerView extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    List<AppModel> apps = new ArrayList<>();
+    public List<AppModel> apps = new ArrayList<>();
     LockedAppAdapter adapter;
     ProgressDialog progressDialog;
     Context ctx;
@@ -32,7 +32,7 @@ public class LockedApps extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_locked_apps_recycler_view);
-        getWindow().setStatusBarColor(ContextCompat.getColor(LockedApps.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(LockedAppsRecyclerView.this, R.color.beige));
         recyclerView = findViewById(R.id.lockedAppsList);
         adapter = new LockedAppAdapter(apps, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -54,7 +54,7 @@ public class LockedApps extends AppCompatActivity {
         progressDialog.show();
     }
 
-    public void getLockedApps() {
+    private void getLockedApps() {
         List<String> prefAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
         List<ApplicationInfo> packageInfos = getPackageManager().getInstalledApplications(0);
         for (int i = 0; i < packageInfos.size(); i++) {
@@ -63,7 +63,14 @@ public class LockedApps extends AppCompatActivity {
                 Drawable icon = packageInfos.get(i).loadIcon(getPackageManager());
                 String packageName = packageInfos.get(i).packageName;
                 Bundle metaData =packageInfos.get(i).metaData;
-                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
+                int ageRating;
+                if (metaData!=null){
+                    ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
+                }
+                else{
+                    ageRating=-1;
+                }
+//                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
 
                 if (prefAppList.contains(packageName)) {
                     apps.add(new AppModel(name, icon, 1, packageName,ageRating));
