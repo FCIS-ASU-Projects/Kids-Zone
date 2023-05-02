@@ -11,6 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
@@ -20,7 +21,7 @@ import java.util.List;
 
 public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adapter_design_backend> {
 
-    List<AppModel> apps = new ArrayList<>();
+    List<AppModel> apps;
     Context ctx;
     List<String> lockedApps = new ArrayList<>();
 
@@ -33,8 +34,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
     @Override
     public adapter_design_backend onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(ctx).inflate(R.layout.locked_adapter_design, parent, false);
-        adapter_design_backend design = new adapter_design_backend(view);
-        return design;
+        return new adapter_design_backend(view);
     }
 
     @Override
@@ -42,6 +42,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         AppModel app = apps.get(position);
         holder.appName.setText(app.getAppName());
         holder.appIcon.setImageDrawable(app.getIcon());
+
         if (app.getStatus() == 0) {
             holder.appStatus.setImageResource(R.drawable.locked_icon);
         } else {
@@ -49,18 +50,13 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
             lockedApps.add(app.getPackageName());
         }
 
-
-        holder.appStatus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                app.setStatus(0);
-                lockedApps.remove(app.getPackageName());
-                //update data
-                SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-                deleteItem(holder, position);
-                //((MainActivity)ctx).updateLockedAppsNotification();
-            }
-            /* }*/
+        holder.appStatus.setOnClickListener(v -> {
+            app.setStatus(0);
+            lockedApps.remove(app.getPackageName());
+            // TODO UPDATE DATA
+            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+            deleteItem(holder, position);
+            //((MainActivity)ctx).updateLockedAppsNotification();
         });
     }
 
@@ -76,7 +72,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         holder.itemView.setVisibility(View.GONE);
     }
 
-    public class adapter_design_backend extends RecyclerView.ViewHolder {
+    public static class adapter_design_backend extends RecyclerView.ViewHolder {
         TextView appName;
         ImageView appIcon, appStatus;
 

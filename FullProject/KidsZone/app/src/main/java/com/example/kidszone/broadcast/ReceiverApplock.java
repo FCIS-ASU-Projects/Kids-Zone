@@ -9,19 +9,15 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.activites.ScreenBlocker;
+import com.example.kidszone.services.FreezeService;
 import com.example.kidszone.shared.SharedPrefUtil;
 import com.example.kidszone.utils.BlockAppsUtils;
 
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.List;
 
 public class ReceiverApplock extends BroadcastReceiver {
-    Calendar currentTime;
-    Calendar fromTime;
-    Calendar toTime;
-    Calendar currentDay;
 
     public static void killThisPackageIfRunning(final Context context, String packageName) {
         ActivityManager activityManager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
@@ -42,33 +38,16 @@ public class ReceiverApplock extends BroadcastReceiver {
 
         Log.d("ReceiverApplock: onReceive --> appRunning", appRunning);
 
-        //String lastApp = utils.getLastApp();
-        boolean checkSchedule = prefUtil.getBoolean("confirmSchedule");
-        //List<String> getWeekdaysListString = prefUtil.getDaysList();
-       // String startTimeHour = prefUtil.getStartTimeHour();
-       // String startTimeMin = prefUtil.getStartTimeMinute();
-       // String endTimeHour = prefUtil.getEndTimeHour();
-       // String endTimeMin = prefUtil.getEndTimeMinute();
+        // TODO CHECK IF CURRENT APP FROM BLOCKED APPS & THE CAMERA IS RUNNING
+        if(HomeActivity.IMAGE_CURRENT_AGE_CLASS != -1 && HomeActivity.classFromAge.get(HomeActivity.AGE_TO_BE_BLOCKED_FOR) >= HomeActivity.IMAGE_CURRENT_AGE_CLASS && HomeActivity.IS_CAMERA_RUNNING)
+        {
+            Log.d("ReceiverAppLock: onReceive --> THIS IS BLOCKED APP", appRunning);
+            HomeActivity.IS_BLOCK_ON=true;
 
-        /*if(checkSchedule){
-            if(checkDay(getWeekdaysListString)){
-                if(checkTime(startTimeHour,startTimeMin,endTimeHour,endTimeMin)){
-                    if (lockedApps.contains(appRunning)) {
-                        prefUtil.clearLastApp();
-                        prefUtil.setLastApp(appRunning);
-                        killThisPackageIfRunning(context, appRunning);
-                        Intent i = new Intent(context, ScreenBlocker.class);
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        i.putExtra("broadcast_receiver", "broadcast_receiver");
-                        context.startActivity(i);
-                    }
-                }
-            }
-
-        } else {*/
-            //always BLOCK
-            if (lockedApps.contains(appRunning)) {
-                Log.d("ReceiverApplock: onReceive --> BLOCKED APP", appRunning);
+            // TODO CHECK IF CURRENT APP SHOULD BE BLOCKED FOR CURRENT USER
+            if (lockedApps.contains(appRunning)){
+                // TODO BLOCK THIS APP
+                Log.d("ReceiverAppLock: onReceive --> ", "USER IS SMALLER THAN THRESHOLD");
                 prefUtil.clearLastApp();
                 prefUtil.setLastApp(appRunning);
                 killThisPackageIfRunning(context, appRunning);
@@ -77,42 +56,16 @@ public class ReceiverApplock extends BroadcastReceiver {
                 i.putExtra("broadcast_receiver", "broadcast_receiver");
                 context.startActivity(i);
             }
-       // }
-    }
-
-    public boolean checkTime(String startTimeHour, String startTimeMin, String endTimeHour, String endTimeMin) {
-        try {
-            currentTime = Calendar.getInstance();
-            currentTime.get(Calendar.HOUR_OF_DAY);
-            currentTime.get(Calendar.MINUTE);
-            fromTime = Calendar.getInstance();
-            fromTime.set(Calendar.HOUR_OF_DAY, Integer.valueOf(startTimeHour));
-            fromTime.set(Calendar.MINUTE, Integer.valueOf(startTimeMin));
-            fromTime.set(Calendar.SECOND, 0);
-            fromTime.set(Calendar.MILLISECOND, 0);
-            toTime = Calendar.getInstance();
-            toTime.set(Calendar.HOUR_OF_DAY, Integer.valueOf(endTimeHour));
-            toTime.set(Calendar.MINUTE, Integer.valueOf(endTimeMin));
-            toTime.set(Calendar.SECOND, 0);
-            toTime.set(Calendar.MILLISECOND, 0);
-            if(currentTime.after(fromTime) && currentTime.before(toTime)){
-                return true;
+            else{
+                // TODO DO NOT BLOCK THE APP
+                Log.d("ReceiverAppLock: onReceive --> ", "USER IS BIGGER THAN THRESHOLD");
             }
-        } catch (Exception e) {
-            return false;
         }
-        return false;
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public boolean checkDay(List<String> weekdays){
-        currentDay = Calendar.getInstance();
-        String today = LocalDate.now().getDayOfWeek().name();
-        if(weekdays.contains(today)){
-            return true;
-        } else {
-            return false;
+        else{
+            // TODO DO NOT BLOCK THE APP
+            HomeActivity.IS_BLOCK_ON=false;
+            Log.d("ReceiverAppLock: onReceive --> ", "USER IS BIGGER THAN THRESHOLD");
         }
-    }
 
+    }
 }

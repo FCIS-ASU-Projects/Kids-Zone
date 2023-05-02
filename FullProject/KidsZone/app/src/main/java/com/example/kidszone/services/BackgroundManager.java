@@ -9,7 +9,7 @@ import android.os.Build;
 import com.example.kidszone.broadcast.RestartServiceWhenStopped;
 
 public class BackgroundManager {
-//    private static final int period = 15 * 1000;
+    //    private static final int period = 15 * 1000;
 //    private static final int ALARM_ID = 159874;
     private static BackgroundManager instance;
     private Context context;

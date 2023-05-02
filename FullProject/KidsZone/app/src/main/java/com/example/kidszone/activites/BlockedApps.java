@@ -42,30 +42,24 @@ public class BlockedApps extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     static Context context;
     ImageView allAppsBtn;
-
-    List<AppModel> allInstalledApps = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
     static LockedAppAdapter lockedAppsAdapter = new LockedAppAdapter(lockedAppsList, context);
     RecyclerView recyclerView;
     LockedAppAdapter adapter;
-    //Button setScheduleBtn;
     static ProgressDialog progressDialog;
     @SuppressLint("StaticFieldLeak")
     static LinearLayout emptyLockListInfo;
-    LinearLayout blockingInfoLayout;
     RelativeLayout enableUsageAccess, enableOverlayAccess;
-    TextView btnEnableUsageAccess, btnEnableOverlay, appBarTitle, blockingScheduleDescription,scheduleMode;
+    TextView btnEnableUsageAccess, btnEnableOverlay;
     ImageView checkBoxOverlay, checkBoxUsage;
+    private static List<String> prefAppList;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setTitle("Locked Apps");
         setContentView(R.layout.activity_blocked_apps);
         getWindow().setStatusBarColor(ContextCompat.getColor(BlockedApps.this, R.color.beige));
-        //BackgroundManager.getInstance().init(this).startService();
-
+        final Context context = this;
 
         progressDialog = new ProgressDialog(this);
         emptyLockListInfo = findViewById(R.id.emptyLockListInfo);
@@ -80,76 +74,49 @@ public class BlockedApps extends AppCompatActivity {
         adapter = new LockedAppAdapter(lockedAppsList, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
-        final Context context = this;
+
         toggleEmptyLockListInfo(context);
         getLockedApps(context);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_locked_apps);
-        //blockingInfoLayout = findViewById(R.id.blockingInfoLayout);
-        // blockingScheduleDescription = findViewById(R.id.blockingScheduleDescription);
-        // scheduleMode = findViewById(R.id.scheduleMode);
-        // setScheduleBtn = findViewById(R.id.setScheduleBtn);
 
         showBlockingInfo();
 
-       /* setScheduleBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MainActivity.this, Schedule.class);
-                MainActivity.this.startActivity(myIntent);
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.nav_locked_apps:
+                    return true;
+                case R.id.nav_all_apps:
+                    startActivity(new Intent(getApplicationContext(),
+                            AllMobileApps.class));
+                    overridePendingTransition(0, 0);
+                    return true;
             }
-        });*/
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.nav_locked_apps:
-                        return true;
-                    case R.id.nav_all_apps:
-                        startActivity(new Intent(getApplicationContext(),
-                                AllMobileApps.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    /*case R.id.nav_settings:
-                        startActivity(new Intent(getApplicationContext(),
-                                About.class));
-                        overridePendingTransition(0, 0);
-                        return true;*/
-                }
-                return false;
-            }
+            return false;
         });
-        allAppsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(BlockedApps.this, AllMobileApps.class);
-                startActivity(myIntent);
-            }
+        allAppsBtn.setOnClickListener(v -> {
+            Intent myIntent = new Intent(BlockedApps.this, AllMobileApps.class);
+            startActivity(myIntent);
         });
-        progressDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                toggleEmptyLockListInfo(context);
-                getLockedApps(context);
-            }
+        progressDialog.setOnShowListener(dialog -> {
+            toggleEmptyLockListInfo(context);
+            getLockedApps(context);
         });
 
         //toggle permissions box
         togglePermissionBox();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void showBlockingInfo(){
         SharedPrefUtil prefUtil = SharedPrefUtil.getInstance(this);
         //boolean checkSchedule = prefUtil.getBoolean("confirmSchedule");
-       // String startTimeHour = prefUtil.getStartTimeHour();
-       // String startTimeMin = prefUtil.getStartTimeMinute();
+        // String startTimeHour = prefUtil.getStartTimeHour();
+        // String startTimeMin = prefUtil.getStartTimeMinute();
         //String endTimeHour = prefUtil.getEndTimeHour();
         //String endTimeMin = prefUtil.getEndTimeMinute();
         List<String> appsList = prefUtil.getLockedAppsList();
         //List<String> days = prefUtil.getDaysList();
-       // List<String> shortDaysName = new ArrayList<>();
+        // List<String> shortDaysName = new ArrayList<>();
         //days.forEach(day -> shortDaysName.add(day.substring(0,3)));
         if(appsList.size() > 0){
             /*if(checkSchedule){
@@ -161,58 +128,27 @@ public class BlockedApps extends AppCompatActivity {
             //blockingInfoLayout.setVisibility(View.GONE);
         }
     }
-
-//    private void checkAppsFirstTimeLaunch() {
-//        /*Intent myIntent = new Intent(MainActivity.this, IntroScreen.class);
-//        MainActivity.this.startActivity(myIntent);*/
-//        boolean secondTimePref = SharedPrefUtil.getInstance(this).getBoolean("secondRun");
-//        if (!secondTimePref) {
-//            Intent myIntent = new Intent(BlockedApps.this, IntroScreen.class);
-//            BlockedApps.this.startActivity(myIntent);
-//            SharedPrefUtil.getInstance(this).putBoolean("secondRun", true);
-//        }
-//    }
-
     private void togglePermissionBox() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
-                emptyLockListInfo.setVisibility(View.GONE);
-                btnEnableOverlay.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        overlayPermission();
-                    }
-                });
-                btnEnableUsageAccess.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        accessPermission();
-                    }
-                });
-                if (Settings.canDrawOverlays(this)) {
-                    btnEnableOverlay.setVisibility(View.INVISIBLE);
-                    checkBoxOverlay.setColorFilter(Color.GREEN);
-                }
-                if (isAccessGranted()) {
-                    btnEnableUsageAccess.setVisibility(View.INVISIBLE);
-                    checkBoxUsage.setColorFilter(Color.GREEN);
-                }
-            } else {
-                enableUsageAccess.setVisibility(View.GONE);
-                enableOverlayAccess.setVisibility(View.GONE);
-                toggleEmptyLockListInfo(this);
+        if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
+            emptyLockListInfo.setVisibility(View.GONE);
+
+            btnEnableOverlay.setOnClickListener(v -> overlayPermission());
+            btnEnableUsageAccess.setOnClickListener(v -> accessPermission());
+
+            if (Settings.canDrawOverlays(this)) {
+                btnEnableOverlay.setVisibility(View.INVISIBLE);
+                checkBoxOverlay.setColorFilter(Color.GREEN);
             }
+            if (isAccessGranted()) {
+                btnEnableUsageAccess.setVisibility(View.INVISIBLE);
+                checkBoxUsage.setColorFilter(Color.GREEN);
+            }
+        } else {
+            enableUsageAccess.setVisibility(View.GONE);
+            enableOverlayAccess.setVisibility(View.GONE);
+            toggleEmptyLockListInfo(this);
         }
     }
-
-//    private void addIconToBar() {
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
-//        getSupportActionBar().setLogo(R.mipmap.child_without_background);
-//        getSupportActionBar().setDisplayUseLogoEnabled(true);
-//        setContentView(R.layout.activity_blocked_apps);
-//    }
-
-
     @SuppressLint("NotifyDataSetChanged")
     public static void getLockedApps(Context ctx) {
 //        toggleEmptyLockListInfo(ctx);
@@ -224,18 +160,18 @@ public class BlockedApps extends AppCompatActivity {
                 String name = packageInfos.get(i).loadLabel(ctx.getPackageManager()).toString();
                 Drawable icon = packageInfos.get(i).loadIcon(ctx.getPackageManager());
                 String packageName = packageInfos.get(i).packageName;
-                Bundle metaData =packageInfos.get(i).metaData;
-                int ageRating;
-                if (metaData!=null){
-                    ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
-                }
-                else{
-                    ageRating=-1;
-                }
+//                Bundle metaData =packageInfos.get(i).metaData;
+//                int ageRating;
+//                if (metaData!=null){
+//                    ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
+//                }
+//                else{
+//                    ageRating=-1;
+//                }
 //                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
 
                 if (prefAppList.contains(packageName)) {
-                    lockedAppsList.add(new AppModel(name, icon, 1, packageName,ageRating));
+                    lockedAppsList.add(new AppModel(name, icon, 1, packageName));
                 } else {
                     continue;
                 }
@@ -244,23 +180,14 @@ public class BlockedApps extends AppCompatActivity {
         lockedAppsAdapter.notifyDataSetChanged();
 //        progressDialog.dismiss();
     }
-
     public static void toggleEmptyLockListInfo(Context ctx) {
-//        List<String> prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-//        if (prefAppList.size() > 0) {
-//            emptyLockListInfo.setVisibility(View.GONE);
-//        } else {
-//            emptyLockListInfo.setVisibility(View.VISIBLE);
-//        }
-
-        List<String> prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
+        prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
         if (prefAppList.size() > 0) {
-            emptyLockListInfo.setVisibility(View.VISIBLE);
-        } else {
             emptyLockListInfo.setVisibility(View.GONE);
+        } else {
+            emptyLockListInfo.setVisibility(View.VISIBLE);
         }
     }
-
     private boolean isAccessGranted() {
         try {
             PackageManager packageManager = getPackageManager();
@@ -297,7 +224,8 @@ public class BlockedApps extends AppCompatActivity {
             }
         }
     }
-    // create an action bar button
+
+    // TODO create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.schedule_menu, menu);
@@ -307,16 +235,15 @@ public class BlockedApps extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         togglePermissionBox();
-    }
-    // handle button activities
-    /*@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.scheduleMenuBtn) {
-            Intent myIntent = new Intent(MainActivity.this, Schedule.class);
-            MainActivity.this.startActivity(myIntent);
+        if(prefAppList!=null)
+        {
+            if (prefAppList.size() > 0) {
+                emptyLockListInfo.setVisibility(View.GONE);
+            } else {
+                emptyLockListInfo.setVisibility(View.VISIBLE);
+            }
         }
-        return super.onOptionsItemSelected(item);
-    }*/
+//        toggleEmptyLockListInfo(context);
+    }
 
 }

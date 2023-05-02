@@ -11,8 +11,6 @@ import androidx.annotation.Nullable;
 import com.example.kidszone.broadcast.LockScreenReceiver;
 
 public class LockScreenService extends Service {
-
-
     IntentFilter filter;
     BroadcastReceiver mReceiver;
 

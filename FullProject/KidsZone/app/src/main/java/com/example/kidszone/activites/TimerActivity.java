@@ -44,7 +44,7 @@ public class TimerActivity extends AppCompatActivity {
     public static long mTimeLeftInMillis;
     public static final String SAVED_mTimeLeftInMillis = "SAVED_mTimeLeftInMillis";
     public static boolean mTimerRunning;
-//    public static long mEndTime; // Used to prevent the lag that happens in the timer while rotating the app or close and open it again
+    //    public static long mEndTime; // Used to prevent the lag that happens in the timer while rotating the app or close and open it again
     public static CountDownTimer mCountDownTimer;
 
     @Override
@@ -83,12 +83,10 @@ public class TimerActivity extends AppCompatActivity {
 
         binding.resetTimerButton.setOnClickListener(v -> resetTimer());
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
     }
-
     public void timePicker(){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (view1, selectedHour, selectedMinute) -> {
             hour = selectedHour;
@@ -107,7 +105,6 @@ public class TimerActivity extends AppCompatActivity {
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
-
     private void startTimer() {
 
 //        Intent timerServiceIntent = new Intent(TimerActivity.this, TimerService.class);
@@ -139,7 +136,6 @@ public class TimerActivity extends AppCompatActivity {
 //        mTimerRunning = true;
 //        updateButtons();
     }
-
     private void pauseTimer() {
 
         mCountDownTimer.cancel();
@@ -148,13 +144,11 @@ public class TimerActivity extends AppCompatActivity {
 
         stopService(new Intent(TimerActivity.this, TimerService.class));
     }
-
     private void resetTimer() {
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
         updateCountDownText();
         updateButtons();
     }
-
     public static void updateCountDownText() {
 
         final long hr = TimeUnit.MILLISECONDS.toHours(mTimeLeftInMillis)
@@ -168,7 +162,6 @@ public class TimerActivity extends AppCompatActivity {
 
         binding.textViewTime.setText(timeLeftFormatted);
     }
-
     @SuppressLint("SetTextI18n")
     public static void updateButtons() {
         if (mTimerRunning) {
@@ -190,7 +183,6 @@ public class TimerActivity extends AppCompatActivity {
             }
         }
     }
-
     @Override
     protected void onStop() {
         super.onStop();
@@ -204,7 +196,6 @@ public class TimerActivity extends AppCompatActivity {
 
         editor.apply();
     }
-
     @Override
     protected void onStart() {
         super.onStart();

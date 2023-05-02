@@ -3,19 +3,16 @@ package com.example.kidszone.app_model;
 import android.graphics.drawable.Drawable;
 
 public class AppModel {
-    // int age;
     String appName;
     Drawable icon;
     int status;
     String packageName;
-    int ageRating;
 
-    public AppModel(String appName, Drawable icon, int status, String packageName,int ageRating) {
+    public AppModel(String appName, Drawable icon, int status, String packageName) {
         this.appName = appName;
         this.icon = icon;
         this.status = status;
         this.packageName = packageName;
-        this.ageRating=ageRating;
     }
 
     public AppModel(String appName) {
@@ -40,14 +37,6 @@ public class AppModel {
 
     public int getStatus() {
         return status;
-    }
-
-    public void setAgeRating(int ageRating) {
-        this.ageRating = ageRating;
-    }
-
-    public int getAgeRating() {
-        return ageRating;
     }
 
     public void setStatus(int status) {

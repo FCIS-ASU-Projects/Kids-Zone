@@ -1,5 +1,6 @@
 package com.example.kidszone.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
@@ -23,10 +24,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_design_backend> implements Filterable {
-    List<AppModel> apps = new ArrayList<>();
+    List<AppModel> apps;
     List<AppModel> appsFullList;
     Context ctx;
     List<String> lockedApps = new ArrayList<>(); // Holds only names
+
+    public AllAppAdapter(List<AppModel> apps, Context ctx) {
+        this.apps = apps;
+        this.ctx = ctx;
+        appsFullList = apps;
+    }
     private final Filter appListFilter = new Filter() {
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
@@ -47,6 +54,7 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
             return results;
         }
 
+        @SuppressLint("NotifyDataSetChanged")
         @Override
         protected void publishResults(CharSequence constraint, FilterResults results) {
             apps.clear();
@@ -55,19 +63,11 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
         }
     };
 
-
-    public AllAppAdapter(List<AppModel> apps, Context ctx) {
-        this.apps = apps;
-        this.ctx = ctx;
-        appsFullList = apps;
-    }
-
     @NonNull
     @Override
     public adapter_design_backend onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(ctx).inflate(R.layout.all_adapter_design, parent, false);
-        adapter_design_backend design = new adapter_design_backend(view);
-        return design;
+        return new adapter_design_backend(view);
     }
 
     @Override
@@ -89,47 +89,41 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
             lockedApps.add(app.getPackageName());
         }
 
-        holder.appIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (app.getStatus() == 0) {
-                    app.setStatus(1);
-                    holder.appStatus.setImageResource(R.drawable.locked_icon);
-                    lockedApps.add(app.getPackageName());
-                    holder.appIcon.clearColorFilter();
-                    //update data
-                    SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-                    //((MainActivity)ctx).updateLockedAppsNotification();
-                } else {
-                    app.setStatus(0);
-                    holder.appStatus.setImageResource(0);
-                    lockedApps.remove(app.getPackageName());
-                    holder.appIcon.setColorFilter(filter);
-                    //update data
-                    SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-                    // ((MainActivity)ctx).updateLockedAppsNotification();
-                }
+        holder.appIcon.setOnClickListener(v -> {
+            if (app.getStatus() == 0) {
+                app.setStatus(1);
+                holder.appStatus.setImageResource(R.drawable.locked_icon);
+                lockedApps.add(app.getPackageName());
+                holder.appIcon.clearColorFilter();
+                //update data
+                SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                //((MainActivity)ctx).updateLockedAppsNotification();
+            } else {
+                app.setStatus(0);
+                holder.appStatus.setImageResource(0);
+                lockedApps.remove(app.getPackageName());
+                holder.appIcon.setColorFilter(filter);
+                //update data
+                SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                // ((MainActivity)ctx).updateLockedAppsNotification();
             }
         });
     }
-
     @Override
     public int getItemCount() {
         return apps.size();
     }
-
     @Override
     public Filter getFilter() {
         return appListFilter;
     }
-
+    @SuppressLint("NotifyDataSetChanged")
     public void updateList(ArrayList<AppModel> newList) {
         apps = new ArrayList<>();
         apps.addAll(newList);
         notifyDataSetChanged();
     }
-
-    public class adapter_design_backend extends RecyclerView.ViewHolder {
+    public static class adapter_design_backend extends RecyclerView.ViewHolder {
         TextView appName;
         ImageView appIcon, appStatus;
 
@@ -138,9 +132,6 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
             appName = itemView.findViewById(R.id.appname);
             appIcon = itemView.findViewById(R.id.appicon);
             appStatus = itemView.findViewById(R.id.appstatus);
-
         }
     }
-
-
 }

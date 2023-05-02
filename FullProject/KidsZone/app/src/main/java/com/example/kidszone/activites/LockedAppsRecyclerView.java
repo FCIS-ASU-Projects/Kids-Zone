@@ -26,7 +26,6 @@ public class LockedAppsRecyclerView extends AppCompatActivity {
     public List<AppModel> apps = new ArrayList<>();
     LockedAppAdapter adapter;
     ProgressDialog progressDialog;
-    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,12 +37,7 @@ public class LockedAppsRecyclerView extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                getLockedApps();
-            }
-        });
+        progressDialog.setOnShowListener(dialog -> getLockedApps());
     }
 
     @Override
@@ -62,24 +56,13 @@ public class LockedAppsRecyclerView extends AppCompatActivity {
                 String name = packageInfos.get(i).loadLabel(getPackageManager()).toString();
                 Drawable icon = packageInfos.get(i).loadIcon(getPackageManager());
                 String packageName = packageInfos.get(i).packageName;
-                Bundle metaData =packageInfos.get(i).metaData;
-                int ageRating;
-                if (metaData!=null){
-                    ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
-                }
-                else{
-                    ageRating=-1;
-                }
-//                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
 
                 if (prefAppList.contains(packageName)) {
-                    apps.add(new AppModel(name, icon, 1, packageName,ageRating));
+                    apps.add(new AppModel(name, icon, 1, packageName));
                 } else {
                     continue;
                 }
-
             }
-
         }
         adapter.notifyDataSetChanged();
         progressDialog.dismiss();

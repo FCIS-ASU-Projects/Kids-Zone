@@ -155,34 +155,29 @@ public class GetBackCoreService extends Service implements
             public void run() {
 
                 Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        capturePhoto();
-                    }
-                });
+                handler.post(() -> capturePhoto());
             }
-        }, 10000, 10000);
+        }, 20000, 20000);
     }
     private void capturePhoto() {
         Log.d("capturePhoto","function");
-            new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    CameraUtils.LogUtil.LogD(CameraConstants.LOG_TAG,
-                            "Inside captureThread run");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                CameraUtils.LogUtil.LogD(CameraConstants.LOG_TAG,
+                        "Inside captureThread run");
 
-                    myLooper.prepare();
+                myLooper.prepare();
 
-                    // Check if phone is being used.
-                    CameraView frontCapture = new CameraView(
-                            GetBackCoreService.this.getBaseContext());
-                    frontCapture.capturePhoto(GetBackCoreService.this);
+                // Check if phone is being used.
+                CameraView frontCapture = new CameraView(
+                        GetBackCoreService.this.getBaseContext());
+                frontCapture.capturePhoto(GetBackCoreService.this);
 
-                    myLooper.loop();
-                }
-            }).start();
-        }
+                myLooper.loop();
+            }
+        }).start();
+    }
     private Notification updateNotification() {
 
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,

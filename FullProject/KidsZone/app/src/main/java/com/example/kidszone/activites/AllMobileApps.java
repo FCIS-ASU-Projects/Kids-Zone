@@ -44,20 +44,17 @@ public class AllMobileApps extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(AllMobileApps.this, R.color.beige));
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_all_apps);
-        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.nav_locked_apps:
-                        startActivity(new Intent(getApplicationContext(),
-                                BlockedApps.class));
-                        overridePendingTransition(0, 0);
-                        return true;
-                    case R.id.nav_all_apps:
-                        return true;
-                }
-                return false;
+        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+            switch (item.getItemId()) {
+                case R.id.nav_locked_apps:
+                    startActivity(new Intent(getApplicationContext(),
+                            BlockedApps.class));
+                    overridePendingTransition(0, 0);
+                    return true;
+                case R.id.nav_all_apps:
+                    return true;
             }
+            return false;
         });
 
         recyclerView = findViewById(R.id.recycle_view);
@@ -65,12 +62,7 @@ public class AllMobileApps extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 5));
         recyclerView.setAdapter(adapter);
         progressDialog = new ProgressDialog(this);
-        progressDialog.setOnShowListener(new DialogInterface.OnShowListener() {
-            @Override
-            public void onShow(DialogInterface dialog) {
-                getInstalledApps();
-            }
-        });
+        progressDialog.setOnShowListener(dialog -> getInstalledApps());
     }
     @Override
     protected void onResume() {
@@ -91,25 +83,17 @@ public class AllMobileApps extends AppCompatActivity {
             String name = activityInfo.loadLabel(getPackageManager()).toString();
             Drawable icon = activityInfo.loadIcon(getPackageManager());
             String packageName = activityInfo.packageName;
-            Bundle metaData = activityInfo.metaData;
-            int ageRating;
-            if (metaData!=null){
-                ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
-            }
-            else{
-                ageRating=-1;
-            }
 //            int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
             if (!packageName.matches("com.robocora.appsift|com.android.settings")) {
                 if (!prefLockedAppList.isEmpty()) {
                     //check if apps is locked
                     if (prefLockedAppList.contains(packageName)) {
-                        apps.add(new AppModel(name, icon, 1, packageName,ageRating));
+                        apps.add(new AppModel(name, icon, 1, packageName));
                     } else {
-                        apps.add(new AppModel(name, icon, 0, packageName,ageRating));
+                        apps.add(new AppModel(name, icon, 0, packageName));
                     }
                 } else {
-                    apps.add(new AppModel(name, icon, 0, packageName,ageRating));
+                    apps.add(new AppModel(name, icon, 0, packageName));
                 }
             } else {
                 //do not add settings to app list
