@@ -54,26 +54,26 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
                     Intent intent = new Intent(this, ReceiverApplock.class);
                     sendBroadcast(intent);
 
-                    if(HomeActivity.IS_BLOCK_ON && !TimerActivity.mTimerRunning)
-                    {
-                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
-                        Log.d("START TIMER", "START TIMER");
-                        TimerActivity.mTimerRunning=true;
-                        startService(new Intent(getApplicationContext(), TimerService.class));
-                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
-                    }
-
-                    if(!HomeActivity.IS_BLOCK_ON && TimerActivity.mTimerRunning)
-                    {
-                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
-                        Log.d("PAUSE TIMER", "PAUSE TIMER");
-                        TimerActivity.mCountDownTimer.cancel();
-                        TimerActivity.mTimerRunning = false;
-                        TimerActivity.updateButtons();
-
-                        stopService(new Intent(getApplicationContext(), TimerService.class));
-                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
-                    }
+//                    if(HomeActivity.IS_BLOCK_ON && !TimerActivity.mTimerRunning)
+//                    {
+//                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
+//                        Log.d("START TIMER", "START TIMER");
+//                        TimerActivity.mTimerRunning=true;
+//                        startService(new Intent(getApplicationContext(), TimerService.class));
+//                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
+//                    }
+//
+//                    else if(!HomeActivity.IS_BLOCK_ON && TimerActivity.mTimerRunning)
+//                    {
+//                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
+//                        Log.d("PAUSE TIMER", "PAUSE TIMER");
+//                        TimerActivity.mCountDownTimer.cancel();
+//                        TimerActivity.mTimerRunning = false;
+//                        TimerActivity.updateButtons();
+//
+//                        stopService(new Intent(getApplicationContext(), TimerService.class));
+//                        Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
+//                    }
 
                     wait(210);
 

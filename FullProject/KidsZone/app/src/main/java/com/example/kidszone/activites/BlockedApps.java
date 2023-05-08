@@ -87,6 +87,7 @@ public class BlockedApps extends AppCompatActivity {
                 case R.id.nav_locked_apps:
                     return true;
                 case R.id.nav_all_apps:
+                    this.finish();
                     startActivity(new Intent(getApplicationContext(),
                             AllMobileApps.class));
                     overridePendingTransition(0, 0);
@@ -96,6 +97,7 @@ public class BlockedApps extends AppCompatActivity {
         });
         allAppsBtn.setOnClickListener(v -> {
             Intent myIntent = new Intent(BlockedApps.this, AllMobileApps.class);
+            this.finish();
             startActivity(myIntent);
         });
         progressDialog.setOnShowListener(dialog -> {

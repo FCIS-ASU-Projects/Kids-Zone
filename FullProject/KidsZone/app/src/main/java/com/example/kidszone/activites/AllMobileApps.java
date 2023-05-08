@@ -44,9 +44,12 @@ public class AllMobileApps extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(AllMobileApps.this, R.color.beige));
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_all_apps);
+
+
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_locked_apps:
+                    this.finish();
                     startActivity(new Intent(getApplicationContext(),
                             BlockedApps.class));
                     overridePendingTransition(0, 0);
