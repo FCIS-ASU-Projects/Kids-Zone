@@ -15,13 +15,11 @@ public class ServiceAppLock extends IntentService { // NOT USED TIMER SARA FREEZ
     }
 
     private void runAppLock() {
-//        long endTime = System.currentTimeMillis() + 210;
-        while(true) { //while (System.currentTimeMillis() < endTime)
+        while(true) {
             synchronized (this) {
                 try {
                     Intent intent = new Intent(this, ReceiverApplock.class);
                     sendBroadcast(intent);
-//                    wait(endTime - System.currentTimeMillis());
                     wait(210);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
@@ -33,14 +31,12 @@ public class ServiceAppLock extends IntentService { // NOT USED TIMER SARA FREEZ
     @Override
     public int onStartCommand(@Nullable Intent intent, int flags, int startId) {
         runAppLock();
-        // return super.onStartCommand(intent, flags, startId);
         return START_STICKY;
     }
 
     @Override
     public void onTaskRemoved(Intent rootIntent) {
         BackgroundManager.getInstance().init(this).startService();
-//        BackgroundManager.getInstance().init(this).startAlarmManager();
         super.onTaskRemoved(rootIntent);
     }
 
@@ -52,7 +48,6 @@ public class ServiceAppLock extends IntentService { // NOT USED TIMER SARA FREEZ
     @Override
     public void onDestroy() {
         BackgroundManager.getInstance().init(this).startService();
-//        BackgroundManager.getInstance().init(this).startAlarmManager();
         super.onDestroy();
     }
 }

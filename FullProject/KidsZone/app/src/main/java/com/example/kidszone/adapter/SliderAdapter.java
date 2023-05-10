@@ -21,14 +21,14 @@ public class SliderAdapter extends PagerAdapter {
             R.drawable.icon3
     };
     public String[] slide_headings = {
-            "Welcome to AppBlockr",
+            "Welcome to AppBlocker",
             "Simple blocker",
             "Free from distractions"
     };
     public String[] slide_description = {
             "A simple way to block distractions from social media apps.",
-            "Unlike other app blockers, AppBlockr will do what it's exactly made for.",
-            "By continuing, you agree to our privacy policy"
+            "Unlike other app blockers, AppBlocker will do what it's exactly made for.",
+            "By continuing, you agree to our privacy policy."
     };
     Context context;
     LayoutInflater layoutInflater;
@@ -66,7 +66,6 @@ public class SliderAdapter extends PagerAdapter {
         container.addView(view);
 
         return view;
-
     }
 
     @Override
@@ -82,6 +81,4 @@ public class SliderAdapter extends PagerAdapter {
     public void showPrivacyPopup() {
         privacyPopup.setVisibility(View.VISIBLE);
     }
-
-
 }

@@ -1,4 +1,3 @@
-
 package com.example.kidszone.hiddencamera;
 
 import java.io.ByteArrayOutputStream;
@@ -49,7 +48,6 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
     private WindowManager.LayoutParams params = null;
     private IFrontCaptureCallback callback;
     private SurfaceView surfaceView = null;
-    HomeActivity homeActivity = new HomeActivity();
 
     public CameraView(Context ctx) {
         context = ctx;
@@ -160,28 +158,6 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
                 BitmapFactory.Options opts = new BitmapFactory.Options();
                 Bitmap bitmap = BitmapFactory.decodeByteArray(data, 0,
                         data.length, opts);
-//                bitmap = Bitmap.createScaledBitmap(bitmap, 300, 300, false);
-//                int width = bitmap.getWidth();
-//                int height = bitmap.getHeight();
-//                int newWidth = 300;
-//                int newHeight = 300;
-//
-//                // calculate the scale - in this case = 0.4f
-//                float scaleWidth = ((float) newWidth) / width;
-//                float scaleHeight = ((float) newHeight) / height;
-//
-//                // create matrix for the manipulation
-//                Matrix matrix = new Matrix();
-//                // resize the bit map
-//                matrix.postScale(scaleWidth, scaleHeight);
-//                // rotate the Bitmap
-//                matrix.postRotate(-90);
-//                Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0,
-//                        width, height, matrix, true);
-
-//                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-//                resizedBitmap.compress(Bitmap.CompressFormat.JPEG, 40,
-//                        bytes);
 
                 // TODO GET THE AGE OF THE IMAGE (Note: image need to be rotated with -90 degrees)
                 HomeActivity.getAgeFromImage(bitmap);
@@ -197,17 +173,13 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
 
                 // TODO SAVE IMAGE IN GALLERY
-                Log.d("saveImageInGallery(bytes) ", "BEFOOOOOOOOOOOOOOOOOOOOOOORRRRRRRRRRREEEEEEEEE");
                 saveImageInGallery(bytes);
-                Log.d("saveImageInGallery(bytes) ", "AFFFFFFFTTTTTTTTTTTTTTTTEEEEEEEEERRRRRRRRRRRR");
 
                 Log.d("RETURNED FROM MODEL", Integer.toString(HomeActivity.IMAGE_CURRENT_AGE_CLASS));
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            // StoreByteImage(mContext, imageData, 50,"ImageName");
-            // setResult(FOTO_MODE, mIntent);
         }
 
         GetBackCoreService getBackCoreService=new GetBackCoreService();
@@ -246,7 +218,7 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
             // TODO Auto-generated catch block
         }
 
-        // remember close de FileOutput
+        // remember close the FileOutput
         try {
             fo.close();
             if (Build.VERSION.SDK_INT < 19)

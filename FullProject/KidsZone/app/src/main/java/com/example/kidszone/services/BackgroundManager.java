@@ -9,8 +9,6 @@ import android.os.Build;
 import com.example.kidszone.broadcast.RestartServiceWhenStopped;
 
 public class BackgroundManager {
-    //    private static final int period = 15 * 1000;
-//    private static final int ALARM_ID = 159874;
     private static BackgroundManager instance;
     private Context context;
 
@@ -48,25 +46,4 @@ public class BackgroundManager {
             }
         }
     }
-
-    public void stopService(Class<?> serviceClass) {
-        if (isServiceRunning(serviceClass)) {
-            context.stopService(new Intent(context, serviceClass));
-        }
-    }
-
-    public void startAlarmManager() {
-        Intent intent = new Intent(context, RestartServiceWhenStopped.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//        manager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + period, pendingIntent);
-    }
-
-    public void stopAlarm() {
-        Intent intent = new Intent(context, RestartServiceWhenStopped.class);
-//        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, ALARM_ID, intent, 0);
-        AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-//        manager.cancel(pendingIntent);
-    }
-
 }

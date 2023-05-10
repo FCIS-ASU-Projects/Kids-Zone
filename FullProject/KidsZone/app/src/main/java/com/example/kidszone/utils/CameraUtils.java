@@ -11,7 +11,6 @@ import com.example.kidszone.shared.CameraConstants;
 
 public class CameraUtils {
     public static boolean isFrontCameraPresent(Context context) {
-        // Utils.context = context.getApplicationContext();
 
         boolean result = false;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {

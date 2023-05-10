@@ -35,7 +35,6 @@ public class AllMobileApps extends AppCompatActivity {
     public List<AppModel> apps = new ArrayList<>();
     AllAppAdapter adapter;
     ProgressDialog progressDialog;
-    Context ctx;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

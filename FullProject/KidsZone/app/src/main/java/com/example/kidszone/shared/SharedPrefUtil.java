@@ -2,17 +2,15 @@ package com.example.kidszone.shared;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SharedPrefUtil {
     private static final String SHARED_APP_PREFERENCE_NAME = "SharedPref";
-    Context cxt;
     private final String EXTRA_LAST_APP = "EXTRA_LAST_APP";
     private final SharedPreferences pref;
-//    private SharedPreferences.Editor mEditor;
-//    BlockProfile blockProfile;
 
     public SharedPrefUtil(Context context) {
         this.pref = context.getSharedPreferences(SHARED_APP_PREFERENCE_NAME, Context.MODE_PRIVATE);
@@ -21,7 +19,6 @@ public class SharedPrefUtil {
     public static SharedPrefUtil getInstance(Context context) {
         return new SharedPrefUtil(context);
     }
-
 
     public void putString(String key, String value) {
         pref.edit().putString(key, value).apply();
@@ -55,9 +52,7 @@ public class SharedPrefUtil {
         putString(EXTRA_LAST_APP, packageName);
     }
 
-    public void clearLastApp() {
-        pref.edit().remove(EXTRA_LAST_APP);
-    }
+    public void clearLastApp() {pref.edit().remove(EXTRA_LAST_APP);}
 
     //add apps to locked list
     public void createLockedAppsList(List<String> appList) {
@@ -92,46 +87,4 @@ public class SharedPrefUtil {
         }
         return temp;
     }
-   /* public void setDaysList(List<String> daysList) {
-        for (int i = 0; i < daysList.size(); i++) {
-            putString("day_" + i, daysList.get(i));
-        }
-        putInteger("daysListSize", daysList.size());
-    }
-
-    public List<String> getDaysList() {
-        List<String> temp = new ArrayList<>();
-        int size = getInteger("daysListSize");
-        for (int i = 0; i < size; i++) {
-            temp.add(getString("day_" + i));
-        }
-        return temp;
-    }*/
-    //start time
-   /* public void setStartTimeHour(String date) {
-       putString("start_hour", date);
-    }
-    public String getStartTimeHour() {
-       return getString("start_hour");
-    }
-    public void setStartTimeMinute(String date) {
-        putString("start_minute", date);
-    }
-    public String getStartTimeMinute() {
-        return getString("start_minute");
-    }
-    //endTime
-    public void setEndTimeHour(String date) {
-         putString("end_hour", date);
-    }
-    public String getEndTimeHour() {
-        return getString("end_hour");
-    }
-    public void setEndTimeMinute(String date) {
-        putString("end_minute", date);
-    }
-    public String getEndTimeMinute() {
-        return getString("end_minute");
-    }*/
-
 }

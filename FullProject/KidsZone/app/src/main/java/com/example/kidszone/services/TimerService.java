@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.activites.TimerActivity;
 
@@ -50,6 +51,7 @@ public class TimerService extends Service {
                 Toast.makeText(getApplicationContext(), "TIMER IS FINISHED", Toast.LENGTH_LONG).show();
 
                 // TODO Freeze the mobile
+                HomeActivity.IS_FREEZE_ON = true;
                 startService(new Intent(getApplicationContext(), FreezeService.class));
             }
         };

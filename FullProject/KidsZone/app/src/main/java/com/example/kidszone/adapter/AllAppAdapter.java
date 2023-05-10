@@ -72,7 +72,6 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
 
     @Override
     public void onBindViewHolder(@NonNull adapter_design_backend holder, int position) {
-        Log.d("AllAppAdapter.java: Position", Integer.toString(position));
         AppModel app = apps.get(position);
         holder.appName.setText(app.getAppName());
         holder.appIcon.setImageDrawable(app.getIcon());
@@ -95,17 +94,15 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
                 holder.appStatus.setImageResource(R.drawable.locked_icon);
                 lockedApps.add(app.getPackageName());
                 holder.appIcon.clearColorFilter();
-                //update data
+                // TODO update data
                 SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-                //((MainActivity)ctx).updateLockedAppsNotification();
             } else {
                 app.setStatus(0);
                 holder.appStatus.setImageResource(0);
                 lockedApps.remove(app.getPackageName());
                 holder.appIcon.setColorFilter(filter);
-                //update data
+                // TODO update data
                 SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-                // ((MainActivity)ctx).updateLockedAppsNotification();
             }
         });
     }

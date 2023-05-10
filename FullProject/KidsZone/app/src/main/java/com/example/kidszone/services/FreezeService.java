@@ -68,5 +68,4 @@ public class FreezeService extends Service {
         if(mFloatingView!=null)
             windowManager.removeView(mFloatingView);
     }
-
 }

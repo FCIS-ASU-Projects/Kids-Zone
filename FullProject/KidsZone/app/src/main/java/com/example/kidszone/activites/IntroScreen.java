@@ -59,12 +59,7 @@ public class IntroScreen extends AppCompatActivity {
                 backBtn.setVisibility(View.INVISIBLE);
                 nextBtn.setText("Accept");
                 backBtn.setText("");
-                sliderAdapter.privacyPopup.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        popupMessage(pp_string, "Privacy Policy");
-                    }
-                });
+                sliderAdapter.privacyPopup.setOnClickListener(v -> popupMessage(pp_string, "Privacy Policy"));
             }
         }
 
@@ -83,7 +78,6 @@ public class IntroScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_intro_screen);
         pp_string = getResources().getString(R.string.privacy_policy);
-        // getSupportActionBar().hide();
         mSlideViewPager = findViewById(R.id.slideViewPager);
         mDotLayout = findViewById(R.id.layout_dots);
         nextBtn = findViewById(R.id.nextBtn);

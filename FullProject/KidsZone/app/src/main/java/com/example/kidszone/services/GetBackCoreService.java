@@ -24,7 +24,6 @@ import android.widget.Toast;
 import com.example.kidszone.R;
 import com.example.kidszone.hiddencamera.CameraView;
 import com.example.kidszone.shared.CameraConstants;
-import com.example.kidszone.shared.GetBackFeatures;
 import com.example.kidszone.shared.GetBackStateFlags;
 import com.example.kidszone.shared.IFrontCaptureCallback;
 import com.example.kidszone.utils.CameraUtils;
@@ -40,10 +39,9 @@ public class GetBackCoreService extends Service implements
     private SharedPreferences preferences;
     private String photoPath = null;
     private static GetBackStateFlags stateFlags = new GetBackStateFlags();
-    private static GetBackFeatures features = new GetBackFeatures();
     public static Timer ten_seconds_timer;
     Looper myLooper = Looper.myLooper();
-    private static boolean isModeActive = false;
+
     private static class ActionLocks {
         public AtomicBoolean lockCapture;
         public AtomicBoolean lockSmsSend;

@@ -36,17 +36,21 @@ public class ReceiverApplock extends BroadcastReceiver {
         List<String> lockedApps = prefUtil.getLockedAppsList();
         String appRunning = utils.getLauncherTopApp();
 
-        Log.d("ReceiverApplock: onReceive --> appRunning", appRunning);
+        if(appRunning == null)
+            Log.d("ReceiverAppLock: onReceive --> appRunning", "NULL");
+        else
+            Log.d("ReceiverAppLock: onReceive --> appRunning", appRunning);
 
-        // TODO CHECK IF CURRENT APP FROM BLOCKED APPS & THE CAMERA IS RUNNING
-        if(HomeActivity.IMAGE_CURRENT_AGE_CLASS != -1 && HomeActivity.classFromAge.get(HomeActivity.AGE_TO_BE_BLOCKED_FOR) >= HomeActivity.IMAGE_CURRENT_AGE_CLASS && HomeActivity.IS_CAMERA_RUNNING)
+        // TODO CHECK IF THE USER IS UNDER AGE THRESHOLD & THE CAMERA IS RUNNING
+        if(HomeActivity.IMAGE_CURRENT_AGE_CLASS != -1 && HomeActivity.IMAGE_CURRENT_AGE_CLASS <= HomeActivity.classFromAge.get(HomeActivity.AGE_TO_BE_BLOCKED_FOR)  && HomeActivity.IS_CAMERA_RUNNING)
         {
-            Log.d("ReceiverAppLock: onReceive --> THIS IS BLOCKED APP", appRunning);
+            Log.d("ReceiverAppLock: onReceive -->", "BLOCKING MODE IS ON");
             HomeActivity.IS_BLOCK_ON=true;
 
             // TODO CHECK IF CURRENT APP SHOULD BE BLOCKED FOR CURRENT USER
             if (lockedApps.contains(appRunning)){
                 // TODO BLOCK THIS APP
+                Log.d("ReceiverAppLock: onReceive --> THIS IS BLOCKED APP", appRunning);
                 Log.d("ReceiverAppLock: onReceive --> ", "USER IS SMALLER THAN THRESHOLD");
                 prefUtil.clearLastApp();
                 prefUtil.setLastApp(appRunning);
@@ -66,6 +70,5 @@ public class ReceiverApplock extends BroadcastReceiver {
             HomeActivity.IS_BLOCK_ON=false;
             Log.d("ReceiverAppLock: onReceive --> ", "USER IS BIGGER THAN THRESHOLD");
         }
-
     }
 }

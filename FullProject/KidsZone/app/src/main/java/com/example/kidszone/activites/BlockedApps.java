@@ -80,8 +80,6 @@ public class BlockedApps extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.nav_locked_apps);
 
-        showBlockingInfo();
-
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_locked_apps:
@@ -107,49 +105,6 @@ public class BlockedApps extends AppCompatActivity {
 
         //toggle permissions box
         togglePermissionBox();
-    }
-
-    private void showBlockingInfo(){
-        SharedPrefUtil prefUtil = SharedPrefUtil.getInstance(this);
-        //boolean checkSchedule = prefUtil.getBoolean("confirmSchedule");
-        // String startTimeHour = prefUtil.getStartTimeHour();
-        // String startTimeMin = prefUtil.getStartTimeMinute();
-        //String endTimeHour = prefUtil.getEndTimeHour();
-        //String endTimeMin = prefUtil.getEndTimeMinute();
-        List<String> appsList = prefUtil.getLockedAppsList();
-        //List<String> days = prefUtil.getDaysList();
-        // List<String> shortDaysName = new ArrayList<>();
-        //days.forEach(day -> shortDaysName.add(day.substring(0,3)));
-        if(appsList.size() > 0){
-            /*if(checkSchedule){
-                scheduleMode.setText("Every " +String.join(", ", shortDaysName) +" from "+ startTimeHour+":"+startTimeMin+" to "+endTimeHour+":"+endTimeMin);
-            } else {
-                scheduleMode.setText("Always Blocking");
-            }*/
-        } else {
-            //blockingInfoLayout.setVisibility(View.GONE);
-        }
-    }
-    private void togglePermissionBox() {
-        if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
-            emptyLockListInfo.setVisibility(View.GONE);
-
-            btnEnableOverlay.setOnClickListener(v -> overlayPermission());
-            btnEnableUsageAccess.setOnClickListener(v -> accessPermission());
-
-            if (Settings.canDrawOverlays(this)) {
-                btnEnableOverlay.setVisibility(View.INVISIBLE);
-                checkBoxOverlay.setColorFilter(Color.GREEN);
-            }
-            if (isAccessGranted()) {
-                btnEnableUsageAccess.setVisibility(View.INVISIBLE);
-                checkBoxUsage.setColorFilter(Color.GREEN);
-            }
-        } else {
-            enableUsageAccess.setVisibility(View.GONE);
-            enableOverlayAccess.setVisibility(View.GONE);
-            toggleEmptyLockListInfo(this);
-        }
     }
     @SuppressLint("NotifyDataSetChanged")
     public static void getLockedApps(Context ctx) {
@@ -181,6 +136,27 @@ public class BlockedApps extends AppCompatActivity {
         }
         lockedAppsAdapter.notifyDataSetChanged();
 //        progressDialog.dismiss();
+    }
+    private void togglePermissionBox() {
+        if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
+            emptyLockListInfo.setVisibility(View.GONE);
+
+            btnEnableOverlay.setOnClickListener(v -> overlayPermission());
+            btnEnableUsageAccess.setOnClickListener(v -> accessPermission());
+
+            if (Settings.canDrawOverlays(this)) {
+                btnEnableOverlay.setVisibility(View.INVISIBLE);
+                checkBoxOverlay.setColorFilter(Color.GREEN);
+            }
+            if (isAccessGranted()) {
+                btnEnableUsageAccess.setVisibility(View.INVISIBLE);
+                checkBoxUsage.setColorFilter(Color.GREEN);
+            }
+        } else {
+            enableUsageAccess.setVisibility(View.GONE);
+            enableOverlayAccess.setVisibility(View.GONE);
+            toggleEmptyLockListInfo(this);
+        }
     }
     public static void toggleEmptyLockListInfo(Context ctx) {
         prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
@@ -245,7 +221,6 @@ public class BlockedApps extends AppCompatActivity {
                 emptyLockListInfo.setVisibility(View.VISIBLE);
             }
         }
-//        toggleEmptyLockListInfo(context);
     }
 
 }

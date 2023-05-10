@@ -2,7 +2,6 @@ package com.example.kidszone.broadcast;
 
 import static android.content.Context.POWER_SERVICE;
 
-
 import static androidx.core.content.ContextCompat.getSystemService;
 
 import android.content.BroadcastReceiver;

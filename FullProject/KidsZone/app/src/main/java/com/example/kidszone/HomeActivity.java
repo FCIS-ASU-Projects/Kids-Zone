@@ -64,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public static ActivityHomeBinding binding;
     public static Age_prediction AGE_PREDICTION;
-    public static int IMAGE_CURRENT_AGE_CLASS =6;
+    public static int IMAGE_CURRENT_AGE_CLASS = -1;
     public static String AGE_TO_BE_BLOCKED_FOR ="-13";
     public static String SAVED_AGE_TO_BE_BLOCKED_FOR ="SAVED_AGE_TO_BE_BLOCKED_FOR";
     public static String SAVED_SWITCH_STATE ="SAVED_SWITCH_STATE";
@@ -72,32 +72,31 @@ public class HomeActivity extends AppCompatActivity {
     public static boolean IS_CAMERA_RUNNING = false;
     private static final String SAVED_IS_CAMERA_RUNNING = "IS_CAMERA_RUNNING";
     public static boolean IS_BLOCK_ON = false;
+    public static boolean IS_FREEZE_ON = false;
+    public static boolean IS_TIMER_FOR_TODAY_FINISHED = false;
     private final String[] ages_classes = {"-3","-6","-13","-19"};
-    public static Dictionary<String, Integer> classFromAge;
+    public static Dictionary<String, Integer>classFromAge;
     @SuppressLint("StaticFieldLeak")
     static Context ctx;
 
-    //    static List<AppModel> lockedAppsModel =new ArrayList<>();
+//    static List<AppModel> lockedAppsModel =new ArrayList<>();
 //    static List<AppModel> allApps=new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ctx = this.getApplicationContext();
-        checkAppsFirstTimeLaunch();
         getPermission();
+
+        getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.beige));
+        setContentView(R.layout.activity_home);
+
+        checkAppsFirstTimeLaunch();
+
         startServices();
         setAgeFromClassDict();
 //        getInstallApps();
 
-//        mGoogleApiClient = new GoogleApiClient.Builder(this)
-//                .enableAutoManage(this /* FragmentActivity */, (GoogleApiClient.OnConnectionFailedListener) this /* OnConnectionFailedListener */)
-//                .addApi(Drive.API)
-//                .addScope(Drive.SCOPE_FILE)
-//                .build();
-//        mGoogleApiClient.connect();
-        getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.beige));
-        setContentView(R.layout.activity_home);
 
         if (OpenCVLoader.initDebug()) Log.d("LOADER", "SUCCESS");
         else Log.d("LOADER", "ERROR");
@@ -130,11 +129,10 @@ public class HomeActivity extends AppCompatActivity {
         classFromAge.put("-32", 4);
         classFromAge.put("-45",5);
         classFromAge.put("+46", 6);
-//        classFromAge.put(-1, "+46");
+        classFromAge.put("NOTHING", -1);
     }
     private void startServices(){
         startService(new Intent(HomeActivity.this, LockScreenService.class));
-//        startService(new Intent(HomeActivity.this, TimerStartsWithBlockService.class));
         BackgroundManager.getInstance().init(this).startService();
     }
     @SuppressLint("SetTextI18n")
@@ -183,7 +181,7 @@ public class HomeActivity extends AppCompatActivity {
         else {
             // TODO Stop the Camera Service
             IS_CAMERA_RUNNING = false;
-            IMAGE_CURRENT_AGE_CLASS = 6;
+            IMAGE_CURRENT_AGE_CLASS = -1;
             SWITCH_STATE = false;
             Toast.makeText(HomeActivity.this,"Camera Stopped Monitoring",Toast.LENGTH_LONG).show();
             if(GetBackCoreService.ten_seconds_timer != null){
@@ -191,26 +189,11 @@ public class HomeActivity extends AppCompatActivity {
                 stopService(new Intent(HomeActivity.this, GetBackCoreService.class));
             }
         }
+
     }
     public void getPermission(){
-        //check for alert window permission
-//        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(this))
-//        {
-//            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
-//            startActivityForResult(intent, 1);
-//        }
-
-        // ZAIN CODE
-//        if(!Settings.canDrawOverlays(this))
-//        {
-//            Intent intent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:"+getPackageName()));
-//            startActivityForResult(intent, 1);
-//        }
-
-        // HEBA PERMISSIONS
         overlayPermission();
         accessPermission();
-
     }
     private boolean isAccessGranted() {
         try {
@@ -234,7 +217,6 @@ public class HomeActivity extends AppCompatActivity {
     public void accessPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (!isAccessGranted()) {
-                //Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
                 Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
                 startActivityForResult(intent, 102);
             }
@@ -445,8 +427,6 @@ public class HomeActivity extends AppCompatActivity {
 //        }
 //    }
     private void checkAppsFirstTimeLaunch() {
-        /*Intent myIntent = new Intent(MainActivity.this, IntroScreen.class);
-        MainActivity.this.startActivity(myIntent);*/
         boolean secondTimePref = SharedPrefUtil.getInstance(this).getBoolean("secondRun");
         if (!secondTimePref) {
             Intent myIntent = new Intent(HomeActivity.this, IntroScreen.class);
@@ -502,11 +482,11 @@ public class HomeActivity extends AppCompatActivity {
             // TODO Start the Camera Service
             SWITCH_STATE = true;
             Toast.makeText(HomeActivity.this,"Camera Is Monitoring NOW",Toast.LENGTH_LONG).show();
-            if(Build.VERSION.SDK_INT >25){
-                startForegroundService(new Intent(HomeActivity.this, GetBackCoreService.class));
-            }else{
-                startService(new Intent(HomeActivity.this, GetBackCoreService.class));
-            }
+//            if(Build.VERSION.SDK_INT >25){
+//                startForegroundService(new Intent(HomeActivity.this, GetBackCoreService.class));
+//            }else{
+//                startService(new Intent(HomeActivity.this, GetBackCoreService.class));
+//            }
         }
 
         else

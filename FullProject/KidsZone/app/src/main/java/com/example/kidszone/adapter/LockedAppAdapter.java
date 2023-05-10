@@ -56,7 +56,6 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
             // TODO UPDATE DATA
             SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
             deleteItem(holder, position);
-            //((MainActivity)ctx).updateLockedAppsNotification();
         });
     }
 

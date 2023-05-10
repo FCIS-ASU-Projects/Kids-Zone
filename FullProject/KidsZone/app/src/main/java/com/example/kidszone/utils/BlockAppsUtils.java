@@ -17,56 +17,17 @@ import java.util.List;
 import static android.app.AppOpsManager.MODE_ALLOWED;
 
 public class BlockAppsUtils {
-
     UsageStatsManager usageStatsManager;
-    private final String EXTRA_LAST_APP = "EXTRA_LAST_APP";
-    private final String LOCKED_APPS = "LOCKED_APPS";
     private final Context context;
-
-  /*  public boolean isLock(String packageName){
-        Log.d("IS LOCK: ", packageName);
-        //return Paper.book().read(packageName) != null;
-    }
-
-    public void lock(String packageName){
-        Log.d("LOCK: ", packageName);
-        //Paper.book().write(packageName,packageName);
-    }
-
-    public void unLock(String packageName){
-        Log.d("DELETE: ", packageName);
-//        Paper.book().delete(packageName);
-    }
-
-    public void setLastApp(String packageName){
-//        Paper.book().write(EXTRA_LAST_APP, packageName);
-    }
-
-
-    public String getLastApp(){
-//        return Paper.book().read(EXTRA_LAST_APP);
-    }
-
-    public void clearLastApp(){
-//        Paper.book().delete(EXTRA_LAST_APP);
-    }*/
 
     public BlockAppsUtils(Context context) {
         this.context = context;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-    public static boolean checkPermission(Context ctx) {
-        AppOpsManager appOpsManager = null;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            appOpsManager = (AppOpsManager) ctx.getSystemService(Context.APP_OPS_SERVICE);
-        }
-        int mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS, Process.myUid(), ctx.getPackageName());
-        return mode == MODE_ALLOWED;
-    }
-
     public String getLauncherTopApp() {
+
         ActivityManager manager = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             usageStatsManager = (UsageStatsManager) context.getSystemService(Context.USAGE_STATS_SERVICE);
         }
@@ -75,9 +36,10 @@ public class BlockAppsUtils {
             if (null != taskInfoList && !taskInfoList.isEmpty()) {
                 return taskInfoList.get(0).topActivity.getPackageName();
             }
-        } else { // TIMER SARA REMOVE
-            long endTime = System.currentTimeMillis();
-            long beginTime = endTime - 10000;
+        }
+        else {
+            long endTime = System.currentTimeMillis(); //????????????????????????????????
+            long beginTime = endTime - 10000; //????????????????????????????????
             String result = "";
             UsageEvents.Event event = new UsageEvents.Event();
             UsageEvents usageEvents = usageStatsManager.queryEvents(beginTime, endTime);
