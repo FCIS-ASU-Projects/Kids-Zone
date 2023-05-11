@@ -42,10 +42,8 @@ public class TimerActivity extends AppCompatActivity {
     public static long milliSeconds,seconds;
     public static long START_TIME_IN_MILLIS = 30*60000;
     public static final String SAVED_START_TIME_IN_MILLIS = "START_TIME_IN_MILLIS";
-    public static long mTimeLeftInMillis;
-    public static final String SAVED_mTimeLeftInMillis = "SAVED_mTimeLeftInMillis";
+    public static long mTimeLeftInMillis = 0;
     public static boolean mTimerRunning;
-    //    public static long mEndTime; // Used to prevent the lag that happens in the timer while rotating the app or close and open it again
     public static CountDownTimer mCountDownTimer;
 
     @Override
@@ -57,7 +55,6 @@ public class TimerActivity extends AppCompatActivity {
         binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
 
         String edit_text= "Edit";
         SpannableString spannableString = new SpannableString(edit_text);
@@ -71,7 +68,6 @@ public class TimerActivity extends AppCompatActivity {
         binding.editResetThreshold.setText(spannableString);
         binding.editResetThreshold.setMovementMethod(LinkMovementMethod.getInstance());
 
-
         binding.setTimerButton.setOnClickListener(view1 -> timePicker());
 
         binding.startTimerButton.setOnClickListener(v -> {
@@ -83,10 +79,6 @@ public class TimerActivity extends AppCompatActivity {
         });
 
         binding.resetTimerButton.setOnClickListener(v -> resetTimer());
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
     }
     public void timePicker(){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (view1, selectedHour, selectedMinute) -> {
@@ -107,46 +99,23 @@ public class TimerActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
     private void startTimer() {
-
-//        Intent timerServiceIntent = new Intent(TimerActivity.this, TimerService.class);
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            startForegroundService(timerServiceIntent);
-//        }
-//        Toast.makeText(getApplicationContext(), "START SERVICE", Toast.LENGTH_LONG).show();
-//        startService(timerServiceIntent);
-
-        Toast.makeText(getApplicationContext(), "START SERVICE", Toast.LENGTH_LONG).show();
         startService(new Intent(TimerActivity.this, TimerService.class));
-
-//        mEndTime = System.currentTimeMillis() + mTimeLeftInMillis;
-
-//        mCountDownTimer = new CountDownTimer(mTimeLeftInMillis, 1000) {
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//                mTimeLeftInMillis = millisUntilFinished;
-//                updateCountDownText();
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                mTimerRunning = false;
-//                updateButtons();
-//            }
-//        }.start();
-
-//        mTimerRunning = true;
-//        updateButtons();
     }
     private void pauseTimer() {
-
         mCountDownTimer.cancel();
         mTimerRunning = false;
+
+        if(binding==null)
+            binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         updateButtons();
 
         stopService(new Intent(TimerActivity.this, TimerService.class));
     }
     private void resetTimer() {
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
+
+        if(binding==null)
+            binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         updateCountDownText();
         updateButtons();
     }
@@ -189,12 +158,11 @@ public class TimerActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        // Save Variables
+        // TODO Save Variables
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putLong(SAVED_START_TIME_IN_MILLIS, START_TIME_IN_MILLIS);
-//        editor.putLong(SAVED_mTimeLeftInMillis, mTimeLeftInMillis);
 
         editor.apply();
     }
@@ -202,20 +170,19 @@ public class TimerActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        // Retrieve saved the variables
+        // TODO Retrieve saved the variables
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-
         START_TIME_IN_MILLIS = prefs.getLong(SAVED_START_TIME_IN_MILLIS, 30*60000); // The second parameter is the value that puts in the 1st parameter if it is empty
-//        mTimeLeftInMillis = prefs.getLong(SAVED_mTimeLeftInMillis, 0); // The second parameter is the value that puts in the 1st parameter if it is empty
 
-        if (mTimerRunning && mTimeLeftInMillis < 1000) {
-            mTimeLeftInMillis = 0;
-            mTimerRunning = false;
-        }
-        if(mTimeLeftInMillis<1000 && !HomeActivity.IS_TIMER_FOR_TODAY_FINISHED)
+        // THIS IS USED AT FIRST TIME THE APP LAUNCH THIS ACTIVITY
+        if(mTimeLeftInMillis==0 && !HomeActivity.IS_TIMER_FOR_TODAY_FINISHED)
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         updateCountDownText();
         updateButtons();
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

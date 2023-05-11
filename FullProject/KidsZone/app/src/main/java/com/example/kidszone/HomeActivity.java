@@ -65,10 +65,11 @@ public class HomeActivity extends AppCompatActivity {
     public static ActivityHomeBinding binding;
     public static Age_prediction AGE_PREDICTION;
     public static int IMAGE_CURRENT_AGE_CLASS = -1;
+    public static int TIMER_RESTARTS_AT = 13;
     public static String AGE_TO_BE_BLOCKED_FOR ="-13";
-    public static String SAVED_AGE_TO_BE_BLOCKED_FOR ="SAVED_AGE_TO_BE_BLOCKED_FOR";
-    public static String SAVED_SWITCH_STATE ="SAVED_SWITCH_STATE";
-    public static boolean SWITCH_STATE = false;
+    private static final String SAVED_AGE_TO_BE_BLOCKED_FOR ="SAVED_AGE_TO_BE_BLOCKED_FOR";
+    private static final String SAVED_SWITCH_STATE ="SAVED_SWITCH_STATE";
+    private static boolean SWITCH_STATE = false;
     public static boolean IS_CAMERA_RUNNING = false;
     private static final String SAVED_IS_CAMERA_RUNNING = "IS_CAMERA_RUNNING";
     public static boolean IS_BLOCK_ON = false;
@@ -85,9 +86,9 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d("Lets GOOOOOOOOOOOOOOOOOOOOOOOOO", "Lets GOOOOOOOOOOOOOOOOOOOOOOOOO");
         ctx = this.getApplicationContext();
         getPermission();
-
         getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.beige));
         setContentView(R.layout.activity_home);
 
@@ -166,6 +167,9 @@ public class HomeActivity extends AppCompatActivity {
         dialog.show();
     }
     public void onSwitchClicked(View view){
+
+        if(binding == null)
+            binding = ActivityHomeBinding.inflate(getLayoutInflater());
 
         if(binding.appSwitch.isChecked()){
             // TODO Start the Camera Service
@@ -472,20 +476,12 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         // RETRIEVE DATA
-        IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
+//        IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
         AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
         SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
 
         // SWITCH BUTTON
-        if(IS_CAMERA_RUNNING)
-        {
-            binding.appSwitch.setChecked(true);
-            // TODO Start the Camera Service
-            SWITCH_STATE = true;
-            Toast.makeText(HomeActivity.this,"Camera Is Monitoring NOW",Toast.LENGTH_LONG).show();
-        }
-        else
-            binding.appSwitch.setChecked(false);
+        binding.appSwitch.setChecked(SWITCH_STATE);
 
         // AGE PREDICTION
         if(AGE_PREDICTION == null)
@@ -498,6 +494,29 @@ public class HomeActivity extends AppCompatActivity {
         else
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
     }
+    //    public static void staaaaaaaart(){
+//        // TODO Retrieve saved the variables
+//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
+//
+//        // RETRIEVE DATA
+//        IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
+//        AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
+//        SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
+//
+//        // SWITCH BUTTON
+//        binding.appSwitch.setChecked(SWITCH_STATE);
+//
+//        // AGE PREDICTION
+//        if(AGE_PREDICTION == null)
+//        {
+//            Gson gson = new Gson();
+//            String json = prefs.getString("AGE_PREDICTION", "");
+//            AGE_PREDICTION = gson.fromJson(json, Age_prediction.class);
+//            Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NOT NULL");
+//        }
+//        else
+//            Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
+//    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -507,7 +526,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         // SWITCH BUTTON
-        editor.putBoolean(SAVED_IS_CAMERA_RUNNING, IS_CAMERA_RUNNING);
+//        editor.putBoolean(SAVED_IS_CAMERA_RUNNING, IS_CAMERA_RUNNING);
         editor.putString(SAVED_AGE_TO_BE_BLOCKED_FOR, AGE_TO_BE_BLOCKED_FOR);
         editor.putBoolean(SAVED_SWITCH_STATE, SWITCH_STATE);
 
@@ -515,8 +534,8 @@ public class HomeActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = gson.toJson(AGE_PREDICTION);
         editor.putString("AGE_PREDICTION", json);
-        editor.apply();
 
+        editor.apply();
         Log.d("SAVED with SharedPreferences--> ", "AGE_PREDICTION");
     }
 }

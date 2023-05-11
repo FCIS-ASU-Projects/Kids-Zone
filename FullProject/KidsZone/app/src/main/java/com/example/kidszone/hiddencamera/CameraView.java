@@ -75,8 +75,10 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback,
         try {
             Log.d(TAG, "Camera Opened");
             camera.setPreviewDisplay(sHolder);
+            Log.d("HENAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "Camera released in CAAAAAAAAAATCH");
 
         } catch (IOException exception) {
+            Log.d("CAAAAAAAAAAAAAAAAATCH", "Camera released in CAAAAAAAAAATCH");
             camera.release();
             camera = null;
         }

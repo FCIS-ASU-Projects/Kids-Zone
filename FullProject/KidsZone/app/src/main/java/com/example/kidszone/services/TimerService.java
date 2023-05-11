@@ -36,19 +36,28 @@ public class TimerService extends Service {
         TimerActivity.mCountDownTimer = new CountDownTimer(TimerActivity.mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                notificationService();
+
+                TimerActivity.mTimerRunning = true;
                 TimerActivity.mTimeLeftInMillis = millisUntilFinished;
-                TimerActivity.updateCountDownText();
+                if(TimerActivity.binding != null){
+                    TimerActivity.updateCountDownText();
+                    TimerActivity.updateButtons();
+                }
+
+                notificationService();
                 Log.d("TimerService: Info", "DECREASED SECOND");
-                Log.d("TimerService: TimerActivity.mTimeLeftInMillis", Long.toString(TimerActivity.mTimeLeftInMillis));
             }
 
             @Override
             public void onFinish() {
                 TimerActivity.mTimerRunning = false;
-                TimerActivity.updateButtons();
+                TimerActivity.mTimeLeftInMillis = 0;
+                HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = true;
+                if(TimerActivity.binding != null)
+                    TimerActivity.updateButtons();
+
                 notificationService();
-                Toast.makeText(getApplicationContext(), "TIMER IS FINISHED", Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), "TIMER IS FINISHED", Toast.LENGTH_LONG).show();
 
                 // TODO Freeze the mobile
                 HomeActivity.IS_FREEZE_ON = true;
@@ -62,9 +71,6 @@ public class TimerService extends Service {
         new Thread(
                 () -> TimerActivity.mCountDownTimer.start()
         ).start();
-
-        TimerActivity.mTimerRunning = true;
-        TimerActivity.updateButtons();
 
         return START_STICKY;
     }
@@ -113,9 +119,6 @@ public class TimerService extends Service {
     }
     @Override
     public void onDestroy() {
-        Log.d("TimerService", "Called onDestroy Method");
-        Toast.makeText(getApplicationContext(), "TimerService is Destroyed", Toast.LENGTH_LONG).show();
-
         super.onDestroy();
     }
 }
