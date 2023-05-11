@@ -66,14 +66,11 @@ public class AllMobileApps extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         getInstalledApps();
         progressDialog = new ProgressDialog(this);
-        //progressDialog.setOnShowListener(dialog -> getInstalledApps());
-        Handler handler= new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
-
             public void run() {
                 progressDialog.dismiss();
             }
-
         }, 300);
     }
     @Override
@@ -82,14 +79,13 @@ public class AllMobileApps extends AppCompatActivity {
         progressDialog.setTitle("Fetching Apps");
         progressDialog.setMessage("Loading");
         progressDialog.show();
-        Handler handler= new Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
-
             public void run() {
                 progressDialog.dismiss();
             }
-
         }, 300);
+
     }
     public void getInstalledApps() {
         List<String> prefLockedAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
@@ -121,7 +117,6 @@ public class AllMobileApps extends AppCompatActivity {
 
         }
         adapter.notifyDataSetChanged();
-        //progressDialog.dismiss();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

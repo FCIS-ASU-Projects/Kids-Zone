@@ -43,7 +43,6 @@ public class BlockAppsUtils {
             String result = "";
             UsageEvents.Event event = new UsageEvents.Event();
             UsageEvents usageEvents = usageStatsManager.queryEvents(beginTime, endTime);
-
             while (usageEvents.hasNextEvent()) {
                 usageEvents.getNextEvent(event);
                 if (event.getEventType() == UsageEvents.Event.MOVE_TO_FOREGROUND) {

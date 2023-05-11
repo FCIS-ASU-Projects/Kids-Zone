@@ -72,19 +72,4 @@ public class SharedPrefUtil {
         return temp;
     }
 
-    public void setLockedAppsListProfile(List<String> appList) {
-        for (int i = 0; i < appList.size(); i++) {
-            putString("profileApp_" + i, appList.get(i));
-        }
-        putInteger("profileListSize", appList.size());
-    }
-
-    public List<String> getLockedAppsListProfile() {
-        List<String> temp = new ArrayList<>();
-        int size = getInteger("profileListSize");
-        for (int i = 0; i < size; i++) {
-            temp.add(getString("profileApp_" + i));
-        }
-        return temp;
-    }
 }
