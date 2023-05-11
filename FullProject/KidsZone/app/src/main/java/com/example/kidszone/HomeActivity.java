@@ -346,29 +346,6 @@ public class HomeActivity extends AppCompatActivity {
         else
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
     }
-    //    public static void staaaaaaaart(){
-//        // TODO Retrieve saved the variables
-//        SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
-//
-//        // RETRIEVE DATA
-//        IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
-//        AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
-//        SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
-//
-//        // SWITCH BUTTON
-//        binding.appSwitch.setChecked(SWITCH_STATE);
-//
-//        // AGE PREDICTION
-//        if(AGE_PREDICTION == null)
-//        {
-//            Gson gson = new Gson();
-//            String json = prefs.getString("AGE_PREDICTION", "");
-//            AGE_PREDICTION = gson.fromJson(json, Age_prediction.class);
-//            Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NOT NULL");
-//        }
-//        else
-//            Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
-//    }
     @Override
     protected void onStop() {
         super.onStop();
