@@ -102,7 +102,6 @@
 
         <service android:name="com.example.kidszone.services.GetBackCoreService"/>
         <service android:name="com.example.kidszone.services.LockScreenService"/>
-        <service android:name="com.example.kidszone.services.CurrentTimerService"/>
 
 <!--        <meta-data-->
 <!--            android:name="com.google.android.gms.version"-->

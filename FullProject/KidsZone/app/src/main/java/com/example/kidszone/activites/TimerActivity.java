@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.databinding.ActivityFreezeBinding;
 import com.example.kidszone.services.LockScreenService;
@@ -39,7 +40,7 @@ public class TimerActivity extends AppCompatActivity {
     public static ActivityFreezeBinding binding;
     public static int hour,minute;
     public static long milliSeconds,seconds;
-    private static long START_TIME_IN_MILLIS = 30*60000;
+    public static long START_TIME_IN_MILLIS = 30*60000;
     public static final String SAVED_START_TIME_IN_MILLIS = "START_TIME_IN_MILLIS";
     public static long mTimeLeftInMillis;
     public static final String SAVED_mTimeLeftInMillis = "SAVED_mTimeLeftInMillis";
@@ -167,7 +168,8 @@ public class TimerActivity extends AppCompatActivity {
         if (mTimerRunning) {
             binding.resetTimerButton.setVisibility(View.INVISIBLE);
             binding.startTimerButton.setText("Pause");
-        } else {
+        }
+        else {
             binding.startTimerButton.setText("Start");
 
             if (mTimeLeftInMillis < 1000) {
@@ -192,7 +194,7 @@ public class TimerActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         editor.putLong(SAVED_START_TIME_IN_MILLIS, START_TIME_IN_MILLIS);
-        editor.putLong(SAVED_mTimeLeftInMillis, mTimeLeftInMillis);
+//        editor.putLong(SAVED_mTimeLeftInMillis, mTimeLeftInMillis);
 
         editor.apply();
     }
@@ -204,18 +206,16 @@ public class TimerActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         START_TIME_IN_MILLIS = prefs.getLong(SAVED_START_TIME_IN_MILLIS, 30*60000); // The second parameter is the value that puts in the 1st parameter if it is empty
-        mTimeLeftInMillis = prefs.getLong(SAVED_mTimeLeftInMillis, 0); // The second parameter is the value that puts in the 1st parameter if it is empty
+//        mTimeLeftInMillis = prefs.getLong(SAVED_mTimeLeftInMillis, 0); // The second parameter is the value that puts in the 1st parameter if it is empty
 
-        if(mTimeLeftInMillis==0)
-            mTimeLeftInMillis = START_TIME_IN_MILLIS;
-
-        if (mTimerRunning && mTimeLeftInMillis < 0) {
+        if (mTimerRunning && mTimeLeftInMillis < 1000) {
             mTimeLeftInMillis = 0;
             mTimerRunning = false;
         }
+        if(mTimeLeftInMillis<1000 && !HomeActivity.IS_TIMER_FOR_TODAY_FINISHED)
+            mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         updateCountDownText();
         updateButtons();
-
     }
 }

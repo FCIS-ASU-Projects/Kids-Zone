@@ -471,24 +471,19 @@ public class HomeActivity extends AppCompatActivity {
         // TODO Retrieve saved the variables
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
-        // SWITCH BUTTON
+        // RETRIEVE DATA
         IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
         AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
         SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
 
+        // SWITCH BUTTON
         if(IS_CAMERA_RUNNING)
         {
             binding.appSwitch.setChecked(true);
             // TODO Start the Camera Service
             SWITCH_STATE = true;
             Toast.makeText(HomeActivity.this,"Camera Is Monitoring NOW",Toast.LENGTH_LONG).show();
-//            if(Build.VERSION.SDK_INT >25){
-//                startForegroundService(new Intent(HomeActivity.this, GetBackCoreService.class));
-//            }else{
-//                startService(new Intent(HomeActivity.this, GetBackCoreService.class));
-//            }
         }
-
         else
             binding.appSwitch.setChecked(false);
 
@@ -500,7 +495,6 @@ public class HomeActivity extends AppCompatActivity {
             AGE_PREDICTION = gson.fromJson(json, Age_prediction.class);
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NOT NULL");
         }
-
         else
             Log.d("Retrieving AGE_PREDICTION WITH SharedPreferences--> ", "AGE_PREDICTION IS NULL");
     }

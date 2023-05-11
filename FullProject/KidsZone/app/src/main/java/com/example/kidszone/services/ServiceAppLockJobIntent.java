@@ -12,6 +12,9 @@ import com.example.kidszone.HomeActivity;
 import com.example.kidszone.activites.TimerActivity;
 import com.example.kidszone.broadcast.ReceiverApplock;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM SERVICE
     private static final int JOB_ID = 15462;
 
@@ -55,25 +58,39 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
                     Intent intent = new Intent(this, ReceiverApplock.class);
                     sendBroadcast(intent);
 
+                    // TODO GET THE CURRENT LIVE TIME
+                    Date dt = new Date();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("kk:mm:ss");
+                    Log.d("ServiceAppLockJobIntent --> Current Time in 24 hr format = ", dateFormat.format(dt));
+                    SimpleDateFormat hoursDateFormat = new SimpleDateFormat("kk");
+                    Log.d("ServiceAppLockJobIntent --> Current hour in 24 hr format = ", hoursDateFormat.format(dt));
+                    // TODO RESTART TIMER AT SPECIFIC TIME
+                    if(Integer.parseInt(hoursDateFormat.format(dt))==10)
+                    {
+                        Log.d("10", "10");
+                        TimerActivity.mTimeLeftInMillis = TimerActivity.START_TIME_IN_MILLIS;
+                    }
+
+
+                    // TODO FREE THE MOBILE
                     if(!HomeActivity.IS_BLOCK_ON && HomeActivity.IS_FREEZE_ON)
                     {
-                        // TODO FREE THE MOBILE
                         HomeActivity.IS_FREEZE_ON = false;
                         stopService(new Intent(getApplicationContext(), FreezeService.class));
                     }
 
+                    // TODO START TIMER
                     if(HomeActivity.IS_BLOCK_ON && !TimerActivity.mTimerRunning)
                     {
-                        // TODO START TIMER
                         Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
                         Log.d("START TIMER", "START TIMER");
                         startService(new Intent(getApplicationContext(), TimerService.class));
                         Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
                     }
 
+                    // TODO PAUSE TIMER
                     else if(!HomeActivity.IS_BLOCK_ON && TimerActivity.mTimerRunning)
                     {
-                        // TODO PAUSE TIMER
                         Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
                         Log.d("PAUSE TIMER", "PAUSE TIMER");
                         TimerActivity.mCountDownTimer.cancel();
