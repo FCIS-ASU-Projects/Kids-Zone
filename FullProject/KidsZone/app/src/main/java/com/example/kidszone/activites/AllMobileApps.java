@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -63,8 +64,14 @@ public class AllMobileApps extends AppCompatActivity {
         adapter = new AllAppAdapter(apps, this);
         recyclerView.setLayoutManager(new GridLayoutManager(this, 5));
         recyclerView.setAdapter(adapter);
+        getInstalledApps();
         progressDialog = new ProgressDialog(this);
-        progressDialog.setOnShowListener(dialog -> getInstalledApps());
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 300);
     }
     @Override
     protected void onResume() {
@@ -72,6 +79,13 @@ public class AllMobileApps extends AppCompatActivity {
         progressDialog.setTitle("Fetching Apps");
         progressDialog.setMessage("Loading");
         progressDialog.show();
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                progressDialog.dismiss();
+            }
+        }, 300);
+
     }
     public void getInstalledApps() {
         List<String> prefLockedAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
@@ -103,7 +117,6 @@ public class AllMobileApps extends AppCompatActivity {
 
         }
         adapter.notifyDataSetChanged();
-        progressDialog.dismiss();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
