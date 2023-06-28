@@ -43,7 +43,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         holder.appName.setText(app.getAppName());
         holder.appIcon.setImageDrawable(app.getIcon());
 
-        if (app.getStatus() == 0) {
+        if (app.getStatus() == 1) {
             holder.appStatus.setImageResource(R.drawable.locked_icon);
         } else {
             holder.appStatus.setImageResource(R.drawable.ic_baseline_delete_24);
@@ -51,7 +51,7 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         }
 
         holder.appStatus.setOnClickListener(v -> {
-            app.setStatus(0);
+            app.setStatus(1);
             lockedApps.remove(app.getPackageName());
             // TODO UPDATE DATA
             SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
