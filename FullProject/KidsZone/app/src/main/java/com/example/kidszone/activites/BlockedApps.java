@@ -29,6 +29,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
+import com.example.kidszone.databinding.ActivityAllMobileAppsBinding;
+import com.example.kidszone.databinding.ActivityBlockedAppsBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.example.kidszone.adapter.LockedAppAdapter;
 import com.example.kidszone.app_model.AppModel;
@@ -38,49 +40,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlockedApps extends AppCompatActivity {
-    public static List<AppModel> lockedAppsList = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
-    static Context context;
-    ImageView allAppsBtn;
+    private static ActivityBlockedAppsBinding binding;
+    private static List<AppModel> lockedAppsList = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
-    static LockedAppAdapter lockedAppsAdapter = new LockedAppAdapter(lockedAppsList, context);
-    RecyclerView recyclerView;
-    LockedAppAdapter adapter;
-    static ProgressDialog progressDialog;
-    @SuppressLint("StaticFieldLeak")
-    static LinearLayout emptyLockListInfo;
-    RelativeLayout enableUsageAccess, enableOverlayAccess;
-    TextView btnEnableUsageAccess, btnEnableOverlay;
-    ImageView checkBoxOverlay, checkBoxUsage;
+    private static LockedAppAdapter lockedAppsAdapter;
+    private LockedAppAdapter adapter;
+    private static ProgressDialog progressDialog;
     private static List<String> prefAppList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blocked_apps);
-        getWindow().setStatusBarColor(ContextCompat.getColor(BlockedApps.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(BlockedApps.this, R.color.black));
         final Context context = this;
 
-        progressDialog = new ProgressDialog(this);
-        emptyLockListInfo = findViewById(R.id.emptyLockListInfo);
-        allAppsBtn = findViewById(R.id.all_apps_button_img);
-        enableOverlayAccess = findViewById(R.id.permissionsBoxDisplay);
-        enableUsageAccess = findViewById(R.id.permissionsBoxUsage);
-        btnEnableOverlay = findViewById(R.id.enableStatusDisplay);
-        btnEnableUsageAccess = findViewById(R.id.enableStatusUsage);
-        checkBoxOverlay = findViewById(R.id.checkedIconDisplay);
-        checkBoxUsage = findViewById(R.id.checkedIconUsage);
-        recyclerView = findViewById(R.id.lockedAppsList);
-        adapter = new LockedAppAdapter(lockedAppsList, this);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        binding = ActivityBlockedAppsBinding.inflate(getLayoutInflater());
+        View v = binding.getRoot();
+        setContentView(v);
 
-        toggleEmptyLockListInfo(context);
-        getLockedApps(context);
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.nav_locked_apps);
-
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        binding.bottomNavigation.setSelectedItemId(R.id.nav_locked_apps);
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_locked_apps:
                     return true;
@@ -93,7 +74,21 @@ public class BlockedApps extends AppCompatActivity {
             }
             return false;
         });
-        allAppsBtn.setOnClickListener(v -> {
+
+        binding.appBar.helpIcon.setOnClickListener(view -> openHelpActivity());
+
+        lockedAppsAdapter = new LockedAppAdapter(lockedAppsList, this.getApplicationContext());
+        progressDialog = new ProgressDialog(this);
+        adapter = new LockedAppAdapter(lockedAppsList, this);
+
+        binding.lockedAppsList.setLayoutManager(new LinearLayoutManager(this));
+        binding.lockedAppsList.setAdapter(adapter);
+
+        toggleEmptyLockListInfo(context);
+        getLockedApps(context);
+
+
+        binding.allAppsButtonImg.setOnClickListener(view -> {
             Intent myIntent = new Intent(BlockedApps.this, AllMobileApps.class);
             this.finish();
             startActivity(myIntent);
@@ -106,6 +101,10 @@ public class BlockedApps extends AppCompatActivity {
         //toggle permissions box
         togglePermissionBox();
     }
+    public void openHelpActivity(){
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
+    }
     @SuppressLint("NotifyDataSetChanged")
     public static void getLockedApps(Context ctx) {
 //        toggleEmptyLockListInfo(ctx);
@@ -117,20 +116,9 @@ public class BlockedApps extends AppCompatActivity {
                 String name = packageInfos.get(i).loadLabel(ctx.getPackageManager()).toString();
                 Drawable icon = packageInfos.get(i).loadIcon(ctx.getPackageManager());
                 String packageName = packageInfos.get(i).packageName;
-//                Bundle metaData =packageInfos.get(i).metaData;
-//                int ageRating;
-//                if (metaData!=null){
-//                    ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
-//                }
-//                else{
-//                    ageRating=-1;
-//                }
-//                int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
 
                 if (prefAppList.contains(packageName)) {
                     lockedAppsList.add(new AppModel(name, icon, 1, packageName));
-                } else {
-                    continue;
                 }
             }
         }
@@ -139,31 +127,31 @@ public class BlockedApps extends AppCompatActivity {
     }
     private void togglePermissionBox() {
         if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
-            emptyLockListInfo.setVisibility(View.GONE);
+            binding.emptyLockListInfo.setVisibility(View.GONE);
 
-            btnEnableOverlay.setOnClickListener(v -> overlayPermission());
-            btnEnableUsageAccess.setOnClickListener(v -> accessPermission());
+            binding.enableStatusDisplay.setOnClickListener(v -> overlayPermission());
+            binding.enableStatusUsage.setOnClickListener(v -> accessPermission());
 
             if (Settings.canDrawOverlays(this)) {
-                btnEnableOverlay.setVisibility(View.INVISIBLE);
-                checkBoxOverlay.setColorFilter(Color.GREEN);
+                binding.enableStatusDisplay.setVisibility(View.INVISIBLE);
+                binding.checkedIconDisplay.setColorFilter(Color.GREEN);
             }
             if (isAccessGranted()) {
-                btnEnableUsageAccess.setVisibility(View.INVISIBLE);
-                checkBoxUsage.setColorFilter(Color.GREEN);
+                binding.enableStatusUsage.setVisibility(View.INVISIBLE);
+                binding.checkedIconUsage.setColorFilter(Color.GREEN);
             }
         } else {
-            enableUsageAccess.setVisibility(View.GONE);
-            enableOverlayAccess.setVisibility(View.GONE);
+            binding.permissionsBoxUsage.setVisibility(View.GONE);
+            binding.permissionsBoxDisplay.setVisibility(View.GONE);
             toggleEmptyLockListInfo(this);
         }
     }
     public static void toggleEmptyLockListInfo(Context ctx) {
         prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
         if (prefAppList.size() > 0) {
-            emptyLockListInfo.setVisibility(View.GONE);
+            binding.emptyLockListInfo.setVisibility(View.GONE);
         } else {
-            emptyLockListInfo.setVisibility(View.VISIBLE);
+            binding.emptyLockListInfo.setVisibility(View.VISIBLE);
         }
     }
     private boolean isAccessGranted() {
@@ -216,9 +204,9 @@ public class BlockedApps extends AppCompatActivity {
         if(prefAppList!=null)
         {
             if (prefAppList.size() > 0) {
-                emptyLockListInfo.setVisibility(View.GONE);
+                binding.emptyLockListInfo.setVisibility(View.GONE);
             } else {
-                emptyLockListInfo.setVisibility(View.VISIBLE);
+                binding.emptyLockListInfo.setVisibility(View.VISIBLE);
             }
         }
     }

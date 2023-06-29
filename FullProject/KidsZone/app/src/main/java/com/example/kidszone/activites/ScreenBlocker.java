@@ -21,18 +21,17 @@ public class ScreenBlocker extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // getSupportActionBar().hide(); // TODO REMOOOOOOOVED BY ZAAAAIN
         setContentView(R.layout.activity_screen_blocker);
-        getWindow().setStatusBarColor(ContextCompat.getColor(ScreenBlocker.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(ScreenBlocker.this, R.color.black));
         initIconApp();
 
-        close_btn = findViewById(R.id.close_block_screen_btn);
-        close_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
-        });
+//        close_btn = findViewById(R.id.close_block_screen_btn);
+//        close_btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                onBackPressed();
+//            }
+//        });
 
     }
 
@@ -48,7 +47,7 @@ public class ScreenBlocker extends AppCompatActivity {
                 e.printStackTrace();
             }
             icon.setImageDrawable(applicationInfo.loadIcon(getPackageManager()));
-            blockInfo.setText(applicationInfo.loadLabel(getPackageManager()).toString().toUpperCase() + " is blocked by AppBlockr. Do something productive.");
+            blockInfo.setText(applicationInfo.loadLabel(getPackageManager()).toString().toUpperCase() + " is blocked by Kids Zone.");
         }
     }
 

@@ -41,7 +41,7 @@ public class TimerService extends Service {
                 TimerActivity.mTimeLeftInMillis = millisUntilFinished;
                 if(TimerActivity.binding != null){
                     TimerActivity.updateCountDownText();
-                    TimerActivity.updateButtons();
+                    //TimerActivity.updateButtons();
                 }
 
                 notificationService();
@@ -53,8 +53,8 @@ public class TimerService extends Service {
                 TimerActivity.mTimerRunning = false;
                 TimerActivity.mTimeLeftInMillis = 0;
                 HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = true;
-                if(TimerActivity.binding != null)
-                    TimerActivity.updateButtons();
+//                if(TimerActivity.binding != null)
+//                    TimerActivity.updateButtons();
 
                 notificationService();
 //                Toast.makeText(getApplicationContext(), "TIMER IS FINISHED", Toast.LENGTH_LONG).show();

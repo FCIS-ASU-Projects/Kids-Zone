@@ -4,27 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF6EC">
+    android:background="@color/black">
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="306dp"
-        android:layout_height="69dp"
-        android:fontFamily="@font/joti_one"
-        android:text="By default, this app works according to the  characteristics of each app on your mobile. And you can edit these features."
-        android:textColor="#FC1E1E1E"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/block_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        app:layout_constraintVertical_bias="0.463" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/block_button"
@@ -32,28 +16,29 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
         android:layout_marginRight="48dp"
-        android:background="@drawable/gradient_color_orange_white"
-        android:text="Choose specific apps to be blocked"
-        android:textColor="#FC1E1E1E"
+        android:background="@drawable/gradient_color_cyan"
+        android:text="Unblock Apps"
+        android:textColor="@color/black"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        app:layout_constraintVertical_bias="0.332" />
+        app:layout_constraintVertical_bias="0.231" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/freeze_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:layout_marginRight="48dp"
-        android:background="@drawable/gradient_color_orange_white"
-        android:text="Freeze"
-        android:textColor="#FC1E1E1E"
+        android:background="@drawable/gradient_color_cyan"
+        android:text="Screen Time"
+        android:textColor="@color/black"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.614"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/block_button" />
 
@@ -64,9 +49,9 @@
         android:layout_marginLeft="48dp"
         android:layout_marginTop="40dp"
         android:layout_marginRight="48dp"
-        android:background="@drawable/gradient_color_orange_white"
-        android:text="Specify the age"
-        android:textColor="#FC1E1E1E"
+        android:background="@drawable/gradient_color_cyan"
+        android:text="Select age"
+        android:textColor="@color/black"
         app:cornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -94,9 +79,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="60dp"
-        android:fontFamily="@font/joti_one"
         android:text="Start Monitoring"
-        android:textColor="#FC1E1E1E"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

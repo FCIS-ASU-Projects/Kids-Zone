@@ -13,6 +13,7 @@ import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.kidszone.R;
 import com.example.kidszone.adapter.AllAppAdapter;
 import com.example.kidszone.app_model.AppModel;
+import com.example.kidszone.databinding.ActivityAllMobileAppsBinding;
+import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.shared.SharedPrefUtil;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -32,21 +35,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AllMobileApps extends AppCompatActivity {
-    RecyclerView recyclerView;
-    public List<AppModel> apps = new ArrayList<>();
-    AllAppAdapter adapter;
-    ProgressDialog progressDialog;
+    private ActivityAllMobileAppsBinding binding;
+    private List<AppModel> apps = new ArrayList<>();
+    private AllAppAdapter adapter;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_mobile_apps);
-        getWindow().setStatusBarColor(ContextCompat.getColor(AllMobileApps.this, R.color.beige));
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setSelectedItemId(R.id.nav_all_apps);
+        getWindow().setStatusBarColor(ContextCompat.getColor(AllMobileApps.this, R.color.black));
 
+        binding = ActivityAllMobileAppsBinding.inflate(getLayoutInflater());
+        View v = binding.getRoot();
+        setContentView(v);
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
+        binding.appBar.helpIcon.setOnClickListener(view -> openHelpActivity());
+
+        binding.bottomNavigation.setSelectedItemId(R.id.nav_all_apps);
+        binding.bottomNavigation.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.nav_locked_apps:
                     this.finish();
@@ -60,10 +67,10 @@ public class AllMobileApps extends AppCompatActivity {
             return false;
         });
 
-        recyclerView = findViewById(R.id.recycle_view);
+
         adapter = new AllAppAdapter(apps, this);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 5));
-        recyclerView.setAdapter(adapter);
+        binding.recycleView.setLayoutManager(new GridLayoutManager(this, 5));
+        binding.recycleView.setAdapter(adapter);
         getInstalledApps();
         progressDialog = new ProgressDialog(this);
         Handler handler = new Handler();
@@ -72,6 +79,11 @@ public class AllMobileApps extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         }, 300);
+    }
+
+    public void openHelpActivity(){
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
     }
     @Override
     protected void onResume() {
@@ -99,7 +111,6 @@ public class AllMobileApps extends AppCompatActivity {
             String name = activityInfo.loadLabel(getPackageManager()).toString();
             Drawable icon = activityInfo.loadIcon(getPackageManager());
             String packageName = activityInfo.packageName;
-//            int ageRating = metaData.getInt("com.android.vending.DEMO_MODE_APP_AGE_RESTRICTION");
             if (!packageName.matches("com.robocora.appsift|com.android.settings")) {
                 if (!prefLockedAppList.isEmpty()) {
                     //check if apps is locked

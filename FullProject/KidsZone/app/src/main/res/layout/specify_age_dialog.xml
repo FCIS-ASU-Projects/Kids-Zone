@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/beige">
+    android:background="@color/black">
 
     <TextView
         android:id="@+id/text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/joti_one"
-        android:text="Specify the age that the apps will be blocked for"
-        android:textColor="#FC1E1E1E"
+        android:layout_width="319dp"
+        android:layout_height="65dp"
+        android:layout_margin="12dp"
+        android:text="Select age range that the apps will be blocked for"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:layout_margin="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -26,9 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:fontFamily="@font/joti_one"
         android:text="Current Age is -13"
-        android:textColor="#FC1E1E1E"
+        android:textColor="@color/white"
         android:textSize="16sp"
         android:textStyle="bold"
 
@@ -59,13 +57,13 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/submit_age_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="113dp"
+        android:layout_height="48dp"
         android:layout_margin="6dp"
         android:layout_marginTop="20dp"
-        android:background="@drawable/gradient_color_orange_white"
+        android:background="@drawable/gradient_color_cyan"
         android:text="SUBMIT"
-        android:textColor="#FC1E1E1E"
+        android:textColor="@color/black"
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

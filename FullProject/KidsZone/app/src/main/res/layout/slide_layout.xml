@@ -5,8 +5,8 @@
 
     <ImageView
         android:id="@+id/slide_img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="100dp"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/icon1"
@@ -16,11 +16,11 @@
         android:id="@+id/slide_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:layout_centerHorizontal="true"
         android:layout_marginTop="310dp"
         android:text="TextView"
-        android:textColor="#039BE5"
+        android:textStyle="bold"
+        android:textColor="@color/white"
         android:textSize="26dp" />
 
     <TextView
@@ -32,7 +32,7 @@
         android:gravity="center"
         android:paddingHorizontal="20dp"
         android:text="lorem ipsom sdodo  dsfsdf jklsdfsdj slkdfsdj dsflskd jlksdfs "
-        android:textColor="#00838F" />
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/privacy_policy_link_popup"

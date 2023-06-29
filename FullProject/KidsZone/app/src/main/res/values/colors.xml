@@ -7,7 +7,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FC1E1E1E</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
     <color name="grey">#A9A9A9</color>
@@ -16,6 +16,7 @@
     <color name="darkGrey">#595858</color>
     <color name="alertRed">#ff3366</color>
     <color name="orange">#D07100</color>
+    <color name="cyan">#00D1D1</color>
 
     <color name="purple_01">#8E5FC6</color>
     <color name="darkBlue">#495867</color>

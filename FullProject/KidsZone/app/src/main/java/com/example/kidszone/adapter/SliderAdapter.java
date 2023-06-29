@@ -16,18 +16,18 @@ import com.example.kidszone.R;
 public class SliderAdapter extends PagerAdapter {
     public TextView privacyPopup;
     public int[] slide_images = {
-            R.mipmap.child_without_background,
-            R.drawable.icon2,
-            R.drawable.icon3
+            R.drawable.intro_icon1,
+            R.drawable.intro_icon2,
+            R.drawable.intro_icon_privacy_policy
     };
     public String[] slide_headings = {
-            "Welcome to AppBlocker",
-            "Simple blocker",
-            "Free from distractions"
+            "Welcome to Kids' Zone",
+            "Simple Blocker",
+            "Privacy Policy Agreement"
     };
     public String[] slide_description = {
-            "A simple way to block distractions from social media apps.",
-            "Unlike other app blockers, AppBlocker will do what it's exactly made for.",
+            "A simple way to protect your children from the big world of technology.",
+            "Allowing children to use specific apps on the mobile.",
             "By continuing, you agree to our privacy policy."
     };
     Context context;

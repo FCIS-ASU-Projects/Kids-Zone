@@ -74,7 +74,7 @@ public class IntroScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setLayout(ActionBar.LayoutParams.MATCH_PARENT, ActionBar.LayoutParams.MATCH_PARENT);
-        getWindow().setStatusBarColor(ContextCompat.getColor(IntroScreen.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(IntroScreen.this, R.color.black));
 
         setContentView(R.layout.activity_intro_screen);
         pp_string = getResources().getString(R.string.privacy_policy);
@@ -118,7 +118,7 @@ public class IntroScreen extends AppCompatActivity {
         alertDialogBuilder.setMessage(message);
         alertDialogBuilder.setIcon(R.mipmap.lock);
         alertDialogBuilder.setTitle(title);
-        alertDialogBuilder.setNegativeButton("ok", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setNegativeButton("OK", new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
@@ -136,7 +136,7 @@ public class IntroScreen extends AppCompatActivity {
             mDots[i] = new TextView(this);
             mDots[i].setText(Html.fromHtml("&#8226;"));
             mDots[i].setTextSize(35);
-            mDots[i].setTextColor(getResources().getColor(R.color.lightBlue));
+            mDots[i].setTextColor(getResources().getColor(R.color.white));
             mDotLayout.addView(mDots[i]);
         }
 

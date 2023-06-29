@@ -29,6 +29,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.kidszone.activites.BlockedApps;
+import com.example.kidszone.activites.HelpActivity;
 import com.example.kidszone.activites.IntroScreen;
 import com.example.kidszone.activites.TimerActivity;
 import com.example.kidszone.databinding.ActivityHomeBinding;
@@ -71,7 +72,6 @@ public class HomeActivity extends AppCompatActivity {
     private static final String SAVED_SWITCH_STATE ="SAVED_SWITCH_STATE";
     private static boolean SWITCH_STATE = false;
     public static boolean IS_CAMERA_RUNNING = false;
-    private static final String SAVED_IS_CAMERA_RUNNING = "IS_CAMERA_RUNNING";
     public static boolean IS_BLOCK_ON = false;
     public static boolean IS_FREEZE_ON = false;
     public static boolean IS_TIMER_FOR_TODAY_FINISHED = false;
@@ -80,24 +80,18 @@ public class HomeActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     static Context ctx;
 
-//    static List<AppModel> lockedAppsModel =new ArrayList<>();
-//    static List<AppModel> allApps=new ArrayList<>();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("Lets GOOOOOOOOOOOOOOOOOOOOOOOOO", "Lets GOOOOOOOOOOOOOOOOOOOOOOOOO");
         ctx = this.getApplicationContext();
         getPermission();
-        getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(HomeActivity.this, R.color.black));
         setContentView(R.layout.activity_home);
 
         checkAppsFirstTimeLaunch();
 
         startServices();
         setAgeFromClassDict();
-//        getInstallApps();
-
 
         if (OpenCVLoader.initDebug()) Log.d("LOADER", "SUCCESS");
         else Log.d("LOADER", "ERROR");
@@ -110,16 +104,7 @@ public class HomeActivity extends AppCompatActivity {
         binding.freezeButton.setOnClickListener(view -> openFreezeTimerActivity());
         binding.blockButton.setOnClickListener(view -> openBlockAppsActivity());
         binding.specifyAgeButton.setOnClickListener(view -> showAgeCustomDialog());
-
-        if(AGE_PREDICTION != null)
-            Log.d("AGE_PREDICTION ", "LOADED 2 MODELS");
-        else
-            Log.d("AGE_PREDICTION ", "NOT LOADED 2 MODELS");
-
-        // TODO Delete image from gallery
-//        File file = new File(Environment.getExternalStorageDirectory().getPath() + "/test.jpg");
-//        file.delete();
-//        imageView.setImageResource(com.example.kidszone.R.drawable.dummy);
+        binding.appBar.helpIcon.setOnClickListener(view -> openHelpActivity());
     }
     private void setAgeFromClassDict(){
         classFromAge = new Hashtable<>();
@@ -267,7 +252,6 @@ public class HomeActivity extends AppCompatActivity {
             }
 
             AGE_PREDICTION = new Age_prediction(yolo_file,getApplicationContext()); // Loading 2 models, App start (SAVE THIS VAR)
-            // TODO SAVE AGE
             Log.d("SAVING MODELS", "SUCCESS");
         } catch (Exception e) {
             Log.i("Exception", e.getMessage());
@@ -281,7 +265,6 @@ public class HomeActivity extends AppCompatActivity {
 
         IMAGE_CURRENT_AGE_CLASS = AGE_PREDICTION.detection_prediction(mat);
     }
-
     private void checkAppsFirstTimeLaunch() {
         boolean secondTimePref = SharedPrefUtil.getInstance(this).getBoolean("secondRun");
         if (!secondTimePref) {
@@ -292,6 +275,10 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void openFreezeTimerActivity(){
         Intent intent = new Intent(this, TimerActivity.class);
+        startActivity(intent);
+    }
+    public void openHelpActivity(){
+        Intent intent = new Intent(this, HelpActivity.class);
         startActivity(intent);
     }
     public void openBlockAppsActivity(){

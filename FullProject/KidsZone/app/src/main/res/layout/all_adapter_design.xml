@@ -56,7 +56,7 @@
         android:singleLine="true"
         android:layout_gravity="center"
         android:text="TextView"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="12sp" />
        <!--
 

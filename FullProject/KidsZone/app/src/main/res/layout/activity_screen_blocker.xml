@@ -58,17 +58,17 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:layout_gravity="center"
-            android:text="Add something to block"
+            android:text="Unblock Apps"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/close_block_screen_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:text="Close"
-            android:textColor="@color/white"/>
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/close_block_screen_btn"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/black"-->
+<!--            android:text="Close"-->
+<!--            android:textColor="@color/white"/>-->
 
 
     </LinearLayout>

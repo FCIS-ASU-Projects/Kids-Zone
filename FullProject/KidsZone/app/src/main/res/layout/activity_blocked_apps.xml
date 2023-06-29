@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="#FFF6EC"
+    android:background="@color/black"
     android:layout_height="match_parent"
     android:id="@+id/block_intro"
     tools:context=".activites.BlockedApps">
@@ -54,8 +54,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:paddingTop="10dp"
-        android:text="No apps added yet. Add something to block"
-        android:textColor="@color/darkBlue" />
+        android:text="Unblock Apps"
+        android:textColor="@color/white" />
 
 
   </LinearLayout>
@@ -74,7 +74,7 @@
 
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/gradient_color_orange_white"
+        android:background="@drawable/gradient_color_cyan"
         android:padding="16dp">
 
       <ImageView
@@ -133,7 +133,7 @@
         android:layout_marginRight="50dp"
         android:layout_marginBottom="448dp"
 
-        android:background="@drawable/gradient_color_orange_white"
+        android:background="@drawable/gradient_color_cyan"
         android:padding="16dp">
 
       <ImageView
@@ -187,11 +187,10 @@
       android:id="@+id/bottom_navigation"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="@drawable/gradient_color_orange_white"
+      android:background="@drawable/gradient_color_cyan"
       android:layout_alignParentBottom="true"
-      app:itemBackground="@drawable/gradient_color_orange_white"
-      app:itemIconTint="@color/black"
       app:itemTextColor="@color/black"
       app:menu="@menu/menu_navigation" />
+
 
 </RelativeLayout>

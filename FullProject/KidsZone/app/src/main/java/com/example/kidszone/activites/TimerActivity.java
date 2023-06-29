@@ -50,21 +50,24 @@ public class TimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freeze);
-        getWindow().setStatusBarColor(ContextCompat.getColor(TimerActivity.this, R.color.beige));
+        getWindow().setStatusBarColor(ContextCompat.getColor(TimerActivity.this, R.color.black));
 
         binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
-        String edit_text= "Edit";
+        binding.appBar.helpIcon.setOnClickListener(view1 -> openHelpActivity());
+
+        String edit_text= "Reset Now";
         SpannableString spannableString = new SpannableString(edit_text);
         ClickableSpan clickableSpan = new ClickableSpan() {
             @Override
             public void onClick(@NonNull View view) {
-                // TODO edit the time threshold
+                // TODO reset the timer
+                resetTimer();
             }
         };
-        spannableString.setSpan(clickableSpan, 0, 4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spannableString.setSpan(clickableSpan, 0, 9, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         binding.editResetThreshold.setText(spannableString);
         binding.editResetThreshold.setMovementMethod(LinkMovementMethod.getInstance());
 
@@ -78,7 +81,11 @@ public class TimerActivity extends AppCompatActivity {
             }
         });
 
-        binding.resetTimerButton.setOnClickListener(v -> resetTimer());
+        binding.editResetThreshold.setOnClickListener(v -> resetTimer());
+    }
+    public void openHelpActivity(){
+        Intent intent = new Intent(this, HelpActivity.class);
+        startActivity(intent);
     }
     public void timePicker(){
         TimePickerDialog.OnTimeSetListener onTimeSetListener = (view1, selectedHour, selectedMinute) -> {
@@ -107,7 +114,7 @@ public class TimerActivity extends AppCompatActivity {
 
         if(binding==null)
             binding = ActivityFreezeBinding.inflate(getLayoutInflater());
-        updateButtons();
+//        updateButtons();
 
         stopService(new Intent(TimerActivity.this, TimerService.class));
     }
@@ -117,7 +124,7 @@ public class TimerActivity extends AppCompatActivity {
         if(binding==null)
             binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         updateCountDownText();
-        updateButtons();
+//        updateButtons();
     }
     public static void updateCountDownText() {
 
@@ -132,28 +139,28 @@ public class TimerActivity extends AppCompatActivity {
 
         binding.textViewTime.setText(timeLeftFormatted);
     }
-    @SuppressLint("SetTextI18n")
-    public static void updateButtons() {
-        if (mTimerRunning) {
-            binding.resetTimerButton.setVisibility(View.INVISIBLE);
-            binding.startTimerButton.setText("Pause");
-        }
-        else {
-            binding.startTimerButton.setText("Start");
-
-            if (mTimeLeftInMillis < 1000) {
-                binding.startTimerButton.setVisibility(View.INVISIBLE);
-            } else {
-                binding.startTimerButton.setVisibility(View.VISIBLE);
-            }
-
-            if (mTimeLeftInMillis < START_TIME_IN_MILLIS) {
-                binding.resetTimerButton.setVisibility(View.VISIBLE);
-            } else {
-                binding.resetTimerButton.setVisibility(View.INVISIBLE);
-            }
-        }
-    }
+//    @SuppressLint("SetTextI18n")
+//    public static void updateButtons() {
+//        if (mTimerRunning) {
+//            //binding.resetTimerButton.setVisibility(View.INVISIBLE);
+//            binding.startTimerButton.setText("Pause");
+//        }
+//        else {
+//            binding.startTimerButton.setText("Start");
+//
+//            if (mTimeLeftInMillis < 1000) {
+//                binding.startTimerButton.setVisibility(View.INVISIBLE);
+//            } else {
+//                binding.startTimerButton.setVisibility(View.VISIBLE);
+//            }
+//
+////            if (mTimeLeftInMillis < START_TIME_IN_MILLIS) {
+////                binding.resetTimerButton.setVisibility(View.VISIBLE);
+////            } else {
+////                binding.resetTimerButton.setVisibility(View.INVISIBLE);
+////            }
+//        }
+//    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -179,7 +186,7 @@ public class TimerActivity extends AppCompatActivity {
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         updateCountDownText();
-        updateButtons();
+//        updateButtons();
     }
     @Override
     protected void onDestroy() {

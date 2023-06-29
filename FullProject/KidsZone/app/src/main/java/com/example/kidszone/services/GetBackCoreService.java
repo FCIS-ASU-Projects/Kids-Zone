@@ -22,6 +22,7 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.example.kidszone.R;
+import com.example.kidszone.broadcast.LockScreenReceiver;
 import com.example.kidszone.hiddencamera.CameraView;
 import com.example.kidszone.shared.CameraConstants;
 import com.example.kidszone.shared.GetBackStateFlags;
@@ -151,9 +152,10 @@ public class GetBackCoreService extends Service implements
         ten_seconds_timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-
-                Handler handler = new Handler(Looper.getMainLooper());
-                handler.post(() -> capturePhoto());
+                if(!LockScreenReceiver.isScreenLocked){
+                    Handler handler = new Handler(Looper.getMainLooper());
+                    handler.post(() -> capturePhoto());
+                }
             }
         }, 20000, 20000);
     }

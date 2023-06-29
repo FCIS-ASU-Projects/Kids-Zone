@@ -18,8 +18,8 @@ import com.example.kidszone.services.TimerService;
 
 public class LockScreenReceiver extends BroadcastReceiver {
 
-    public static boolean isScreenClosedWhileTimerIsRunning=false;
-    public static boolean isScreenClosedWhileCameraIsRunning=false;
+    private boolean isScreenClosedWhileTimerIsRunning=false;
+    public static boolean isScreenLocked=false;
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -27,30 +27,21 @@ public class LockScreenReceiver extends BroadcastReceiver {
         String action = intent.getAction();
 
         if (Intent.ACTION_SCREEN_ON.equals(action)) {
+            isScreenLocked = false;
             if(isScreenClosedWhileTimerIsRunning)
             {
                 TimerActivity.binding.startTimerButton.performClick();
                 isScreenClosedWhileTimerIsRunning = false;
             }
-            if(isScreenClosedWhileCameraIsRunning)
-            {
-                HomeActivity.binding.appSwitch.performClick();
-                isScreenClosedWhileCameraIsRunning = false;
-            }
         }
         else if (Intent.ACTION_SCREEN_OFF.equals(action)) {
+            isScreenLocked = true;
             if(TimerActivity.mTimerRunning)
             {
                 TimerActivity.binding.startTimerButton.performClick();
                 isScreenClosedWhileTimerIsRunning = true;
             }
-            if(HomeActivity.IS_CAMERA_RUNNING)
-            {
-                HomeActivity.binding.appSwitch.performClick();
-                isScreenClosedWhileCameraIsRunning = true;
-            }
         }
-
     }
 }
 

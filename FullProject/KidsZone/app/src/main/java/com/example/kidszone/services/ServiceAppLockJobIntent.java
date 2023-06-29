@@ -147,7 +147,7 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
             Log.d("PAUSE TIMER", "PAUSE TIMER");
             TimerActivity.mCountDownTimer.cancel();
             TimerActivity.mTimerRunning = false;
-            TimerActivity.updateButtons();
+            //TimerActivity.updateButtons();
 
             stopService(new Intent(getApplicationContext(), TimerService.class));
             Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
