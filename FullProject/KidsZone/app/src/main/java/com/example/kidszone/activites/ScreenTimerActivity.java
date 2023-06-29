@@ -7,34 +7,25 @@ import androidx.core.content.ContextCompat;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.TimePickerDialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.PowerManager;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
-import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.databinding.ActivityFreezeBinding;
-import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.services.TimerService;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-public class TimerActivity extends AppCompatActivity {
+public class ScreenTimerActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
     public static ActivityFreezeBinding binding;
@@ -50,7 +41,7 @@ public class TimerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_freeze);
-        getWindow().setStatusBarColor(ContextCompat.getColor(TimerActivity.this, R.color.black));
+        getWindow().setStatusBarColor(ContextCompat.getColor(ScreenTimerActivity.this, R.color.black));
 
         binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -106,7 +97,7 @@ public class TimerActivity extends AppCompatActivity {
         timePickerDialog.show();
     }
     private void startTimer() {
-        startService(new Intent(TimerActivity.this, TimerService.class));
+        startService(new Intent(ScreenTimerActivity.this, TimerService.class));
     }
     private void pauseTimer() {
         mCountDownTimer.cancel();
@@ -114,17 +105,16 @@ public class TimerActivity extends AppCompatActivity {
 
         if(binding==null)
             binding = ActivityFreezeBinding.inflate(getLayoutInflater());
-//        updateButtons();
 
-        stopService(new Intent(TimerActivity.this, TimerService.class));
+        stopService(new Intent(ScreenTimerActivity.this, TimerService.class));
     }
     private void resetTimer() {
+        HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = false;
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         if(binding==null)
             binding = ActivityFreezeBinding.inflate(getLayoutInflater());
         updateCountDownText();
-//        updateButtons();
     }
     public static void updateCountDownText() {
 
@@ -139,28 +129,6 @@ public class TimerActivity extends AppCompatActivity {
 
         binding.textViewTime.setText(timeLeftFormatted);
     }
-//    @SuppressLint("SetTextI18n")
-//    public static void updateButtons() {
-//        if (mTimerRunning) {
-//            //binding.resetTimerButton.setVisibility(View.INVISIBLE);
-//            binding.startTimerButton.setText("Pause");
-//        }
-//        else {
-//            binding.startTimerButton.setText("Start");
-//
-//            if (mTimeLeftInMillis < 1000) {
-//                binding.startTimerButton.setVisibility(View.INVISIBLE);
-//            } else {
-//                binding.startTimerButton.setVisibility(View.VISIBLE);
-//            }
-//
-////            if (mTimeLeftInMillis < START_TIME_IN_MILLIS) {
-////                binding.resetTimerButton.setVisibility(View.VISIBLE);
-////            } else {
-////                binding.resetTimerButton.setVisibility(View.INVISIBLE);
-////            }
-//        }
-//    }
     @Override
     protected void onStop() {
         super.onStop();
@@ -186,7 +154,6 @@ public class TimerActivity extends AppCompatActivity {
             mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         updateCountDownText();
-//        updateButtons();
     }
     @Override
     protected void onDestroy() {

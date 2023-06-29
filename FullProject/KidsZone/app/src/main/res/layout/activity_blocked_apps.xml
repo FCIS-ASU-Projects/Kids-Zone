@@ -6,7 +6,7 @@
     android:background="@color/black"
     android:layout_height="match_parent"
     android:id="@+id/block_intro"
-    tools:context=".activites.BlockedApps">
+    tools:context=".activites.UnblockedApps">
 
   <include
       android:id="@+id/app_bar"

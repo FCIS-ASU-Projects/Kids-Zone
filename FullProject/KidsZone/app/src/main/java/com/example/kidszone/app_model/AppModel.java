@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable;
 public class AppModel {
     String appName;
     Drawable icon;
-    int status;
+    int status; // 0 --> Blocked App, 1 --> Unblocked App
     String packageName;
 
     public AppModel(String appName, Drawable icon, int status, String packageName) {

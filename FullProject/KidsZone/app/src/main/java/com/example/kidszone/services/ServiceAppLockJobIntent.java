@@ -4,13 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.JobIntentService;
 
 import com.example.kidszone.HomeActivity;
-import com.example.kidszone.activites.TimerActivity;
+import com.example.kidszone.activites.ScreenTimerActivity;
 import com.example.kidszone.broadcast.ReceiverApplock;
 
 import java.text.SimpleDateFormat;
@@ -108,7 +107,7 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
         {
             Log.d("IMAGE_CURRENT_AGE_CLASS --> ", Integer.toString(HomeActivity.IMAGE_CURRENT_AGE_CLASS));
             Log.d("AGE_TO_BE_BLOCKED_FOR --> ", Integer.toString(HomeActivity.classFromAge.get(HomeActivity.AGE_TO_BE_BLOCKED_FOR)));
-            Log.d("IS_TIMER_RUNNING --> ", Boolean.toString(TimerActivity.mTimerRunning));
+            Log.d("IS_TIMER_RUNNING --> ", Boolean.toString(ScreenTimerActivity.mTimerRunning));
         }
         Log.d("ServiceAppLockJobIntent --> ", "===========================================================");
     }
@@ -122,17 +121,17 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
         Log.d("ServiceAppLockJobIntent --> Current hour in 24 hr format = ", hoursDateFormat.format(currentDate));
     }
     private void restartTimerAtSpecificTime(){
-        if(!TimerActivity.mTimerRunning && HomeActivity.IS_TIMER_FOR_TODAY_FINISHED && Integer.parseInt(hoursDateFormat.format(currentDate)) == HomeActivity.TIMER_RESTARTS_AT)
+        if(!ScreenTimerActivity.mTimerRunning && HomeActivity.IS_TIMER_FOR_TODAY_FINISHED && Integer.parseInt(hoursDateFormat.format(currentDate)) == HomeActivity.TIMER_RESTARTS_AT)
         {
             Log.d(Integer.toString(HomeActivity.TIMER_RESTARTS_AT), Integer.toString(HomeActivity.TIMER_RESTARTS_AT));
             HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = false;
-            TimerActivity.mTimeLeftInMillis = TimerActivity.START_TIME_IN_MILLIS;
+            ScreenTimerActivity.mTimeLeftInMillis = ScreenTimerActivity.START_TIME_IN_MILLIS;
         }
     }
     private void setTime(){
 
         // TODO START TIMER
-        if(HomeActivity.IS_CAMERA_RUNNING && !HomeActivity.IS_FREEZE_ON && HomeActivity.IS_BLOCK_ON && !TimerActivity.mTimerRunning)
+        if(HomeActivity.IS_CAMERA_RUNNING && !HomeActivity.IS_FREEZE_ON && HomeActivity.IS_BLOCK_ON && !ScreenTimerActivity.mTimerRunning)
         {
             Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
             Log.d("START TIMER", "START TIMER");
@@ -141,12 +140,12 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
         }
 
         // TODO PAUSE TIMER
-        else if(!HomeActivity.IS_BLOCK_ON && TimerActivity.mTimerRunning)
+        else if(!HomeActivity.IS_BLOCK_ON && ScreenTimerActivity.mTimerRunning)
         {
             Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");
             Log.d("PAUSE TIMER", "PAUSE TIMER");
-            TimerActivity.mCountDownTimer.cancel();
-            TimerActivity.mTimerRunning = false;
+            ScreenTimerActivity.mCountDownTimer.cancel();
+            ScreenTimerActivity.mTimerRunning = false;
             //TimerActivity.updateButtons();
 
             stopService(new Intent(getApplicationContext(), TimerService.class));

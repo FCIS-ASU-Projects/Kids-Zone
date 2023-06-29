@@ -11,17 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="132dp"
-            android:layout_height="133dp"
-            android:layout_above="@+id/textView"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginStart="-2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="130dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             app:srcCompat="@drawable/clock_icon" />
 
         <TextView
@@ -33,10 +28,11 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginBottom="212dp"
-            android:text="Time for today is finished...\nSee you tomorrow"
+            android:text="Screen time for today is finished...\nSee you tomorrow"
             android:textColor="@color/white"
             android:textSize="24dp"
             android:textStyle="bold" />
+
     </RelativeLayout>
 
 </RelativeLayout>

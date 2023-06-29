@@ -28,10 +28,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kidszone.activites.BlockedApps;
+import com.example.kidszone.activites.UnblockedApps;
 import com.example.kidszone.activites.HelpActivity;
 import com.example.kidszone.activites.IntroScreen;
-import com.example.kidszone.activites.TimerActivity;
+import com.example.kidszone.activites.ScreenTimerActivity;
 import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.deeplearningmodel.Age_prediction;
 import com.example.kidszone.services.BackgroundManager;
@@ -39,15 +39,6 @@ import com.example.kidszone.services.GetBackCoreService;
 import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.shared.SharedPrefUtil;
 import com.google.gson.Gson;
-//import com.google.android.gms.drive.Drive;
-//import com.google.android.gms.drive.Metadata;
-//import com.google.android.gms.common.api.GoogleApiClient;
-//import com.google.android.gms.common.GoogleApiAvailability;
-//import com.google.android.gms.common.api.GoogleApiClient;
-//import com.google.android.gms.common.api.ResultCallback;
-//import com.google.android.gms.games.Games;
-//import com.google.android.gms.games.GamesMetadata;
-//import com.google.android.gms.games.GamesMetadata.LoadGamesResult;
 
 import org.opencv.android.OpenCVLoader;
 import org.opencv.android.Utils;
@@ -58,8 +49,10 @@ import org.opencv.imgproc.Imgproc;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
+import java.util.List;
 
 public class HomeActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
@@ -271,10 +264,23 @@ public class HomeActivity extends AppCompatActivity {
             Intent myIntent = new Intent(HomeActivity.this, IntroScreen.class);
             HomeActivity.this.startActivity(myIntent);
             SharedPrefUtil.getInstance(this).putBoolean("secondRun", true);
+            blockAllInstalledApps();
         }
     }
+    private void blockAllInstalledApps(){
+        // THIS FUNCTION IS USED ONLY ONCE WITH KIDS ZONE INSTALLATION
+        List<ApplicationInfo> packagesInfo = ctx.getPackageManager().getInstalledApplications(0);
+        List<String> installedApps = new ArrayList<>();
+        for (int i = 0; i < packagesInfo.size(); i++) {
+            if (packagesInfo.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
+                String packageName = packagesInfo.get(i).packageName;
+                installedApps.add(packageName); // BLOCKED APP
+            }
+        }
+        SharedPrefUtil.getInstance(ctx).createLockedAppsList(installedApps);
+    }
     public void openFreezeTimerActivity(){
-        Intent intent = new Intent(this, TimerActivity.class);
+        Intent intent = new Intent(this, ScreenTimerActivity.class);
         startActivity(intent);
     }
     public void openHelpActivity(){
@@ -282,7 +288,7 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void openBlockAppsActivity(){
-        Intent intent = new Intent(this, BlockedApps.class);
+        Intent intent = new Intent(this, UnblockedApps.class);
         startActivity(intent);
     }
     @Override

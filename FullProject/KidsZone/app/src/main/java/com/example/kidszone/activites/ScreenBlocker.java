@@ -13,10 +13,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import com.example.kidszone.R;
+import com.example.kidszone.databinding.ActivityHomeBinding;
+import com.example.kidszone.databinding.ActivityScreenBlockerBinding;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 public class ScreenBlocker extends AppCompatActivity {
-    Button close_btn;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -25,13 +26,11 @@ public class ScreenBlocker extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(ScreenBlocker.this, R.color.black));
         initIconApp();
 
-//        close_btn = findViewById(R.id.close_block_screen_btn);
-//        close_btn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                onBackPressed();
-//            }
-//        });
+        ActivityScreenBlockerBinding binding = ActivityScreenBlockerBinding.inflate(getLayoutInflater());
+        View v = binding.getRoot();
+        setContentView(v);
+
+        binding.closeBlockScreenBtn.setOnClickListener(v1 -> onBackPressed());
 
     }
 

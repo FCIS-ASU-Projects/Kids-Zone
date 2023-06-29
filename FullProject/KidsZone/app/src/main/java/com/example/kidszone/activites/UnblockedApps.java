@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AppOpsManager;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
@@ -14,51 +13,43 @@ import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kidszone.R;
-import com.example.kidszone.databinding.ActivityAllMobileAppsBinding;
 import com.example.kidszone.databinding.ActivityBlockedAppsBinding;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.example.kidszone.adapter.LockedAppAdapter;
+import com.example.kidszone.adapter.UnblockedAppsAdapter;
 import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlockedApps extends AppCompatActivity {
+public class UnblockedApps extends AppCompatActivity {
+    private Context context;
     @SuppressLint("StaticFieldLeak")
     private static ActivityBlockedAppsBinding binding;
-    private static List<AppModel> lockedAppsList = new ArrayList<>();
+    public static List<AppModel> unblockedApps = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
-    private static LockedAppAdapter lockedAppsAdapter;
-    private LockedAppAdapter adapter;
+    private static UnblockedAppsAdapter lockedAppsAdapter;
+    private UnblockedAppsAdapter adapter;
     private static ProgressDialog progressDialog;
-    private static List<String> prefAppList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blocked_apps);
-        getWindow().setStatusBarColor(ContextCompat.getColor(BlockedApps.this, R.color.black));
-        final Context context = this;
+        getWindow().setStatusBarColor(ContextCompat.getColor(UnblockedApps.this, R.color.black));
+        context = this;
 
         binding = ActivityBlockedAppsBinding.inflate(getLayoutInflater());
         View v = binding.getRoot();
         setContentView(v);
+
+        binding.appBar.helpIcon.setOnClickListener(view -> openHelpActivity());
 
         binding.bottomNavigation.setSelectedItemId(R.id.nav_locked_apps);
         binding.bottomNavigation.setOnNavigationItemSelectedListener(item -> {
@@ -75,30 +66,26 @@ public class BlockedApps extends AppCompatActivity {
             return false;
         });
 
-        binding.appBar.helpIcon.setOnClickListener(view -> openHelpActivity());
-
-        lockedAppsAdapter = new LockedAppAdapter(lockedAppsList, this.getApplicationContext());
+        lockedAppsAdapter = new UnblockedAppsAdapter(unblockedApps, this.getApplicationContext());
         progressDialog = new ProgressDialog(this);
-        adapter = new LockedAppAdapter(lockedAppsList, this);
+        adapter = new UnblockedAppsAdapter(unblockedApps, this);
 
         binding.lockedAppsList.setLayoutManager(new LinearLayoutManager(this));
         binding.lockedAppsList.setAdapter(adapter);
 
-        toggleEmptyLockListInfo(context);
-        getLockedApps(context);
-
+        getUnblockedApps(context);
+        toggleEmptyLockListInfo();
 
         binding.allAppsButtonImg.setOnClickListener(view -> {
-            Intent myIntent = new Intent(BlockedApps.this, AllMobileApps.class);
+            Intent myIntent = new Intent(UnblockedApps.this, AllMobileApps.class);
             this.finish();
             startActivity(myIntent);
         });
         progressDialog.setOnShowListener(dialog -> {
-            toggleEmptyLockListInfo(context);
-            getLockedApps(context);
+            getUnblockedApps(context);
+            toggleEmptyLockListInfo();
         });
 
-        //toggle permissions box
         togglePermissionBox();
     }
     public void openHelpActivity(){
@@ -106,19 +93,20 @@ public class BlockedApps extends AppCompatActivity {
         startActivity(intent);
     }
     @SuppressLint("NotifyDataSetChanged")
-    public static void getLockedApps(Context ctx) {
+    private static void getUnblockedApps(Context ctx) {
 //        toggleEmptyLockListInfo(ctx);
         List<String> prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-        List<ApplicationInfo> packageInfos = ctx.getPackageManager().getInstalledApplications(0);
-        lockedAppsList.clear();
-        for (int i = 0; i < packageInfos.size(); i++) {
-            if (packageInfos.get(i).icon > 0) {
-                String name = packageInfos.get(i).loadLabel(ctx.getPackageManager()).toString();
-                Drawable icon = packageInfos.get(i).loadIcon(ctx.getPackageManager());
-                String packageName = packageInfos.get(i).packageName;
+        List<ApplicationInfo> packagesInfo = ctx.getPackageManager().getInstalledApplications(0);
+        unblockedApps.clear();
 
-                if (prefAppList.contains(packageName)) {
-                    lockedAppsList.add(new AppModel(name, icon, 1, packageName));
+        for (int i = 0; i < packagesInfo.size(); i++) {
+            if (packagesInfo.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
+                String name = packagesInfo.get(i).loadLabel(ctx.getPackageManager()).toString();
+                Drawable icon = packagesInfo.get(i).loadIcon(ctx.getPackageManager());
+                String packageName = packagesInfo.get(i).packageName;
+
+                if (!prefAppList.contains(packageName)) {
+                    unblockedApps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
                 }
             }
         }
@@ -143,12 +131,11 @@ public class BlockedApps extends AppCompatActivity {
         } else {
             binding.permissionsBoxUsage.setVisibility(View.GONE);
             binding.permissionsBoxDisplay.setVisibility(View.GONE);
-            toggleEmptyLockListInfo(this);
+            toggleEmptyLockListInfo();
         }
     }
-    public static void toggleEmptyLockListInfo(Context ctx) {
-        prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-        if (prefAppList.size() > 0) {
+    public static void toggleEmptyLockListInfo() {
+        if (unblockedApps.size() > 0) {
             binding.emptyLockListInfo.setVisibility(View.GONE);
         } else {
             binding.emptyLockListInfo.setVisibility(View.VISIBLE);
@@ -190,8 +177,6 @@ public class BlockedApps extends AppCompatActivity {
             }
         }
     }
-
-    // TODO create an action bar button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.schedule_menu, menu);
@@ -201,14 +186,6 @@ public class BlockedApps extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         togglePermissionBox();
-        if(prefAppList!=null)
-        {
-            if (prefAppList.size() > 0) {
-                binding.emptyLockListInfo.setVisibility(View.GONE);
-            } else {
-                binding.emptyLockListInfo.setVisibility(View.VISIBLE);
-            }
-        }
+        toggleEmptyLockListInfo();
     }
-
 }

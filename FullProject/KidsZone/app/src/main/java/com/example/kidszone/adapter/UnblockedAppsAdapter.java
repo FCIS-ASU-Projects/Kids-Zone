@@ -11,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
@@ -19,13 +18,13 @@ import com.example.kidszone.shared.SharedPrefUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adapter_design_backend> {
+public class UnblockedAppsAdapter extends RecyclerView.Adapter<UnblockedAppsAdapter.adapter_design_backend> {
 
     List<AppModel> apps;
     Context ctx;
     List<String> lockedApps = new ArrayList<>();
 
-    public LockedAppAdapter(List<AppModel> apps, Context ctx) {
+    public UnblockedAppsAdapter(List<AppModel> apps, Context ctx) {
         this.apps = apps;
         this.ctx = ctx;
     }
@@ -44,17 +43,21 @@ public class LockedAppAdapter extends RecyclerView.Adapter<LockedAppAdapter.adap
         holder.appIcon.setImageDrawable(app.getIcon());
 
         if (app.getStatus() == 1) {
-            holder.appStatus.setImageResource(R.drawable.locked_icon);
-        } else {
             holder.appStatus.setImageResource(R.drawable.ic_baseline_delete_24);
+        } else {
+            holder.appStatus.setImageResource(R.drawable.locked_icon);
             lockedApps.add(app.getPackageName());
         }
 
         holder.appStatus.setOnClickListener(v -> {
-            app.setStatus(1);
-            lockedApps.remove(app.getPackageName());
+            app.setStatus(0); // TODO BLOCK THIS APP
+            lockedApps.add(app.getPackageName()); // TODO ADD IT WITH BLOCK APPS
+
             // TODO UPDATE DATA
-            SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+            List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
+            blockedPackages.add(app.getPackageName());
+            SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
+
             deleteItem(holder, position);
         });
     }

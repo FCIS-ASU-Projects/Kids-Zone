@@ -4,22 +4,17 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.Service;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Build;
 import android.os.CountDownTimer;
 import android.os.IBinder;
-import android.os.PowerManager;
 import android.util.Log;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
-import com.example.kidszone.activites.TimerActivity;
+import com.example.kidszone.activites.ScreenTimerActivity;
 
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
@@ -33,14 +28,14 @@ public class TimerService extends Service {
     public void onCreate() {
         super.onCreate();
 
-        TimerActivity.mCountDownTimer = new CountDownTimer(TimerActivity.mTimeLeftInMillis, 1000) {
+        ScreenTimerActivity.mCountDownTimer = new CountDownTimer(ScreenTimerActivity.mTimeLeftInMillis, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
-                TimerActivity.mTimerRunning = true;
-                TimerActivity.mTimeLeftInMillis = millisUntilFinished;
-                if(TimerActivity.binding != null){
-                    TimerActivity.updateCountDownText();
+                ScreenTimerActivity.mTimerRunning = true;
+                ScreenTimerActivity.mTimeLeftInMillis = millisUntilFinished;
+                if(ScreenTimerActivity.binding != null){
+                    ScreenTimerActivity.updateCountDownText();
                     //TimerActivity.updateButtons();
                 }
 
@@ -50,8 +45,8 @@ public class TimerService extends Service {
 
             @Override
             public void onFinish() {
-                TimerActivity.mTimerRunning = false;
-                TimerActivity.mTimeLeftInMillis = 0;
+                ScreenTimerActivity.mTimerRunning = false;
+                ScreenTimerActivity.mTimeLeftInMillis = 0;
                 HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = true;
 //                if(TimerActivity.binding != null)
 //                    TimerActivity.updateButtons();
@@ -69,7 +64,7 @@ public class TimerService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
 
         new Thread(
-                () -> TimerActivity.mCountDownTimer.start()
+                () -> ScreenTimerActivity.mCountDownTimer.start()
         ).start();
 
         return START_STICKY;
@@ -79,7 +74,7 @@ public class TimerService extends Service {
         String TAG = "TimerService";
         Log.i(TAG,"Notification");
         String timerState="";
-        if(!TimerActivity.mTimerRunning) timerState="Timer Stopped";
+        if(!ScreenTimerActivity.mTimerRunning) timerState="Timer Stopped";
         else timerState="Timer Running";
 
         final String CHANNELID = "Foreground Service Id";
@@ -108,12 +103,12 @@ public class TimerService extends Service {
         startForeground(1001,notification.build());
     }
     private String getTimeLeftInHoursMinsSecs(){
-        final long hr = TimeUnit.MILLISECONDS.toHours(TimerActivity.mTimeLeftInMillis)
-                - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(TimerActivity.mTimeLeftInMillis));
-        final long min = TimeUnit.MILLISECONDS.toMinutes(TimerActivity.mTimeLeftInMillis)
-                - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(TimerActivity.mTimeLeftInMillis));
-        final long sec = TimeUnit.MILLISECONDS.toSeconds(TimerActivity.mTimeLeftInMillis)
-                - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(TimerActivity.mTimeLeftInMillis));
+        final long hr = TimeUnit.MILLISECONDS.toHours(ScreenTimerActivity.mTimeLeftInMillis)
+                - TimeUnit.DAYS.toHours(TimeUnit.MILLISECONDS.toDays(ScreenTimerActivity.mTimeLeftInMillis));
+        final long min = TimeUnit.MILLISECONDS.toMinutes(ScreenTimerActivity.mTimeLeftInMillis)
+                - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(ScreenTimerActivity.mTimeLeftInMillis));
+        final long sec = TimeUnit.MILLISECONDS.toSeconds(ScreenTimerActivity.mTimeLeftInMillis)
+                - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(ScreenTimerActivity.mTimeLeftInMillis));
 
         return String.format(Locale.getDefault(), "%02d:%02d:%02d", hr, min, sec);
     }

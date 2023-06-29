@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.ColorMatrix;
 import android.graphics.ColorMatrixColorFilter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +22,13 @@ import com.example.kidszone.shared.SharedPrefUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_design_backend> implements Filterable {
+public class AllAppsAdapter extends RecyclerView.Adapter<AllAppsAdapter.adapter_design_backend> implements Filterable {
     List<AppModel> apps;
     List<AppModel> appsFullList;
     Context ctx;
     List<String> lockedApps = new ArrayList<>(); // Holds only names
 
-    public AllAppAdapter(List<AppModel> apps, Context ctx) {
+    public AllAppsAdapter(List<AppModel> apps, Context ctx) {
         this.apps = apps;
         this.ctx = ctx;
         appsFullList = apps;
@@ -79,34 +78,38 @@ public class AllAppAdapter extends RecyclerView.Adapter<AllAppAdapter.adapter_de
         matrix.setSaturation(0);
         ColorMatrixColorFilter filter = new ColorMatrixColorFilter(matrix);
         holder.appIcon.setColorFilter(filter);
-        if (app.getStatus() == 1) {
-            holder.appStatus.setImageResource(0);
+
+        if (app.getStatus() == 1) { // UNBLOCKED APP
+            holder.appStatus.setImageResource(0); // TODO REMOVE THE LOCKED ICON
             holder.appIcon.clearColorFilter();
-          //  holder.appIcon.setColorFilter(filter);
-        } else {
-            holder.appStatus.setImageResource(R.drawable.locked_icon);
+        }
+        else { // BLOCKED APP
+            holder.appStatus.setImageResource(R.drawable.locked_icon); // TODO ADD THE LOCKED ICON
             holder.appIcon.setColorFilter(filter);
-           // holder.appIcon.clearColorFilter();
             lockedApps.add(app.getPackageName());
         }
 
         holder.appIcon.setOnClickListener(v -> {
-            if (app.getStatus() == 1) {
+            if (app.getStatus() == 1) { // TODO BLOCK THIS APP
                 app.setStatus(0);
                 holder.appStatus.setImageResource(R.drawable.locked_icon);
                 lockedApps.add(app.getPackageName());
                 holder.appIcon.setColorFilter(filter);
-               // holder.appIcon.clearColorFilter();
+
                 // TODO update data
-                SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
-            } else {
+                List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
+                blockedPackages.add(app.getPackageName());
+                SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
+            } else { // TODO UNBLOCK THIS APP
                 app.setStatus(1);
                 holder.appStatus.setImageResource(0);
                 lockedApps.remove(app.getPackageName());
                 holder.appIcon.clearColorFilter();
-              //  holder.appIcon.setColorFilter(filter);
+
                 // TODO update data
-                SharedPrefUtil.getInstance(ctx).createLockedAppsList(lockedApps);
+                List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
+                blockedPackages.remove(app.getPackageName());
+                SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
             }
         });
     }

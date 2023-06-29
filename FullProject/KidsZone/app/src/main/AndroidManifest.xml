@@ -54,13 +54,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.kidszone.activites.TimerActivity"
+            android:name="com.example.kidszone.activites.ScreenTimerActivity"
             android:exported="false" />
         <activity android:name="com.example.kidszone.activites.IntroScreen" />
         <activity android:name="com.example.kidszone.activites.ScreenBlocker" />
         <activity android:name="com.example.kidszone.activites.LockedAppsRecyclerView" />
         <activity android:name="com.example.kidszone.activites.AllMobileApps" />
-        <activity android:name="com.example.kidszone.activites.BlockedApps" />
+        <activity android:name="com.example.kidszone.activites.UnblockedApps" />
 
         <receiver
             android:name="com.example.kidszone.broadcast.ReceiverApplock"
