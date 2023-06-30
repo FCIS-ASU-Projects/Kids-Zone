@@ -4,35 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/intro_background">
+    android:background="@drawable/freeze_floating_window">
 
-    <RelativeLayout
-        android:id="@+id/layout_widget"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            app:srcCompat="@drawable/clock_icon" />
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="212dp"
-            android:text="Screen time for today is finished...\nSee you tomorrow"
-            android:textColor="@color/white"
-            android:textSize="24dp"
-            android:textStyle="bold" />
-
-    </RelativeLayout>
 
 </RelativeLayout>

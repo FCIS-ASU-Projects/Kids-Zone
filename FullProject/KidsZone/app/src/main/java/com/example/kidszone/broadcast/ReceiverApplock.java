@@ -16,6 +16,7 @@ import com.example.kidszone.shared.SharedPrefUtil;
 import com.example.kidszone.utils.BlockAppsUtils;
 
 import java.util.List;
+import java.util.Objects;
 
 public class ReceiverApplock extends BroadcastReceiver {
 
@@ -33,7 +34,7 @@ public class ReceiverApplock extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         BlockAppsUtils utils = new BlockAppsUtils(context);
         SharedPrefUtil prefUtil = new SharedPrefUtil(context);
-        List<String> lockedApps = prefUtil.getLockedAppsList();
+        List<String> unblockedApps = prefUtil.getUnblockedAppsList();
         String appRunning = utils.getLauncherTopApp();
 
         if(appRunning == null)
@@ -48,7 +49,7 @@ public class ReceiverApplock extends BroadcastReceiver {
             HomeActivity.IS_BLOCK_ON=true;
 
             // TODO CHECK IF CURRENT APP SHOULD BE BLOCKED FOR CURRENT USER
-            if (lockedApps.contains(appRunning)){
+            if (!unblockedApps.isEmpty() && !unblockedApps.contains(appRunning) && !Objects.equals(appRunning, "com.sec.android.app.launcher") && !Objects.equals(appRunning, "com.kidszone")){
                 // TODO BLOCK THIS APP
                 Log.d("ReceiverAppLock: onReceive --> THIS IS BLOCKED APP", appRunning);
                 Log.d("ReceiverAppLock: onReceive --> ", "USER IS SMALLER THAN THRESHOLD");

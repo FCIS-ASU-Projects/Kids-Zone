@@ -49,7 +49,6 @@ import org.opencv.imgproc.Imgproc;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
@@ -57,7 +56,8 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     public static ActivityHomeBinding binding;
-    public static Age_prediction AGE_PREDICTION;
+    public static List<ApplicationInfo> ALL_MOBILE_APPS;
+    private static Age_prediction AGE_PREDICTION;
     public static int IMAGE_CURRENT_AGE_CLASS = -1;
     public static int TIMER_RESTARTS_AT = 13;
     public static String AGE_TO_BE_BLOCKED_FOR ="-13";
@@ -82,9 +82,11 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         checkAppsFirstTimeLaunch();
+        setAgeFromClassDict();
+
+        ALL_MOBILE_APPS = ctx.getPackageManager().getInstalledApplications(0);
 
         startServices();
-        setAgeFromClassDict();
 
         if (OpenCVLoader.initDebug()) Log.d("LOADER", "SUCCESS");
         else Log.d("LOADER", "ERROR");
@@ -122,7 +124,7 @@ public class HomeActivity extends AppCompatActivity {
         //The user will be able to cancel the dialog bu clicking anywhere outside the dialog.
         dialog.setCancelable(true);
         //Mention the name of the layout of your custom dialog.
-        dialog.setContentView(R.layout.specify_age_dialog);
+        dialog.setContentView(R.layout.select_age_dialog);
 
         //Initializing the views of the dialog.
         TextView selected_age_txtView = dialog.findViewById(R.id.selected_age);
@@ -175,35 +177,35 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void getPermission(){
         overlayPermission();
-        accessPermission();
+        // accessPermission();
     }
-    private boolean isAccessGranted() {
-        try {
-            PackageManager packageManager = getPackageManager();
-            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-            AppOpsManager appOpsManager = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
-            }
-            int mode = 0;
-            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
-                mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
-                        applicationInfo.uid, applicationInfo.packageName);
-            }
-            return (mode == AppOpsManager.MODE_ALLOWED);
-
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-    public void accessPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!isAccessGranted()) {
-                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                startActivityForResult(intent, 102);
-            }
-        }
-    }
+//    private boolean isAccessGranted() {
+//        try {
+//            PackageManager packageManager = getPackageManager();
+//            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+//            AppOpsManager appOpsManager = null;
+//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+//                appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+//            }
+//            int mode = 0;
+//            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
+//                mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+//                        applicationInfo.uid, applicationInfo.packageName);
+//            }
+//            return (mode == AppOpsManager.MODE_ALLOWED);
+//
+//        } catch (PackageManager.NameNotFoundException e) {
+//            return false;
+//        }
+//    }
+//    public void accessPermission() {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+//            if (!isAccessGranted()) {
+//                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+//                startActivityForResult(intent, 102);
+//            }
+//        }
+//    }
     public void overlayPermission() {
         // check if we already  have permission to draw over other apps
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -264,20 +266,7 @@ public class HomeActivity extends AppCompatActivity {
             Intent myIntent = new Intent(HomeActivity.this, IntroScreen.class);
             HomeActivity.this.startActivity(myIntent);
             SharedPrefUtil.getInstance(this).putBoolean("secondRun", true);
-            blockAllInstalledApps();
         }
-    }
-    private void blockAllInstalledApps(){
-        // THIS FUNCTION IS USED ONLY ONCE WITH KIDS ZONE INSTALLATION
-        List<ApplicationInfo> packagesInfo = ctx.getPackageManager().getInstalledApplications(0);
-        List<String> installedApps = new ArrayList<>();
-        for (int i = 0; i < packagesInfo.size(); i++) {
-            if (packagesInfo.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
-                String packageName = packagesInfo.get(i).packageName;
-                installedApps.add(packageName); // BLOCKED APP
-            }
-        }
-        SharedPrefUtil.getInstance(ctx).createLockedAppsList(installedApps);
     }
     public void openFreezeTimerActivity(){
         Intent intent = new Intent(this, ScreenTimerActivity.class);
@@ -321,7 +310,6 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         // RETRIEVE DATA
-//        IS_CAMERA_RUNNING = prefs.getBoolean(SAVED_IS_CAMERA_RUNNING, false); // The second parameter is the value that puts in the 1st parameter if it is empty
         AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
         SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
 
@@ -348,7 +336,6 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
 
         // SWITCH BUTTON
-//        editor.putBoolean(SAVED_IS_CAMERA_RUNNING, IS_CAMERA_RUNNING);
         editor.putString(SAVED_AGE_TO_BE_BLOCKED_FOR, AGE_TO_BE_BLOCKED_FOR);
         editor.putBoolean(SAVED_SWITCH_STATE, SWITCH_STATE);
 

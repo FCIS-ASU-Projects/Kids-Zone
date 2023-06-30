@@ -1,12 +1,9 @@
 package com.example.kidszone.services;
 
 import android.app.ActivityManager;
-import android.app.AlarmManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
-
-import com.example.kidszone.broadcast.RestartServiceWhenStopped;
 
 public class BackgroundManager {
     private static BackgroundManager instance;

@@ -54,20 +54,20 @@ public class SharedPrefUtil {
 
     public void clearLastApp() {pref.edit().remove(EXTRA_LAST_APP);}
 
-    //add apps to locked list
-    public void createLockedAppsList(List<String> appList) {
+    // TODO add apps to BLOCKED list
+    public void createUnblockedAppsList(List<String> appList) {
         for (int i = 0; i < appList.size(); i++) {
-            putString("app_" + i, appList.get(i));
+            putString("unblocked_app_" + i, appList.get(i));
         }
-        putInteger("listSize", appList.size());
+        putInteger("unblockedListSize", appList.size());
     }
 
-    //get apps from locked list
-    public List<String> getLockedAppsList() {
+    // TODO get apps from BLOCKED list
+    public List<String> getUnblockedAppsList() {
+        int size = getInteger("unblockedListSize");
         List<String> temp = new ArrayList<>();
-        int size = getInteger("listSize");
         for (int i = 0; i < size; i++) {
-            temp.add(getString("app_" + i));
+            temp.add(getString("unblocked_app_" + i));
         }
         return temp;
     }

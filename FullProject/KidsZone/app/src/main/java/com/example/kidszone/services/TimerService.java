@@ -36,7 +36,6 @@ public class TimerService extends Service {
                 ScreenTimerActivity.mTimeLeftInMillis = millisUntilFinished;
                 if(ScreenTimerActivity.binding != null){
                     ScreenTimerActivity.updateCountDownText();
-                    //TimerActivity.updateButtons();
                 }
 
                 notificationService();
@@ -48,15 +47,14 @@ public class TimerService extends Service {
                 ScreenTimerActivity.mTimerRunning = false;
                 ScreenTimerActivity.mTimeLeftInMillis = 0;
                 HomeActivity.IS_TIMER_FOR_TODAY_FINISHED = true;
-//                if(TimerActivity.binding != null)
-//                    TimerActivity.updateButtons();
 
                 notificationService();
-//                Toast.makeText(getApplicationContext(), "TIMER IS FINISHED", Toast.LENGTH_LONG).show();
 
                 // TODO Freeze the mobile
                 HomeActivity.IS_FREEZE_ON = true;
                 startService(new Intent(getApplicationContext(), FreezeService.class));
+                // TODO Stop Timer Service
+                stopSelf();
             }
         };
     }

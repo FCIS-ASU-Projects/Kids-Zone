@@ -9,7 +9,6 @@ import com.example.kidszone.broadcast.ReceiverApplock;
 
 public class ServiceAppLock extends IntentService { // NOT USED TIMER SARA FREEZE CASE
 
-
     public ServiceAppLock() {
         super("ServiceApplock");
     }

@@ -18,6 +18,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
 import com.example.kidszone.adapter.AllAppsAdapter;
 import com.example.kidszone.app_model.AppModel;
@@ -71,11 +72,7 @@ public class AllMobileApps extends AppCompatActivity {
 
         progressDialog = new ProgressDialog(this);
         Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
-            public void run() {
-                progressDialog.dismiss();
-            }
-        }, 300);
+        handler.postDelayed(() -> progressDialog.dismiss(), 300);
     }
 
     public void openHelpActivity(){
@@ -83,62 +80,26 @@ public class AllMobileApps extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void getInstalledApps() {
-//        List<String> prefLockedAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
-//        /*List<ApplicationInfo> packageInfos = getPackageManager().getInstalledApplications(0);*/
-//        PackageManager pk = getPackageManager();
-//        Intent intent = new Intent(Intent.ACTION_MAIN, null);
-//        intent.addCategory(Intent.CATEGORY_LAUNCHER);
-//        List<ResolveInfo> resolveInfoList = pk.queryIntentActivities(intent, 0);
-//
-//        for (ResolveInfo resolveInfo : resolveInfoList) {
-//            ActivityInfo activityInfo = resolveInfo.activityInfo;
-//            String name = activityInfo.loadLabel(getPackageManager()).toString();
-//            Drawable icon = activityInfo.loadIcon(getPackageManager());
-//            String packageName = activityInfo.packageName;
-//
-//            if (!packageName.matches("com.robocora.appsift|com.android.settings")) {
-//                if (!prefLockedAppList.isEmpty()) {
-//                    //check if app is BLOCKED OR NOT
-//                    if (prefLockedAppList.contains(packageName)) {
-//                        apps.add(new AppModel(name, icon, 0, packageName)); // BLOCKED APP
-//                    }
-//                    else {
-//                        apps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
-//                    }
-//                }
-//                else {
-//                    apps.add(new AppModel(name, icon, 0, packageName)); // BLOCKED APP
-//                }
-//            }
-//            else {
-//                //do not add settings to app list
-//            }
-//        }
-//
-//        adapter.notifyDataSetChanged();
-//    }
     public void getInstalledApps() {
-        List<String> prefLockedAppList = SharedPrefUtil.getInstance(this).getLockedAppsList();
-        List<ApplicationInfo> packagesInfo = context.getPackageManager().getInstalledApplications(0);
+        List<String> prefUnblockedAppList = SharedPrefUtil.getInstance(this).getUnblockedAppsList();
 
-        for (int i = 0; i < packagesInfo.size(); i++) {
-            if (packagesInfo.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
-                String name = packagesInfo.get(i).loadLabel(context.getPackageManager()).toString();
-                Drawable icon = packagesInfo.get(i).loadIcon(context.getPackageManager());
-                String packageName = packagesInfo.get(i).packageName;
+        for (int i = 0; i < HomeActivity.ALL_MOBILE_APPS.size(); i++) {
+            if (HomeActivity.ALL_MOBILE_APPS.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
+                String name = HomeActivity.ALL_MOBILE_APPS.get(i).loadLabel(context.getPackageManager()).toString();
+                Drawable icon = HomeActivity.ALL_MOBILE_APPS.get(i).loadIcon(context.getPackageManager());
+                String packageName = HomeActivity.ALL_MOBILE_APPS.get(i).packageName;
 
-                if (!prefLockedAppList.isEmpty()) {
-                    // TODO check if this app is BLOCKED or NOT
-                    if (prefLockedAppList.contains(packageName)) {
-                        apps.add(new AppModel(name, icon, 0, packageName)); // BLOCKED APP
+                // TODO check if this app is BLOCKED or NOT
+                if (!prefUnblockedAppList.isEmpty()) {
+                    if (prefUnblockedAppList.contains(packageName)) {
+                        apps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
                     }
                     else {
-                        apps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
+                        apps.add(new AppModel(name, icon, 0, packageName)); // BLOCKED APP
                     }
                 }
                 else {
-                    apps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
+                    apps.add(new AppModel(name, icon, 0, packageName)); // BLOCKED APP
                 }
             }
         }

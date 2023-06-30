@@ -15,14 +15,12 @@ import com.example.kidszone.R;
 import com.example.kidszone.app_model.AppModel;
 import com.example.kidszone.shared.SharedPrefUtil;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class UnblockedAppsAdapter extends RecyclerView.Adapter<UnblockedAppsAdapter.adapter_design_backend> {
 
     List<AppModel> apps;
     Context ctx;
-    List<String> lockedApps = new ArrayList<>();
 
     public UnblockedAppsAdapter(List<AppModel> apps, Context ctx) {
         this.apps = apps;
@@ -32,7 +30,7 @@ public class UnblockedAppsAdapter extends RecyclerView.Adapter<UnblockedAppsAdap
     @NonNull
     @Override
     public adapter_design_backend onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.locked_adapter_design, parent, false);
+        View view = LayoutInflater.from(ctx).inflate(R.layout.unblocked_apps_adapter_design, parent, false);
         return new adapter_design_backend(view);
     }
 
@@ -46,17 +44,15 @@ public class UnblockedAppsAdapter extends RecyclerView.Adapter<UnblockedAppsAdap
             holder.appStatus.setImageResource(R.drawable.ic_baseline_delete_24);
         } else {
             holder.appStatus.setImageResource(R.drawable.locked_icon);
-            lockedApps.add(app.getPackageName());
         }
 
         holder.appStatus.setOnClickListener(v -> {
             app.setStatus(0); // TODO BLOCK THIS APP
-            lockedApps.add(app.getPackageName()); // TODO ADD IT WITH BLOCK APPS
 
             // TODO UPDATE DATA
-            List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-            blockedPackages.add(app.getPackageName());
-            SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
+            List<String> unblockedPackages = SharedPrefUtil.getInstance(ctx).getUnblockedAppsList();
+            unblockedPackages.remove(app.getPackageName());
+            SharedPrefUtil.getInstance(ctx).createUnblockedAppsList(unblockedPackages);
 
             deleteItem(holder, position);
         });

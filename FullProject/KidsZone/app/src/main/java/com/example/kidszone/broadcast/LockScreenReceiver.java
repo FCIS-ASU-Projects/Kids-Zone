@@ -9,7 +9,7 @@ import com.example.kidszone.activites.ScreenTimerActivity;
 public class LockScreenReceiver extends BroadcastReceiver {
 
     private boolean isScreenClosedWhileTimerIsRunning=false;
-    public static boolean isScreenLocked=false;
+    public static boolean isScreenLocked=false; // USED IN STOP CAPTURING IMAGES WHEN SCREEN IS OFF
 
     @Override
     public void onReceive(Context context, Intent intent) {

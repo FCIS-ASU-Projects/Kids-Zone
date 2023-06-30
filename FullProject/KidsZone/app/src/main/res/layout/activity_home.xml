@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/black">
 
+
     <include
         android:id="@+id/app_bar"
         layout="@layout/app_bar" />
@@ -59,19 +60,19 @@
 
     <Switch
         android:id="@+id/app_switch"
-        android:onClick="onSwitchClicked"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        android:onClick="onSwitchClicked"
+        android:showText="true"
+        android:thumb="@drawable/thumb"
+        android:track="@drawable/track"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/start_monitoring_text"
         app:layout_constraintVertical_bias="0.007"
-        android:showText="true"
-        android:thumb="@drawable/thumb"
-        android:track="@drawable/track"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView

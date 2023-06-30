@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <!-- <uses-permission -->
-    <!-- android:name="android.permission.FOREGROUND_SERVICE" -->
-    <!-- tools:ignore="WrongManifestParent"/> -->
-    <!-- <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/> -->
-    <!-- permissions for INTERNET -->
+
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission
         android:name="android.permission.READ_PRIVILEGED_PHONE_STATE"
@@ -58,7 +54,6 @@
             android:exported="false" />
         <activity android:name="com.example.kidszone.activites.IntroScreen" />
         <activity android:name="com.example.kidszone.activites.ScreenBlocker" />
-        <activity android:name="com.example.kidszone.activites.LockedAppsRecyclerView" />
         <activity android:name="com.example.kidszone.activites.AllMobileApps" />
         <activity android:name="com.example.kidszone.activites.UnblockedApps" />
 
@@ -70,14 +65,6 @@
             android:name="com.example.kidszone.broadcast.LockScreenReceiver"
             android:enabled="true"
             android:exported="true" />
-        <receiver
-            android:name="com.example.kidszone.broadcast.RestartServiceWhenStopped"
-            android:enabled="true"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
 
         <service
             android:name="com.example.kidszone.services.ServiceAppLock"

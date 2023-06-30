@@ -19,10 +19,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
-import com.example.kidszone.databinding.ActivityBlockedAppsBinding;
 import com.example.kidszone.adapter.UnblockedAppsAdapter;
 import com.example.kidszone.app_model.AppModel;
+import com.example.kidszone.databinding.ActivityUnblockedAppsBinding;
 import com.example.kidszone.shared.SharedPrefUtil;
 
 import java.util.ArrayList;
@@ -31,21 +32,21 @@ import java.util.List;
 public class UnblockedApps extends AppCompatActivity {
     private Context context;
     @SuppressLint("StaticFieldLeak")
-    private static ActivityBlockedAppsBinding binding;
+    private static ActivityUnblockedAppsBinding binding;
     public static List<AppModel> unblockedApps = new ArrayList<>();
     @SuppressLint("StaticFieldLeak")
-    private static UnblockedAppsAdapter lockedAppsAdapter;
+    private static UnblockedAppsAdapter unblockedAppsAdapter;
     private UnblockedAppsAdapter adapter;
     private static ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_blocked_apps);
+        setContentView(R.layout.activity_unblocked_apps);
         getWindow().setStatusBarColor(ContextCompat.getColor(UnblockedApps.this, R.color.black));
         context = this;
 
-        binding = ActivityBlockedAppsBinding.inflate(getLayoutInflater());
+        binding = ActivityUnblockedAppsBinding.inflate(getLayoutInflater());
         View v = binding.getRoot();
         setContentView(v);
 
@@ -66,12 +67,12 @@ public class UnblockedApps extends AppCompatActivity {
             return false;
         });
 
-        lockedAppsAdapter = new UnblockedAppsAdapter(unblockedApps, this.getApplicationContext());
+        unblockedAppsAdapter = new UnblockedAppsAdapter(unblockedApps, this.getApplicationContext());
         progressDialog = new ProgressDialog(this);
         adapter = new UnblockedAppsAdapter(unblockedApps, this);
 
-        binding.lockedAppsList.setLayoutManager(new LinearLayoutManager(this));
-        binding.lockedAppsList.setAdapter(adapter);
+        binding.unblockedAppsList.setLayoutManager(new LinearLayoutManager(this));
+        binding.unblockedAppsList.setAdapter(adapter);
 
         getUnblockedApps(context);
         toggleEmptyLockListInfo();
@@ -85,8 +86,6 @@ public class UnblockedApps extends AppCompatActivity {
             getUnblockedApps(context);
             toggleEmptyLockListInfo();
         });
-
-        togglePermissionBox();
     }
     public void openHelpActivity(){
         Intent intent = new Intent(this, HelpActivity.class);
@@ -94,87 +93,28 @@ public class UnblockedApps extends AppCompatActivity {
     }
     @SuppressLint("NotifyDataSetChanged")
     private static void getUnblockedApps(Context ctx) {
-//        toggleEmptyLockListInfo(ctx);
-        List<String> prefAppList = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-        List<ApplicationInfo> packagesInfo = ctx.getPackageManager().getInstalledApplications(0);
-        unblockedApps.clear();
+        List<String> unblockedApps = SharedPrefUtil.getInstance(ctx).getUnblockedAppsList();
+        UnblockedApps.unblockedApps.clear();
 
-        for (int i = 0; i < packagesInfo.size(); i++) {
-            if (packagesInfo.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
-                String name = packagesInfo.get(i).loadLabel(ctx.getPackageManager()).toString();
-                Drawable icon = packagesInfo.get(i).loadIcon(ctx.getPackageManager());
-                String packageName = packagesInfo.get(i).packageName;
+        for (int i = 0; i < HomeActivity.ALL_MOBILE_APPS.size(); i++) {
+            if (HomeActivity.ALL_MOBILE_APPS.get(i).icon > 0) { //  THERE IS AN ICON FOR THIS APP
+                String packageName = HomeActivity.ALL_MOBILE_APPS.get(i).packageName;
 
-                if (!prefAppList.contains(packageName)) {
-                    unblockedApps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
+                if (unblockedApps.contains(packageName)) {
+                    String name = HomeActivity.ALL_MOBILE_APPS.get(i).loadLabel(ctx.getPackageManager()).toString();
+                    Drawable icon = HomeActivity.ALL_MOBILE_APPS.get(i).loadIcon(ctx.getPackageManager());
+                    UnblockedApps.unblockedApps.add(new AppModel(name, icon, 1, packageName)); // UNBLOCKED APP
                 }
             }
         }
-        lockedAppsAdapter.notifyDataSetChanged();
-//        progressDialog.dismiss();
-    }
-    private void togglePermissionBox() {
-        if (!Settings.canDrawOverlays(this) || !isAccessGranted()) {
-            binding.emptyLockListInfo.setVisibility(View.GONE);
 
-            binding.enableStatusDisplay.setOnClickListener(v -> overlayPermission());
-            binding.enableStatusUsage.setOnClickListener(v -> accessPermission());
-
-            if (Settings.canDrawOverlays(this)) {
-                binding.enableStatusDisplay.setVisibility(View.INVISIBLE);
-                binding.checkedIconDisplay.setColorFilter(Color.GREEN);
-            }
-            if (isAccessGranted()) {
-                binding.enableStatusUsage.setVisibility(View.INVISIBLE);
-                binding.checkedIconUsage.setColorFilter(Color.GREEN);
-            }
-        } else {
-            binding.permissionsBoxUsage.setVisibility(View.GONE);
-            binding.permissionsBoxDisplay.setVisibility(View.GONE);
-            toggleEmptyLockListInfo();
-        }
+        unblockedAppsAdapter.notifyDataSetChanged();
     }
     public static void toggleEmptyLockListInfo() {
         if (unblockedApps.size() > 0) {
-            binding.emptyLockListInfo.setVisibility(View.GONE);
+            binding.emptyUnblockListInfo.setVisibility(View.GONE);
         } else {
-            binding.emptyLockListInfo.setVisibility(View.VISIBLE);
-        }
-    }
-    private boolean isAccessGranted() {
-        try {
-            PackageManager packageManager = getPackageManager();
-            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), 0);
-            AppOpsManager appOpsManager = null;
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
-            }
-            int mode = 0;
-            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
-                mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
-                        applicationInfo.uid, applicationInfo.packageName);
-            }
-            return (mode == AppOpsManager.MODE_ALLOWED);
-
-        } catch (PackageManager.NameNotFoundException e) {
-            return false;
-        }
-    }
-    public void accessPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!isAccessGranted()) {
-                Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-                startActivityForResult(intent, 102);
-            }
-        }
-    }
-    public void overlayPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!Settings.canDrawOverlays(this)) {
-                Intent myIntent = new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION);
-                startActivityForResult(myIntent, 101);
-            }
+            binding.emptyUnblockListInfo.setVisibility(View.VISIBLE);
         }
     }
     @Override
@@ -185,7 +125,6 @@ public class UnblockedApps extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        togglePermissionBox();
         toggleEmptyLockListInfo();
     }
 }

@@ -26,7 +26,6 @@ public class AllAppsAdapter extends RecyclerView.Adapter<AllAppsAdapter.adapter_
     List<AppModel> apps;
     List<AppModel> appsFullList;
     Context ctx;
-    List<String> lockedApps = new ArrayList<>(); // Holds only names
 
     public AllAppsAdapter(List<AppModel> apps, Context ctx) {
         this.apps = apps;
@@ -65,7 +64,7 @@ public class AllAppsAdapter extends RecyclerView.Adapter<AllAppsAdapter.adapter_
     @NonNull
     @Override
     public adapter_design_backend onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(ctx).inflate(R.layout.all_adapter_design, parent, false);
+        View view = LayoutInflater.from(ctx).inflate(R.layout.all_apps_adapter_design, parent, false);
         return new adapter_design_backend(view);
     }
 
@@ -86,30 +85,27 @@ public class AllAppsAdapter extends RecyclerView.Adapter<AllAppsAdapter.adapter_
         else { // BLOCKED APP
             holder.appStatus.setImageResource(R.drawable.locked_icon); // TODO ADD THE LOCKED ICON
             holder.appIcon.setColorFilter(filter);
-            lockedApps.add(app.getPackageName());
         }
 
         holder.appIcon.setOnClickListener(v -> {
             if (app.getStatus() == 1) { // TODO BLOCK THIS APP
                 app.setStatus(0);
                 holder.appStatus.setImageResource(R.drawable.locked_icon);
-                lockedApps.add(app.getPackageName());
                 holder.appIcon.setColorFilter(filter);
 
                 // TODO update data
-                List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-                blockedPackages.add(app.getPackageName());
-                SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
+                List<String> unblockedPackages = SharedPrefUtil.getInstance(ctx).getUnblockedAppsList();
+                unblockedPackages.remove(app.getPackageName());
+                SharedPrefUtil.getInstance(ctx).createUnblockedAppsList(unblockedPackages);
             } else { // TODO UNBLOCK THIS APP
                 app.setStatus(1);
                 holder.appStatus.setImageResource(0);
-                lockedApps.remove(app.getPackageName());
                 holder.appIcon.clearColorFilter();
 
                 // TODO update data
-                List<String> blockedPackages = SharedPrefUtil.getInstance(ctx).getLockedAppsList();
-                blockedPackages.remove(app.getPackageName());
-                SharedPrefUtil.getInstance(ctx).createLockedAppsList(blockedPackages);
+                List<String> unblockedPackages = SharedPrefUtil.getInstance(ctx).getUnblockedAppsList();
+                unblockedPackages.add(app.getPackageName());
+                SharedPrefUtil.getInstance(ctx).createUnblockedAppsList(unblockedPackages);
             }
         });
     }

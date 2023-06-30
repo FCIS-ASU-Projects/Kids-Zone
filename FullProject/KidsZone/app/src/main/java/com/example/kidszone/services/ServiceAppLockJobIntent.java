@@ -98,17 +98,13 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
 
         Log.d("IS_BLOCK_ON --> ", Boolean.toString(HomeActivity.IS_BLOCK_ON));
 
-        if(HomeActivity.AGE_TO_BE_BLOCKED_FOR==null)
-            Log.d("HomeActivity.AGE_TO_BE_BLOCKED_FOR ", "NULL");
-        if(HomeActivity.classFromAge==null)
-            Log.d("HomeActivity.classFromAge ", "NULL");
-
         if (HomeActivity.IMAGE_CURRENT_AGE_CLASS!=-1)
         {
             Log.d("IMAGE_CURRENT_AGE_CLASS --> ", Integer.toString(HomeActivity.IMAGE_CURRENT_AGE_CLASS));
             Log.d("AGE_TO_BE_BLOCKED_FOR --> ", Integer.toString(HomeActivity.classFromAge.get(HomeActivity.AGE_TO_BE_BLOCKED_FOR)));
             Log.d("IS_TIMER_RUNNING --> ", Boolean.toString(ScreenTimerActivity.mTimerRunning));
         }
+
         Log.d("ServiceAppLockJobIntent --> ", "===========================================================");
     }
     @SuppressLint("SimpleDateFormat")
@@ -116,9 +112,9 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
         // TODO GET THE CURRENT LIVE TIME
         currentDate = new Date();
         dateFormat = new SimpleDateFormat("kk:mm:ss");
-        Log.d("ServiceAppLockJobIntent --> Current Time in 24 hr format = ", dateFormat.format(currentDate));
+        // Log.d("ServiceAppLockJobIntent --> Current Time in 24 hr format = ", dateFormat.format(currentDate));
         hoursDateFormat = new SimpleDateFormat("kk");
-        Log.d("ServiceAppLockJobIntent --> Current hour in 24 hr format = ", hoursDateFormat.format(currentDate));
+        // Log.d("ServiceAppLockJobIntent --> Current hour in 24 hr format = ", hoursDateFormat.format(currentDate));
     }
     private void restartTimerAtSpecificTime(){
         if(!ScreenTimerActivity.mTimerRunning && HomeActivity.IS_TIMER_FOR_TODAY_FINISHED && Integer.parseInt(hoursDateFormat.format(currentDate)) == HomeActivity.TIMER_RESTARTS_AT)
@@ -146,7 +142,6 @@ public class ServiceAppLockJobIntent extends JobIntentService { // SUBCLASS FROM
             Log.d("PAUSE TIMER", "PAUSE TIMER");
             ScreenTimerActivity.mCountDownTimer.cancel();
             ScreenTimerActivity.mTimerRunning = false;
-            //TimerActivity.updateButtons();
 
             stopService(new Intent(getApplicationContext(), TimerService.class));
             Log.d("ServiceAppLockJobIntent --> ", "+++++++++++++++++++++++++++++++++++++++++++++++++++");

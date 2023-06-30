@@ -19,7 +19,7 @@ import android.view.View;
 
 import com.example.kidszone.HomeActivity;
 import com.example.kidszone.R;
-import com.example.kidszone.databinding.ActivityFreezeBinding;
+import com.example.kidszone.databinding.ActivityScreenTimeBinding;
 import com.example.kidszone.services.TimerService;
 
 import java.util.Locale;
@@ -28,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class ScreenTimerActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
-    public static ActivityFreezeBinding binding;
+    public static ActivityScreenTimeBinding binding;
     public static int hour,minute;
     public static long milliSeconds,seconds;
     public static long START_TIME_IN_MILLIS = 30*60000;
@@ -40,10 +40,10 @@ public class ScreenTimerActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_freeze);
+        setContentView(R.layout.activity_screen_time);
         getWindow().setStatusBarColor(ContextCompat.getColor(ScreenTimerActivity.this, R.color.black));
 
-        binding = ActivityFreezeBinding.inflate(getLayoutInflater());
+        binding = ActivityScreenTimeBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
 
@@ -104,7 +104,7 @@ public class ScreenTimerActivity extends AppCompatActivity {
         mTimerRunning = false;
 
         if(binding==null)
-            binding = ActivityFreezeBinding.inflate(getLayoutInflater());
+            binding = ActivityScreenTimeBinding.inflate(getLayoutInflater());
 
         stopService(new Intent(ScreenTimerActivity.this, TimerService.class));
     }
@@ -113,7 +113,7 @@ public class ScreenTimerActivity extends AppCompatActivity {
         mTimeLeftInMillis = START_TIME_IN_MILLIS;
 
         if(binding==null)
-            binding = ActivityFreezeBinding.inflate(getLayoutInflater());
+            binding = ActivityScreenTimeBinding.inflate(getLayoutInflater());
         updateCountDownText();
     }
     public static void updateCountDownText() {

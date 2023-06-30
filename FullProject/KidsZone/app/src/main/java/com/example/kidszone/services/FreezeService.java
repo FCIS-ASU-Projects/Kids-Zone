@@ -40,7 +40,7 @@ public class FreezeService extends Service {
             LAYOUT_FLAG = WindowManager.LayoutParams.TYPE_PHONE;
         }
 
-        //inflate widget layout
+        // inflate widget layout
         mFloatingView = LayoutInflater.from(this).inflate(R.layout.freeze_floating_window, null);
         WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT,
                 WindowManager.LayoutParams.WRAP_CONTENT,

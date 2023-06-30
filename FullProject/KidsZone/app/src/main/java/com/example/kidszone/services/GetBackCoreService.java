@@ -33,9 +33,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.atomic.AtomicBoolean;
 
-public class GetBackCoreService extends Service implements
-        IFrontCaptureCallback {
-
+public class GetBackCoreService extends Service implements IFrontCaptureCallback {
     private static ActionLocks actionLocks = null;
     private SharedPreferences preferences;
     private String photoPath = null;
@@ -62,8 +60,6 @@ public class GetBackCoreService extends Service implements
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-        Toast.makeText(getApplicationContext(),"Service is Destroyed",Toast.LENGTH_LONG).show();
         CameraUtils.LogUtil.LogD(CameraConstants.LOG_TAG, "Service Destroyed");
     }
     @Override
@@ -87,12 +83,12 @@ public class GetBackCoreService extends Service implements
                     manager.createNotificationChannel(notificationChannel);
                 }
 
-                Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.child_background);
+                Bitmap icon = BitmapFactory.decodeResource(getResources(), R.drawable.app_icon);
                 Notification notification = new Notification.Builder(getApplicationContext())
                         .setChannelId(CHANNEL_ONE_ID)
                         .setContentTitle("Service")
                         .setContentText("Capture picture using foreground service")
-                        .setSmallIcon(R.drawable.child_background)
+                        .setSmallIcon(R.drawable.app_icon)
                         .setLargeIcon(icon)
                         .build();
 
@@ -112,7 +108,7 @@ public class GetBackCoreService extends Service implements
             Notification notification = new NotificationCompat.Builder(this)
                     .setContentTitle("Service")
                     .setContentText("Capture picture using foreground service")
-                    .setSmallIcon(R.drawable.child_background)
+                    .setSmallIcon(R.drawable.app_icon)
                     .setOngoing(true).build();
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ECLAIR) {
@@ -128,7 +124,6 @@ public class GetBackCoreService extends Service implements
     public void onPhotoCaptured(String filePath) {
 
         synchronized (stateFlags){
-            Toast.makeText(this,"onPhotoCaptured",Toast.LENGTH_LONG).show();
 
             stateFlags.isPhotoCaptured = true;
             addBooleanPreference(CameraConstants.PREFERENCE_IS_PHOTO_CAPTURED,
@@ -164,8 +159,7 @@ public class GetBackCoreService extends Service implements
         new Thread(new Runnable() {
             @Override
             public void run() {
-                CameraUtils.LogUtil.LogD(CameraConstants.LOG_TAG,
-                        "Inside captureThread run");
+                CameraUtils.LogUtil.LogD(CameraConstants.LOG_TAG, "Inside captureThread run");
 
                 myLooper.prepare();
 
@@ -187,7 +181,7 @@ public class GetBackCoreService extends Service implements
                 .setTicker("Ticker")
                 .setContentTitle("Service")
                 .setContentText("Capture picture using foreground service")
-                .setSmallIcon(R.drawable.child_background)
+                .setSmallIcon(R.drawable.app_icon)
                 .setContentIntent(pendingIntent)
                 .setOngoing(true).build();
     }

@@ -42,11 +42,12 @@ public class ScreenBlocker extends AppCompatActivity {
             ApplicationInfo applicationInfo = null;
             try {
                 applicationInfo = getPackageManager().getApplicationInfo(current_app, 0);
+                icon.setImageDrawable(applicationInfo.loadIcon(getPackageManager()));
+                blockInfo.setText(applicationInfo.loadLabel(getPackageManager()).toString().toUpperCase() + " is blocked by Kids Zone.");
             } catch (PackageManager.NameNotFoundException e) {
                 e.printStackTrace();
             }
-            icon.setImageDrawable(applicationInfo.loadIcon(getPackageManager()));
-            blockInfo.setText(applicationInfo.loadLabel(getPackageManager()).toString().toUpperCase() + " is blocked by Kids Zone.");
+
         }
     }
 
@@ -54,11 +55,6 @@ public class ScreenBlocker extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-       /* Intent intent = new Intent(this, ScreenBlocker.class);
-        startActivity(intent);*/
-        /* ActivityManager activityManager = (ActivityManager) getApplicationContext()
-                .getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.moveTaskToFront(getTaskId(), 0);*/
     }
 
     @Override
