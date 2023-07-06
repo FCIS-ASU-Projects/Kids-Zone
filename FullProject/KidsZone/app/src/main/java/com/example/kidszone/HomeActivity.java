@@ -177,35 +177,35 @@ public class HomeActivity extends AppCompatActivity {
     }
     public void getPermission(){
         overlayPermission();
-        // accessPermission();
+        accessPermission();
     }
-//    private boolean isAccessGranted() {
-//        try {
-//            PackageManager packageManager = getPackageManager();
-//            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
-//            AppOpsManager appOpsManager = null;
-//            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-//                appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
-//            }
-//            int mode = 0;
-//            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
-//                mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
-//                        applicationInfo.uid, applicationInfo.packageName);
-//            }
-//            return (mode == AppOpsManager.MODE_ALLOWED);
-//
-//        } catch (PackageManager.NameNotFoundException e) {
-//            return false;
-//        }
-//    }
-//    public void accessPermission() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-//            if (!isAccessGranted()) {
-//                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-//                startActivityForResult(intent, 102);
-//            }
-//        }
-//    }
+    private boolean isAccessGranted() {
+        try {
+            PackageManager packageManager = getPackageManager();
+            ApplicationInfo applicationInfo = packageManager.getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
+            AppOpsManager appOpsManager = null;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
+                appOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+            }
+            int mode = 0;
+            if (android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.KITKAT) {
+                mode = appOpsManager.checkOpNoThrow(AppOpsManager.OPSTR_GET_USAGE_STATS,
+                        applicationInfo.uid, applicationInfo.packageName);
+            }
+            return (mode == AppOpsManager.MODE_ALLOWED);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            return false;
+        }
+    }
+    public void accessPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (!isAccessGranted()) {
+                Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
+                startActivityForResult(intent, 102);
+            }
+        }
+    }
     public void overlayPermission() {
         // check if we already  have permission to draw over other apps
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
