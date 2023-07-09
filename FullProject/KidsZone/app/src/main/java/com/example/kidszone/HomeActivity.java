@@ -34,7 +34,7 @@ import com.example.kidszone.activites.IntroScreen;
 import com.example.kidszone.activites.ScreenTimerActivity;
 import com.example.kidszone.databinding.ActivityHomeBinding;
 import com.example.kidszone.deeplearningmodel.Age_prediction;
-import com.example.kidszone.services.BackgroundManager;
+import com.example.kidszone.apps_blocking_background_manager.BackgroundManager;
 import com.example.kidszone.services.GetBackCoreService;
 import com.example.kidszone.services.LockScreenService;
 import com.example.kidszone.shared.SharedPrefUtil;
@@ -59,16 +59,16 @@ public class HomeActivity extends AppCompatActivity {
     public static List<ApplicationInfo> ALL_MOBILE_APPS;
     private static Age_prediction AGE_PREDICTION;
     public static int IMAGE_CURRENT_AGE_CLASS = -1;
-    public static int TIMER_RESTARTS_AT = 13;
-    public static String AGE_TO_BE_BLOCKED_FOR ="-13";
+    public static String AGE_TO_BE_BLOCKED_FOR ="2-->6";
     private static final String SAVED_AGE_TO_BE_BLOCKED_FOR ="SAVED_AGE_TO_BE_BLOCKED_FOR";
+    public static int TIMER_RESTARTS_AT = 0;
     private static final String SAVED_SWITCH_STATE ="SAVED_SWITCH_STATE";
     private static boolean SWITCH_STATE = false;
     public static boolean IS_CAMERA_RUNNING = false;
     public static boolean IS_BLOCK_ON = false;
     public static boolean IS_FREEZE_ON = false;
     public static boolean IS_TIMER_FOR_TODAY_FINISHED = false;
-    private final String[] ages_classes = {"-3","-6","-13","-19"};
+    private final String[] ages_classes = {"2-->6", "2-->14"};
     public static Dictionary<String, Integer>classFromAge;
     @SuppressLint("StaticFieldLeak")
     static Context ctx;
@@ -103,13 +103,9 @@ public class HomeActivity extends AppCompatActivity {
     }
     private void setAgeFromClassDict(){
         classFromAge = new Hashtable<>();
-        classFromAge.put("-3", 0);
-        classFromAge.put("-6", 1);
-        classFromAge.put("-13",2);
-        classFromAge.put("-19",3);
-        classFromAge.put("-32", 4);
-        classFromAge.put("-45",5);
-        classFromAge.put("+46", 6);
+        classFromAge.put("2-->6", 1);
+        classFromAge.put("2-->14", 2);
+        classFromAge.put("+15",3);
         classFromAge.put("NOTHING", -1);
     }
     private void startServices(){
@@ -310,7 +306,7 @@ public class HomeActivity extends AppCompatActivity {
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
 
         // RETRIEVE DATA
-        AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "-13"); // The second parameter is the value that puts in the 1st parameter if it is empty
+        AGE_TO_BE_BLOCKED_FOR = prefs.getString(SAVED_AGE_TO_BE_BLOCKED_FOR, "2-->6"); // The second parameter is the value that puts in the 1st parameter if it is empty
         SWITCH_STATE = prefs.getBoolean(SAVED_SWITCH_STATE, false); // The second parameter is the value that puts in the 1st parameter if it is empty
 
         // SWITCH BUTTON

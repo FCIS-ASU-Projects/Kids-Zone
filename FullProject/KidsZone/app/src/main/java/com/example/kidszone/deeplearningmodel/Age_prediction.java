@@ -1,15 +1,10 @@
 package com.example.kidszone.deeplearningmodel;
 
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
-import android.widget.ImageView;
 
-
-import com.example.kidszone.ml.Mobilenetv2BestModel;
-import com.example.kidszone.ml.Mobilenetv2BestModel;
+import com.example.kidszone.ml.NewMobilenetBestModel;
 
 import org.opencv.core.Mat;
 import org.tensorflow.lite.DataType;
@@ -20,17 +15,13 @@ import org.tensorflow.lite.support.image.ops.ResizeOp;
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.nio.Buffer;
 import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 
 public class Age_prediction {
 
     int imageSize=96;
-    private Mobilenetv2BestModel age_model;
+    NewMobilenetBestModel age_model;
     private Face_detection yolo;
     public static String[] classes = {"0-3","4-6","7-13","14-19","20-32","33-45","46+"};
     private static  ImageProcessor imageProcessor =new ImageProcessor.Builder()
@@ -47,22 +38,26 @@ public class Age_prediction {
     }
     public int detection_prediction(Mat mat)
     {
-
-//        Face_detection yolo = new Face_detection(f.getPath(), 0.45f, 0.3f);
         Bitmap frame = yolo.detect_face(mat);
-
 
         if (frame != null)
         {
-            return predict_age(frame);
+            int predicted_age = predict_age(frame);
+
+            if(predicted_age==0 || predicted_age==1)
+                return 1;
+            else if(predicted_age==2)
+                return 2;
+            else if(predicted_age>2)
+                return 3;
         }
         return -1;
     }
-    private Mobilenetv2BestModel load_model(Context context)
+    private NewMobilenetBestModel load_model(Context context)
     {
-        Mobilenetv2BestModel model=null;
+        NewMobilenetBestModel model=null;
         try {
-            model = Mobilenetv2BestModel.newInstance(context);
+            model = NewMobilenetBestModel.newInstance(context);
         }
         catch (IOException e)
         {
@@ -90,7 +85,7 @@ public class Age_prediction {
             inputFeature0.loadBuffer(byteBuffer);
 
             // Runs model inference and gets result.
-            Mobilenetv2BestModel.Outputs outputs = age_model.process(inputFeature0);
+            NewMobilenetBestModel.Outputs outputs = age_model.process(inputFeature0);
             TensorBuffer outputFeature0 = outputs.getOutputFeature0AsTensorBuffer();
 
             float[] confidences = outputFeature0.getFloatArray();

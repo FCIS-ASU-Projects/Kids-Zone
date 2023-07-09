@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import androidx.annotation.Nullable;
 
+import com.example.kidszone.apps_blocking_background_manager.BackgroundManager;
 import com.example.kidszone.broadcast.ReceiverApplock;
 
 public class ServiceAppLock extends IntentService { // NOT USED TIMER SARA FREEZE CASE

@@ -10,6 +10,7 @@ import androidx.core.app.JobIntentService;
 
 import com.example.kidszone.HomeActivity;
 import com.example.kidszone.activites.ScreenTimerActivity;
+import com.example.kidszone.apps_blocking_background_manager.BackgroundManager;
 import com.example.kidszone.broadcast.ReceiverApplock;
 
 import java.text.SimpleDateFormat;

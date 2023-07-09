@@ -162,6 +162,15 @@ public class CameraView implements SurfaceHolder.Callback, PictureCallback, Erro
                 Log.d("HomeActivity.getAgeFromImage(bitmap) ", Integer.toString(HomeActivity.IMAGE_CURRENT_AGE_CLASS));
                 Log.d("HomeActivity.getAgeFromImage(bitmap) ", "=============================================================================");
 
+                if(HomeActivity.IMAGE_CURRENT_AGE_CLASS==-1)
+                    Toast.makeText(context.getApplicationContext(), "THERE IS NO USER NOW",Toast.LENGTH_LONG).show();
+                else if(HomeActivity.IMAGE_CURRENT_AGE_CLASS==0 || HomeActivity.IMAGE_CURRENT_AGE_CLASS==1)
+                    Toast.makeText(context.getApplicationContext(), "THE CURRENT USER'S AGE RANGE IS 2-->6",Toast.LENGTH_LONG).show();
+                else if(HomeActivity.IMAGE_CURRENT_AGE_CLASS==2)
+                    Toast.makeText(context.getApplicationContext(), "THE CURRENT USER'S AGE RANGE IS 6-->14",Toast.LENGTH_LONG).show();
+                else
+                    Toast.makeText(context.getApplicationContext(), "THE CURRENT USER'S AGE RANGE IS BIGGER THAN 15 YEARS",Toast.LENGTH_LONG).show();
+
 
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 bitmap.compress(Bitmap.CompressFormat.JPEG, 40, bytes);
