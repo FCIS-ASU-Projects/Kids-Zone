@@ -1,0 +1,3 @@
+C:/Huda/FCIS/4th Year/Graduation Project/Android Studio Repo Branch (GP)/FullProject/KidsZone/OpenCV/.cxx/RelWithDebInfo/s122c383/x86/CMakeFiles/opencv_jni_shared.dir
+C:/Huda/FCIS/4th Year/Graduation Project/Android Studio Repo Branch (GP)/FullProject/KidsZone/OpenCV/.cxx/RelWithDebInfo/s122c383/x86/CMakeFiles/edit_cache.dir
+C:/Huda/FCIS/4th Year/Graduation Project/Android Studio Repo Branch (GP)/FullProject/KidsZone/OpenCV/.cxx/RelWithDebInfo/s122c383/x86/CMakeFiles/rebuild_cache.dir

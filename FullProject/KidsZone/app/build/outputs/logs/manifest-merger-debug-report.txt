@@ -1,0 +1,359 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+MERGED from [androidx.databinding:viewbinding:7.4.2] C:\Users\AZ\.gradle\caches\transforms-3\aadeaeb20a6a90af4cf3e883da78cdfe\transformed\viewbinding-7.4.2\AndroidManifest.xml:2:1-7:12
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\4a0b86502026930ecce6e7615f5f6bfa\transformed\appcompat-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [org.tensorflow:tensorflow-lite-support:0.1.0] C:\Users\AZ\.gradle\caches\transforms-3\69b22c28a2a96a6722263b120b998e4d\transformed\tensorflow-lite-support-0.1.0\AndroidManifest.xml:2:1-5:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\457e9bd44f068453cf52169f7e46cbaf\transformed\viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\AZ\.gradle\caches\transforms-3\b6c9a260bfc3dfa12b5793c8a0b533be\transformed\recyclerview-1.2.1\AndroidManifest.xml:17:1-24:12
+MERGED from [:OpenCV] C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\OpenCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\aac33e449777245b110d7a5aa1e5f5d8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\3e035e73250bb17993d71927dcdf3c00\transformed\fragment-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\02c9960f4a7e38e7d3dafabeec171c09\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bfc9ec5021502f5464dcbba51426572b\transformed\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\0295d4dce2fc5a9c3155d63cd47682c1\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\275ead37dc52ffcfee68f8da09b66bcf\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\6e89c36cc5db15bff609c7c1c0b53ba3\transformed\transition-1.2.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\c8d531f4db7d7d427147d4e026b58e0b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6558df45dac02edaea42b3a55144ff2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\c90912cfa7907475306263035ca7088f\transformed\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\e3aa8a96113bfbc3449c2939a63cd1a2\transformed\customview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\333e9e5fa02292d6f750af438eb68d02\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\99c8588bc4c1f63eea9c03f1fa953856\transformed\loader-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\9c841d7895ad5a0f043830b7f95f903c\transformed\activity-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\d86842503d8d71025551732c924b6885\transformed\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AZ\.gradle\caches\transforms-3\e73c4eebe40d1716de53b8e2fbe658bf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6588b350c692d0ca214fcac17e28c9f2\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\fca9f04d2dee7801a3c79b549f948a99\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\eb93c3447b1409fe53d5e94bf26da64a\transformed\savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1743a902e3e9db00633964cefe61fa64\transformed\interpolator-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bae452899292e4f9779148151be287e2\transformed\documentfile-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\fdec452a6eb1a3976b5e8a13c50cd7a9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1537aee40c92bead1f20a41fdfa4fcee\transformed\print-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\675cab0d96baf1ee163ca379c1af18d4\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\70ba13572731b1e3319ed36fd57846b0\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\6081dd87483001744f803882ee62000f\transformed\core-runtime-2.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\751d298c5b215593632d7797e86540e7\transformed\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
+MERGED from [org.tensorflow:tensorflow-lite:2.4.0] C:\Users\AZ\.gradle\caches\transforms-3\db450b36d904657ea8af9c8b816e5d93\transformed\tensorflow-lite-2.4.0\AndroidManifest.xml:2:1-12:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+	package
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+	xmlns:tools
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:3:5-51
+	android:versionCode
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:1-87:12
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:2:11-69
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.READ_PRIVILEGED_PHONE_STATE
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:6:5-8:47
+	tools:ignore
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:8:9-44
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:7:9-70
+uses-permission#android.permission.ACTION_MANAGE_OVERLAY_PERMISSION
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:9:5-91
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:9:22-88
+uses-permission#android.permission.CAMERA
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:10:5-65
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:10:22-62
+uses-permission#android.permission.INTERNET
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:11:22-64
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:12:5-96
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:12:22-77
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:13:22-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:14:5-77
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:14:22-74
+uses-permission#android.permission.POST_NOTIFICATIONS
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:15:5-77
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:15:22-74
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:16:5-78
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:16:22-75
+uses-permission#android.permission.EXPAND_STATUS_BAR
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:17:5-76
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:17:22-73
+uses-permission#android.permission.DISABLE_KEYGUARD
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:18:5-75
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:18:22-72
+uses-permission#android.permission.GET_TASKS
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:19:5-68
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:19:22-65
+uses-permission#android.permission.KILL_BACKGROUND_PROCESSES
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:20:5-84
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:20:22-81
+uses-permission#android.permission.REORDER_TASKS
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:21:5-72
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:21:22-69
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:22:5-68
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:22:22-65
+uses-permission#android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:23:5-95
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:23:22-92
+uses-permission#android.permission.PACKAGE_USAGE_STATS
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:24:5-26:47
+	tools:ignore
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:26:9-44
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:25:9-62
+uses-permission#android.permission.QUERY_ALL_PACKAGES
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:27:5-29:53
+	tools:ignore
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:29:9-50
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:28:9-61
+application
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:31:5-85:19
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\AndroidManifest.xml:22:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\AndroidManifest.xml:9:5-20
+MERGED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AZ\.gradle\caches\transforms-3\e73c4eebe40d1716de53b8e2fbe658bf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AZ\.gradle\caches\transforms-3\e73c4eebe40d1716de53b8e2fbe658bf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:24:5-25:19
+MERGED from [org.tensorflow:tensorflow-lite:2.4.0] C:\Users\AZ\.gradle\caches\transforms-3\db450b36d904657ea8af9c8b816e5d93\transformed\tensorflow-lite-2.4.0\AndroidManifest.xml:10:5-20
+MERGED from [org.tensorflow:tensorflow-lite:2.4.0] C:\Users\AZ\.gradle\caches\transforms-3\db450b36d904657ea8af9c8b816e5d93\transformed\tensorflow-lite-2.4.0\AndroidManifest.xml:10:5-20
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:37:9-35
+	android:label
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:35:9-41
+	android:fullBackupContent
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:33:9-42
+	android:roundIcon
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:36:9-51
+	android:icon
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:34:9-40
+	android:allowBackup
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:32:9-36
+	android:theme
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:38:9-46
+	tools:replace
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:39:9-38
+activity#com.example.kidszone.activites.HelpActivity
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:40:9-42:40
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:42:13-37
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:41:13-71
+activity#com.example.kidszone.HomeActivity
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:43:9-51:20
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:45:13-36
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:44:13-61
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:46:13-50:29
+action#android.intent.action.MAIN
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:47:17-69
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:47:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:49:17-77
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:49:27-74
+activity#com.example.kidszone.activites.ScreenTimerActivity
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:52:9-54:40
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:54:13-37
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:53:13-78
+activity#com.example.kidszone.activites.IntroScreen
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:55:9-79
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:55:19-76
+activity#com.example.kidszone.activites.ScreenBlocker
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:56:9-81
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:56:19-78
+activity#com.example.kidszone.activites.AllMobileApps
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:57:9-81
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:57:19-78
+activity#com.example.kidszone.activites.UnblockedApps
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:58:9-81
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:58:19-78
+receiver#com.example.kidszone.broadcast.ReceiverApplock
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:60:9-63:39
+	android:enabled
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:62:13-35
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:63:13-36
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:61:13-74
+receiver#com.example.kidszone.broadcast.LockScreenReceiver
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:64:9-67:39
+	android:enabled
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:66:13-35
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:67:13-36
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:65:13-77
+service#com.example.kidszone.services.ServiceAppLock
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:69:9-72:40
+	android:enabled
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:71:13-35
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:72:13-37
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:70:13-72
+service#com.example.kidszone.services.ServiceAppLockJobIntent
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:73:9-76:72
+	android:exported
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:75:13-36
+	android:permission
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:76:13-69
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:74:13-81
+service#com.example.kidszone.services.FreezeService
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:77:9-79:38
+	android:enabled
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:79:13-35
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:78:13-71
+service#com.example.kidszone.services.TimerService
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:80:9-82:38
+	android:enabled
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:82:13-35
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:81:13-70
+service#com.example.kidszone.services.GetBackCoreService
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:83:9-84
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:83:18-81
+service#com.example.kidszone.services.LockScreenService
+ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:84:9-83
+	android:name
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:84:18-80
+uses-sdk
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+MERGED from [androidx.databinding:viewbinding:7.4.2] C:\Users\AZ\.gradle\caches\transforms-3\aadeaeb20a6a90af4cf3e883da78cdfe\transformed\viewbinding-7.4.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:7.4.2] C:\Users\AZ\.gradle\caches\transforms-3\aadeaeb20a6a90af4cf3e883da78cdfe\transformed\viewbinding-7.4.2\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.4.0] C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\4a0b86502026930ecce6e7615f5f6bfa\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\4a0b86502026930ecce6e7615f5f6bfa\transformed\appcompat-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [org.tensorflow:tensorflow-lite-support:0.1.0] C:\Users\AZ\.gradle\caches\transforms-3\69b22c28a2a96a6722263b120b998e4d\transformed\tensorflow-lite-support-0.1.0\AndroidManifest.xml:4:3-71
+MERGED from [org.tensorflow:tensorflow-lite-support:0.1.0] C:\Users\AZ\.gradle\caches\transforms-3\69b22c28a2a96a6722263b120b998e4d\transformed\tensorflow-lite-support-0.1.0\AndroidManifest.xml:4:3-71
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\457e9bd44f068453cf52169f7e46cbaf\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\457e9bd44f068453cf52169f7e46cbaf\transformed\viewpager2-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\AZ\.gradle\caches\transforms-3\b6c9a260bfc3dfa12b5793c8a0b533be\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.2.1] C:\Users\AZ\.gradle\caches\transforms-3\b6c9a260bfc3dfa12b5793c8a0b533be\transformed\recyclerview-1.2.1\AndroidManifest.xml:20:5-22:41
+MERGED from [:OpenCV] C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\OpenCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [:OpenCV] C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\OpenCV\build\intermediates\merged_manifest\debug\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\aac33e449777245b110d7a5aa1e5f5d8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\aac33e449777245b110d7a5aa1e5f5d8\transformed\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\3e035e73250bb17993d71927dcdf3c00\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\3e035e73250bb17993d71927dcdf3c00\transformed\fragment-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\02c9960f4a7e38e7d3dafabeec171c09\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\02c9960f4a7e38e7d3dafabeec171c09\transformed\appcompat-resources-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bfc9ec5021502f5464dcbba51426572b\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bfc9ec5021502f5464dcbba51426572b\transformed\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\0295d4dce2fc5a9c3155d63cd47682c1\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\0295d4dce2fc5a9c3155d63cd47682c1\transformed\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\275ead37dc52ffcfee68f8da09b66bcf\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\275ead37dc52ffcfee68f8da09b66bcf\transformed\dynamicanimation-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\6e89c36cc5db15bff609c7c1c0b53ba3\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] C:\Users\AZ\.gradle\caches\transforms-3\6e89c36cc5db15bff609c7c1c0b53ba3\transformed\transition-1.2.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\c8d531f4db7d7d427147d4e026b58e0b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\c8d531f4db7d7d427147d4e026b58e0b\transformed\vectordrawable-animated-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6558df45dac02edaea42b3a55144ff2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6558df45dac02edaea42b3a55144ff2f\transformed\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\c90912cfa7907475306263035ca7088f\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\c90912cfa7907475306263035ca7088f\transformed\viewpager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\e3aa8a96113bfbc3449c2939a63cd1a2\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\e3aa8a96113bfbc3449c2939a63cd1a2\transformed\customview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\333e9e5fa02292d6f750af438eb68d02\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\333e9e5fa02292d6f750af438eb68d02\transformed\legacy-support-core-utils-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\99c8588bc4c1f63eea9c03f1fa953856\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\99c8588bc4c1f63eea9c03f1fa953856\transformed\loader-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\9c841d7895ad5a0f043830b7f95f903c\transformed\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\9c841d7895ad5a0f043830b7f95f903c\transformed\activity-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\d86842503d8d71025551732c924b6885\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\d86842503d8d71025551732c924b6885\transformed\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AZ\.gradle\caches\transforms-3\e73c4eebe40d1716de53b8e2fbe658bf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] C:\Users\AZ\.gradle\caches\transforms-3\e73c4eebe40d1716de53b8e2fbe658bf\transformed\versionedparcelable-1.1.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6588b350c692d0ca214fcac17e28c9f2\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\6588b350c692d0ca214fcac17e28c9f2\transformed\lifecycle-runtime-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\fca9f04d2dee7801a3c79b549f948a99\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\AZ\.gradle\caches\transforms-3\fca9f04d2dee7801a3c79b549f948a99\transformed\lifecycle-viewmodel-2.1.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\eb93c3447b1409fe53d5e94bf26da64a\transformed\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\eb93c3447b1409fe53d5e94bf26da64a\transformed\savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1743a902e3e9db00633964cefe61fa64\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1743a902e3e9db00633964cefe61fa64\transformed\interpolator-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bae452899292e4f9779148151be287e2\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\bae452899292e4f9779148151be287e2\transformed\documentfile-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\fdec452a6eb1a3976b5e8a13c50cd7a9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\fdec452a6eb1a3976b5e8a13c50cd7a9\transformed\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1537aee40c92bead1f20a41fdfa4fcee\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\1537aee40c92bead1f20a41fdfa4fcee\transformed\print-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\675cab0d96baf1ee163ca379c1af18d4\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\675cab0d96baf1ee163ca379c1af18d4\transformed\lifecycle-livedata-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\70ba13572731b1e3319ed36fd57846b0\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\70ba13572731b1e3319ed36fd57846b0\transformed\lifecycle-livedata-core-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\6081dd87483001744f803882ee62000f\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\AZ\.gradle\caches\transforms-3\6081dd87483001744f803882ee62000f\transformed\core-runtime-2.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\751d298c5b215593632d7797e86540e7\transformed\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\AZ\.gradle\caches\transforms-3\751d298c5b215593632d7797e86540e7\transformed\annotation-experimental-1.0.0\AndroidManifest.xml:20:5-22:41
+MERGED from [org.tensorflow:tensorflow-lite:2.4.0] C:\Users\AZ\.gradle\caches\transforms-3\db450b36d904657ea8af9c8b816e5d93\transformed\tensorflow-lite-2.4.0\AndroidManifest.xml:7:5-8:41
+MERGED from [org.tensorflow:tensorflow-lite:2.4.0] C:\Users\AZ\.gradle\caches\transforms-3\db450b36d904657ea8af9c8b816e5d93\transformed\tensorflow-lite-2.4.0\AndroidManifest.xml:7:5-8:41
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		ADDED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		MERGED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml

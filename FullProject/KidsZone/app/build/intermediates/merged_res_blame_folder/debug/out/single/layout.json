@@ -1,0 +1,130 @@
+[
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/activity_home.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\all_apps_adapter_design.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\all_apps_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\freeze_floating_window.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\freeze_floating_window.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/activity_unblocked_apps.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_unblocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\my_list_item.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\my_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_blocked_apps.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_blocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_intro_screen.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_intro_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\locked_adapter_design.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\locked_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_screen_time.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_screen_time.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/activity_screen_blocker.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_screen_blocker.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/select_age_dialog.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/select_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\all_adapter_design.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\all_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\app_bar.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\app_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\select_age_dialog.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\select_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_home.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_about.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/freeze_floating_window.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/freeze_floating_window.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_pattern_lock.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_pattern_lock.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\specify_age_dialog.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\specify_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\unblocked_apps_adapter_design.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\unblocked_apps_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_locked_apps_recycler_view.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_locked_apps_recycler_view.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/activity_screen_time.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_screen_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_welcome.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_freeze.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_freeze.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_help.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/slide_layout.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/slide_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_screen_blocker.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_screen_blocker.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/unblocked_apps_adapter_design.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/unblocked_apps_adapter_design.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-mergeDebugResources-5:/layout/all_apps_adapter_design.xml",
+        "source": "com.example.kidszone.app-main-8:/layout/all_apps_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_unblocked_apps.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_unblocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\activity_all_mobile_apps.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_all_mobile_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-mergeDebugResources-5:\\layout\\slide_layout.xml",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\slide_layout.xml"
+    }
+]

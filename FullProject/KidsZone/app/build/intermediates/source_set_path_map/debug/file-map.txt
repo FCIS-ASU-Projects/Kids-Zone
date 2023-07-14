@@ -1,0 +1,19 @@
+com.example.kidszone.app-packaged_res-0 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\OpenCV\build\intermediates\packaged_res\debug
+com.example.kidszone.app-pngs-1 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\generated\res\pngs\debug
+com.example.kidszone.app-resValues-2 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\generated\res\resValues\debug
+com.example.kidszone.app-rs-3 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\generated\res\rs\debug
+com.example.kidszone.app-packageDebugResources-4 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.example.kidszone.app-packageDebugResources-5 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.example.kidszone.app-merged_res-6 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\build\intermediates\merged_res\debug
+com.example.kidszone.app-debug-7 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\debug\res
+com.example.kidszone.app-main-8 C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\res
+com.example.kidszone.app-coordinatorlayout-1.1.0-9 C:\Users\AZ\.gradle\caches\transforms-3\0295d4dce2fc5a9c3155d63cd47682c1\transformed\coordinatorlayout-1.1.0\res
+com.example.kidszone.app-appcompat-resources-1.2.0-10 C:\Users\AZ\.gradle\caches\transforms-3\02c9960f4a7e38e7d3dafabeec171c09\transformed\appcompat-resources-1.2.0\res
+com.example.kidszone.app-constraintlayout-2.0.1-11 C:\Users\AZ\.gradle\caches\transforms-3\18496cd6abc86e048fa3c613abc226f8\transformed\constraintlayout-2.0.1\res
+com.example.kidszone.app-viewpager2-1.0.0-12 C:\Users\AZ\.gradle\caches\transforms-3\457e9bd44f068453cf52169f7e46cbaf\transformed\viewpager2-1.0.0\res
+com.example.kidszone.app-appcompat-1.2.0-13 C:\Users\AZ\.gradle\caches\transforms-3\4a0b86502026930ecce6e7615f5f6bfa\transformed\appcompat-1.2.0\res
+com.example.kidszone.app-transition-1.2.0-14 C:\Users\AZ\.gradle\caches\transforms-3\6e89c36cc5db15bff609c7c1c0b53ba3\transformed\transition-1.2.0\res
+com.example.kidszone.app-material-1.4.0-15 C:\Users\AZ\.gradle\caches\transforms-3\7434e1488ef7777375991f172168c963\transformed\material-1.4.0\res
+com.example.kidszone.app-recyclerview-1.2.1-16 C:\Users\AZ\.gradle\caches\transforms-3\b6c9a260bfc3dfa12b5793c8a0b533be\transformed\recyclerview-1.2.1\res
+com.example.kidszone.app-cardview-1.0.0-17 C:\Users\AZ\.gradle\caches\transforms-3\d86842503d8d71025551732c924b6885\transformed\cardview-1.0.0\res
+com.example.kidszone.app-core-1.5.0-18 C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\res

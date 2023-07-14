@@ -1,0 +1,490 @@
+[
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_app_icon_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\app_icon_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_child.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\child.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_specify_age_dialog.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\specify_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_sort_by_alpha_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_sort_by_alpha_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\menu_sort_button.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\menu\\sort_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_about.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_about.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-anydpi-v26_app_icon.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-anydpi-v26\\app_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_terms_condition_icon.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\terms_condition_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_app_bar.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\app_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_child_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\child_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_beige_solid_circle.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\beige_solid_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_child.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\child.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap_child_without_background.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap\\child_without_background.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_unblocked_apps.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_unblocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_welcome.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_welcome.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_delete_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_delete_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_screen_blocker.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_screen_blocker.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_child_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\child_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_format_list.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_format_list.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_app_icon_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\app_icon_foreground.png"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_all_apps_adapter_design.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/all_apps_adapter_design.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_select_age_dialog.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/select_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_freeze.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_freeze.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_selector.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\selector.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_intro_icon2.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\intro_icon2.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap_lock.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap\\lock.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_all_mobile_apps.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_all_mobile_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_app_icon_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\app_icon_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-anydpi-v26_app_icon_round.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-anydpi-v26\\app_icon_round.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_unblocked_apps_adapter_design.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/unblocked_apps_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\menu_schedule_menu.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\menu\\schedule_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_app_icon_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\app_icon_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_unlock_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\unlock_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap_floating_background.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap\\floating_background.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_gradient_color_cyan.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\gradient_color_cyan.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_intro_icon_privacy_policy.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\intro_icon_privacy_policy.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-xhdpi_icon3.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-xhdpi\\icon3.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_all_adapter_design.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\all_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_home.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_home.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_my_list_item.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\my_list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_app_icon_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\app_icon_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_child_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\child_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_freeze_floating_window.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\freeze_floating_window.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_child_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\child_round.png"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_activity_home.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_home.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/drawable_app_bar.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/drawable/app_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_red_solid_circle.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\red_solid_circle.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_splashscreen_appname_copy.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_splashscreen_appname_copy.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_activity_unblocked_apps.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_unblocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_app_icon_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\app_icon_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_search_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_search_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_intro_background.jpg.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\intro_background.jpg"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_app_icon_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\app_icon_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\menu_search_menu.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\menu\\search_menu.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_activity_screen_blocker.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_screen_blocker.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_help.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_help.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-mdpi_icon2.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-mdpi\\icon2.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_gradient_color_beige_white.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\gradient_color_beige_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-xhdpi_main_background.jpg.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-xhdpi\\main_background.jpg"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_child_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\child_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_freeze_floating_window.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\freeze_floating_window.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_child_background.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\child_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_gradient_color_orange_white.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\gradient_color_orange_white.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_shadow.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\shadow.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_app_icon_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\app_icon_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_intro_screen.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_intro_screen.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\xml_backup_rules.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\xml\\backup_rules.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_blocked_apps.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_blocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_unblocked_apps_adapter_design.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\unblocked_apps_adapter_design.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_activity_screen_time.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/activity_screen_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_app_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\app_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\font_joti_one.ttf.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\font\\joti_one.ttf"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-anydpi-v26_child_round.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-anydpi-v26\\child_round.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_child.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\child.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_slide_layout.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\slide_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_intro_icon3.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\intro_icon3.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_locked_icon.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\locked_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_track.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\track.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_app_icon_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\app_icon_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-xhdpi_icon1.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-xhdpi\\icon1.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_add_circle_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_add_circle_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-anydpi-v26_child.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-anydpi-v26\\child.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xhdpi_child_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xhdpi\\child_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_dummy.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\dummy.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-mdpi_icon3.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-mdpi\\icon3.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_child.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\child.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\menu_menu_navigation.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\menu\\menu_navigation.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_info_icon.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\info_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_screen_time.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_screen_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxxhdpi_child_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxxhdpi\\child_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-hdpi_child_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-hdpi\\child_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_pattern_lock.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_pattern_lock.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/drawable_freeze_floating_window.png.flat",
+        "source": "com.example.kidszone.app-main-8:/drawable/freeze_floating_window.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_splash_screen.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_splash_screen.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_freeze_floating_window.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/freeze_floating_window.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_activity_locked_apps_recycler_view.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\activity_locked_apps_recycler_view.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_timer_icon.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\timer_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout-v28_activity_blocked_apps.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout-v28\\activity_blocked_apps.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_app_icon_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\app_icon_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-mdpi_icon1.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-mdpi\\icon1.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_all_apps_adapter_design.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\all_apps_adapter_design.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_clock_icon.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\clock_icon.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_child.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\child.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_intro_icon1.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\intro_icon1.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_check_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_check_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-mdpi_child_foreground.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-mdpi\\child_foreground.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_thumb.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\thumb.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\mipmap-xxhdpi_child_round.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\mipmap-xxhdpi\\child_round.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_app_bar.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\app_bar.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-xhdpi_icon2.png.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-xhdpi\\icon2.png"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_select_age_dialog.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\select_age_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable_ic_baseline_keyboard_arrow_right_24.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable\\ic_baseline_keyboard_arrow_right_24.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\drawable-mdpi_main_background.jpg.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\drawable-mdpi\\main_background.jpg"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\xml_data_extraction_rules.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\xml\\data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.kidszone.app-merged_res-6:/layout_slide_layout.xml.flat",
+        "source": "com.example.kidszone.app-main-8:/layout/slide_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-merged_res-6:\\layout_locked_adapter_design.xml.flat",
+        "source": "C:\\Users\\AZ\\.gradle\\daemon\\7.6\\com.example.kidszone.app-main-8:\\layout\\locked_adapter_design.xml"
+    }
+]

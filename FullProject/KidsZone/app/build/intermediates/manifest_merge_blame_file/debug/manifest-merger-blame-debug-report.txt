@@ -1,0 +1,187 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.kidszone"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+11-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:5:5-79
+11-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:5:22-76
+12    <uses-permission android:name="android.permission.READ_PRIVILEGED_PHONE_STATE" />
+12-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:6:5-8:47
+12-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:7:9-70
+13    <uses-permission android:name="android.permission.ACTION_MANAGE_OVERLAY_PERMISSION" />
+13-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:9:5-91
+13-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:9:22-88
+14    <uses-permission android:name="android.permission.CAMERA" />
+14-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:10:5-65
+14-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:10:22-62
+15    <uses-permission android:name="android.permission.INTERNET" />
+15-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:11:5-67
+15-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:11:22-64
+16    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+16-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:12:5-96
+16-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:12:22-77
+17    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+17-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:13:5-81
+17-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:13:22-78
+18    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+18-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:14:5-77
+18-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:14:22-74
+19    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+19-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:15:5-77
+19-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:15:22-74
+20    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+20-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:16:5-78
+20-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:16:22-75
+21    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+21-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:17:5-76
+21-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:17:22-73
+22    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+22-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:18:5-75
+22-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:18:22-72
+23    <uses-permission android:name="android.permission.GET_TASKS" />
+23-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:19:5-68
+23-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:19:22-65
+24    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" />
+24-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:20:5-84
+24-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:20:22-81
+25    <uses-permission android:name="android.permission.REORDER_TASKS" />
+25-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:21:5-72
+25-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:21:22-69
+26    <uses-permission android:name="android.permission.WAKE_LOCK" />
+26-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:22:5-68
+26-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:22:22-65
+27    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+27-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:23:5-95
+27-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:23:22-92
+28    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS" />
+28-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:24:5-26:47
+28-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:25:9-62
+29    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+29-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:27:5-29:53
+29-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:28:9-61
+30
+31    <application
+31-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:31:5-85:19
+32        android:allowBackup="false"
+32-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:32:9-36
+33        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+33-->[androidx.core:core:1.5.0] C:\Users\AZ\.gradle\caches\transforms-3\ee75ad03bc9246c95d82b30089764858\transformed\core-1.5.0\AndroidManifest.xml:24:18-86
+34        android:debuggable="true"
+35        android:extractNativeLibs="false"
+36        android:fullBackupContent="false"
+36-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:33:9-42
+37        android:icon="@mipmap/app_icon"
+37-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:34:9-40
+38        android:label="@string/app_name"
+38-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:35:9-41
+39        android:roundIcon="@mipmap/app_icon_round"
+39-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:36:9-51
+40        android:supportsRtl="true"
+40-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:37:9-35
+41        android:testOnly="true"
+42        android:theme="@style/Theme.KidsZone" >
+42-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:38:9-46
+43        <activity
+43-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:40:9-42:40
+44            android:name="com.example.kidszone.activites.HelpActivity"
+44-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:41:13-71
+45            android:exported="false" />
+45-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:42:13-37
+46        <activity
+46-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:43:9-51:20
+47            android:name="com.example.kidszone.HomeActivity"
+47-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:44:13-61
+48            android:exported="true" >
+48-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:45:13-36
+49            <intent-filter>
+49-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:46:13-50:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:47:17-69
+50-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:47:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:49:17-77
+52-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:49:27-74
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:52:9-54:40
+56            android:name="com.example.kidszone.activites.ScreenTimerActivity"
+56-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:53:13-78
+57            android:exported="false" />
+57-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:54:13-37
+58        <activity android:name="com.example.kidszone.activites.IntroScreen" />
+58-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:55:9-79
+58-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:55:19-76
+59        <activity android:name="com.example.kidszone.activites.ScreenBlocker" />
+59-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:56:9-81
+59-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:56:19-78
+60        <activity android:name="com.example.kidszone.activites.AllMobileApps" />
+60-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:57:9-81
+60-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:57:19-78
+61        <activity android:name="com.example.kidszone.activites.UnblockedApps" />
+61-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:58:9-81
+61-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:58:19-78
+62
+63        <receiver
+63-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:60:9-63:39
+64            android:name="com.example.kidszone.broadcast.ReceiverApplock"
+64-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:61:13-74
+65            android:enabled="true"
+65-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:62:13-35
+66            android:exported="true" />
+66-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:63:13-36
+67        <receiver
+67-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:64:9-67:39
+68            android:name="com.example.kidszone.broadcast.LockScreenReceiver"
+68-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:65:13-77
+69            android:enabled="true"
+69-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:66:13-35
+70            android:exported="true" />
+70-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:67:13-36
+71
+72        <service
+72-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:69:9-72:40
+73            android:name="com.example.kidszone.services.ServiceAppLock"
+73-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:70:13-72
+74            android:enabled="true"
+74-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:71:13-35
+75            android:exported="false" />
+75-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:72:13-37
+76        <service
+76-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:73:9-76:72
+77            android:name="com.example.kidszone.services.ServiceAppLockJobIntent"
+77-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:74:13-81
+78            android:exported="true"
+78-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:75:13-36
+79            android:permission="android.permission.BIND_JOB_SERVICE" />
+79-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:76:13-69
+80        <service
+80-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:77:9-79:38
+81            android:name="com.example.kidszone.services.FreezeService"
+81-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:78:13-71
+82            android:enabled="true" />
+82-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:79:13-35
+83        <service
+83-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:80:9-82:38
+84            android:name="com.example.kidszone.services.TimerService"
+84-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:81:13-70
+85            android:enabled="true" />
+85-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:82:13-35
+86        <service android:name="com.example.kidszone.services.GetBackCoreService" />
+86-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:83:9-84
+86-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:83:18-81
+87        <service android:name="com.example.kidszone.services.LockScreenService" />
+87-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:84:9-83
+87-->C:\Huda\FCIS\4th Year\Graduation Project\Android Studio Repo Branch (GP)\FullProject\KidsZone\app\src\main\AndroidManifest.xml:84:18-80
+88    </application>
+89
+90</manifest>
