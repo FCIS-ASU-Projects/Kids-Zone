@@ -14,4 +14,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Home/AndroidStudioProjects/OpenCV_demo/OpenCv/.cxx/RelWithDebInfo/2w2n3b3e/x86
+-- Build files have been written to: C:/Users/Home/Documents/Kids-Zone/OpenCV_demo/OpenCv/.cxx/RelWithDebInfo/2w2n3b3e/x86

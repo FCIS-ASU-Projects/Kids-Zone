@@ -1,1 +1,1 @@
-C:\Users\Home\AndroidStudioProjects\OpenCV_demo\OpenCv\build\intermediates\cxx\RelWithDebInfo\2w2n3b3e\obj\x86
+C:\Users\Home\Documents\Kids-Zone\OpenCV_demo\OpenCv\build\intermediates\cxx\RelWithDebInfo\2w2n3b3e\obj\x86

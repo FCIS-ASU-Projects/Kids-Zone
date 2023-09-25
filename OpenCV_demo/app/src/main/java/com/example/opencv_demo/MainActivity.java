@@ -129,4 +129,44 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
-}
+    public void loadDeepLearningModels(){
+        try {
+            File yolo_file = new File(getCacheDir() + "/yolov5s-face.onnx");
+
+            if (!yolo_file.exists())
+            {
+                try {
+                    InputStream is = getAssets().open("yolov5s-face.onnx");
+                    int size = is.available();
+                    byte[] buffer = new byte[size];
+                    is.read(buffer);
+                    is.close();
+
+                    FileOutputStream fos = new FileOutputStream(yolo_file);
+                    fos.write(buffer);
+                    fos.close();
+                }catch (Exception e) {
+                    Log.i("Exception", e.getMessage());
+                }
+            }
+            Age_prediction(yolo_file,getApplicationContext()); // Loading 2 models, App start (SAVE THIS VAR)
+            a = new AppModel("Huddaaaaaaaaaaaaaaa");
+
+            if(AGE_PREDICTION == null)
+                Log.d("SAWAAAAAAAAAAAAAATYYYYYYY", "SAWAAAAAAAAAAAAAATYYYYYYY");
+
+            // TODO SAVE AGE
+            Log.d("SAVING MODELS", "SUCCESS");
+        } catch (Exception e) {
+            Log.i("Exception", e.getMessage());
+        }
+    }
+    public static void getAgeFromImage(Bitmap bitmap){
+        Mat mat = new Mat();
+        Utils.bitmapToMat(bitmap, mat);
+        Core.rotate(mat, mat, -90);
+        Imgproc.cvtColor(mat, mat, Imgproc.COLOR_BGRA2RGB);
+
+        CURRENT_AGE_CLASS = AGE_PREDICTION.detection_prediction(mat);
+    }
+        }

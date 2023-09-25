@@ -1,6 +1,6 @@
 @echo off
 "C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\cmake.exe" ^
-  "-HC:\\Users\\Home\\AndroidStudioProjects\\OpenCV_demo\\OpenCv\\libcxx_helper" ^
+  "-HC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\libcxx_helper" ^
   "-DCMAKE_SYSTEM_NAME=Android" ^
   "-DCMAKE_EXPORT_COMPILE_COMMANDS=ON" ^
   "-DCMAKE_SYSTEM_VERSION=24" ^
@@ -11,9 +11,9 @@
   "-DCMAKE_ANDROID_NDK=C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620" ^
   "-DCMAKE_TOOLCHAIN_FILE=C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake" ^
   "-DCMAKE_MAKE_PROGRAM=C:\\Users\\Home\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe" ^
-  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\Home\\AndroidStudioProjects\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\RelWithDebInfo\\2w2n3b3e\\obj\\x86" ^
-  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\\Users\\Home\\AndroidStudioProjects\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\RelWithDebInfo\\2w2n3b3e\\obj\\x86" ^
+  "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\RelWithDebInfo\\2w2n3b3e\\obj\\x86" ^
+  "-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=C:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\build\\intermediates\\cxx\\RelWithDebInfo\\2w2n3b3e\\obj\\x86" ^
   "-DCMAKE_BUILD_TYPE=RelWithDebInfo" ^
-  "-BC:\\Users\\Home\\AndroidStudioProjects\\OpenCV_demo\\OpenCv\\.cxx\\RelWithDebInfo\\2w2n3b3e\\x86" ^
+  "-BC:\\Users\\Home\\Documents\\Kids-Zone\\OpenCV_demo\\OpenCv\\.cxx\\RelWithDebInfo\\2w2n3b3e\\x86" ^
   -GNinja ^
   "-DANDROID_STL=c++_shared"

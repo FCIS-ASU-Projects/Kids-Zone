@@ -19,8 +19,8 @@ import matplotlib.pyplot as plt
 
 torch.cuda.is_available()
 
-from google.colab import drive
-drive.mount('/content/drive')
+# from google.colab import drive
+# drive.mount('/content/drive')
 
 # data to test code
 # !tar xvzf /content/drive/MyDrive/GP_project/part3.tar.gz
@@ -67,10 +67,10 @@ def align_faces(im,bbox, landmark=None):
        if landmarks don't exis, we crop the image using bounding box """
     M = None
     warped=None
-    x1 = int(bbox[0])  # rect.left()
-    y1 = int(bbox[1])  # rect.top()
-    x2 = int(bbox[2])  # rect.right()
-    y2 = int(bbox[3])   # rect.bottom()
+    x1 = abs(int(bbox[0]))  # rect.left()
+    y1 = abs(int(bbox[1])) # rect.top()
+    x2 = abs(int(bbox[2])) # rect.right()
+    y2 = abs(int(bbox[3])) # rect.bottom()
     
     if landmark is not None:
         src = np.array([
@@ -187,28 +187,34 @@ def process_anchors(prediction,inpWidth,inpHeight):
             row_ind += length
         return prediction
 
-def detect(srcimg,model_path,inpWidth,inpHeight):
+def load_model(model_path):
+    # read model
+    net = cv2.dnn.readNet(model_path)
+
+    return net
+
+def detect(srcimg,model,inpWidth,inpHeight):
         
         #prepare input image
         blob = cv2.dnn.blobFromImage(srcimg, 1 / 255.0, (inpWidth, inpHeight), [0, 0, 0], swapRB=False, crop=False)
-        # read model
-        net = cv2.dnn.readNet(model_path)
+        # # read model
+        # net = cv2.dnn.readNet(model_path)
         # Sets the input to the network
-        net.setInput(blob)
+        model.setInput(blob)
 
         # Runs the forward pass to get output of the output layers
-        outs = net.forward(net.getUnconnectedOutLayersNames())[0]
+        outs = model.forward(model.getUnconnectedOutLayersNames())[0]
         #print(outs[0, [0,1,2,3,4,15]])
         # inference output
         outs=process_anchors(outs,inpWidth,inpHeight)
         
         return outs
 
-def yolov5(srcimg,model_path='/content/yolov5s-face.onnx',confThreshold=0.3,nmsThreshold=0.45):
+def yolov5(srcimg,model,confThreshold=0.3,nmsThreshold=0.45):
   #srcimg = cv2.imread(imgpath)
   # imname=imgpath.split('/')[-1]
   # save_path+='/'+imname
-  dets = detect(srcimg,model_path,640,640)
+  dets = detect(srcimg,model,640,640)
   boxes,landmarks,confidences=non_max_supression(srcimg, dets)
   img = postprocess(srcimg,boxes,landmarks,confidences)
   return img
@@ -241,32 +247,32 @@ def yolov5(srcimg,model_path='/content/yolov5s-face.onnx',confThreshold=0.3,nmsT
 ## to copy model file from drive to notebook
 # %cp   /content/drive/MyDrive/GP_project/Weights/yolov5s-face.tflite /content/yolov5s-face.tflite
 
-def detect_tf_model(srcimg,model_path,inpWidth,inpHeight):
-   
-   #prepare input     
-   blob = cv2.dnn.blobFromImage(srcimg, 1 / 255.0, (inpWidth, inpHeight), [0, 0, 0], swapRB=False, crop=False)
-   
-
-   interpreter = tf.lite.Interpreter(model_path=model_path)
-   #Allocate tensors.
-   interpreter.allocate_tensors()
-   # Get input and output tensors.
-   input_details = interpreter.get_input_details()
-   output_details = interpreter.get_output_details()
-
-   # Test the model on random input data.
-   input_shape = input_details[0]['shape']
-   interpreter.set_tensor(input_details[0]['index'], blob)
-
-   interpreter.invoke()
-
-   # The function `get_tensor()` returns a copy of the tensor data.
-   # Use `tensor()` in order to get a pointer to the tensor.
-   output_data = interpreter.get_tensor(output_details[0]['index'])
-   output_data=process_anchors(output_data,inpWidth,inpHeight)
-  
-
-   return output_data
+# def detect_tf_model(srcimg,model_path,inpWidth,inpHeight):
+#
+#    #prepare input
+#    blob = cv2.dnn.blobFromImage(srcimg, 1 / 255.0, (inpWidth, inpHeight), [0, 0, 0], swapRB=False, crop=False)
+#
+#
+#    interpreter = tf.lite.Interpreter(model_path=model_path)
+#    #Allocate tensors.
+#    interpreter.allocate_tensors()
+#    # Get input and output tensors.
+#    input_details = interpreter.get_input_details()
+#    output_details = interpreter.get_output_details()
+#
+#    # Test the model on random input data.
+#    input_shape = input_details[0]['shape']
+#    interpreter.set_tensor(input_details[0]['index'], blob)
+#
+#    interpreter.invoke()
+#
+#    # The function `get_tensor()` returns a copy of the tensor data.
+#    # Use `tensor()` in order to get a pointer to the tensor.
+#    output_data = interpreter.get_tensor(output_details[0]['index'])
+#    output_data=process_anchors(output_data,inpWidth,inpHeight)
+#
+#
+#    return output_data
 
 ##preprocessing (denoising & gamma correction)
 # import cv2
